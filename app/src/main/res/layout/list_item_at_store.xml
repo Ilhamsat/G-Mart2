@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/listItemAtStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp">
+
+        <ImageView
+            android:id="@+id/itemImageAtStore"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/beras"/>
+
+        <RelativeLayout
+            android:id="@+id/itemAtStoreContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/itemImageAtStore"
+            android:layout_marginLeft="13dp"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beras"
+                android:textSize="13dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/itemUnitPrice"
+                android:layout_below="@id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/itemPrice"
+                android:layout_below="@id/itemName"
+                android:layout_toRightOf="@id/itemUnitPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="13000"
+                android:textSize="13dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSelectedAtStore"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:strokeColor="@color/colorPrimary"
+            android:text="Pilih"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/lineListItemAtStore"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/listItemAtStore"
+        android:layout_marginTop="9dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/line"/>
+
+</RelativeLayout>

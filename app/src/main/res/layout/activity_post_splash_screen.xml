@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Class.PostSplashScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/LogoHorizontalPSS"
+                android:layout_width="165dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="69dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_horizontal_new"/>
+
+            <ImageView
+                android:id="@+id/PostSplashScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="240dp"
+                android:layout_marginTop="53dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/LogoHorizontalPSS"
+                android:src="@drawable/post_splash_screen" />
+
+<!--            <Button-->
+<!--                android:id="@+id/ButtonLogin"-->
+<!--                android:layout_width="275dp"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_marginTop="43dp"-->
+<!--                android:layout_below="@+id/PostSplashScreen"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:background="@drawable/button_login"-->
+<!--                android:text="Masuk"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:textSize="16dp"/>-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ButtonLogin"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_below="@id/PostSplashScreen"
+                android:layout_width="325dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="43dp"
+                android:text="Masuk"
+                android:textAllCaps="false"
+                android:textSize="16dp"/>
+
+<!--            <Button-->
+<!--                android:id="@+id/ButtonRegister"-->
+<!--                android:layout_width="275dp"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="122dp"-->
+<!--                android:layout_below="@+id/ButtonLogin"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:text="Daftar"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:textSize="16dp"/>-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ButtonRegister"
+                android:layout_below="@+id/ButtonLogin"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="325dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="100dp"
+                android:text="Daftar"
+                android:textAllCaps="false"
+                android:textSize="16dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

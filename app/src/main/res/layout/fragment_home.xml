@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:background="@color/colorPrimary">
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/awan_kiri"
+        android:layout_toLeftOf="@id/logo_home"
+        android:layout_width="83dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/awan_kiri"/>
+
+    <ImageView
+        android:id="@+id/logo_home"
+        android:layout_width="106dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="14dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo_home"/>
+
+    <ImageView
+        android:id="@+id/awan_kanan"
+        android:layout_width="84dp"
+        android:layout_height="28dp"
+        android:layout_toRightOf="@id/logo_home"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/awan_kanan"/>
+
+<!--    <SearchView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:queryHint="Apa yang kamu cari?"/>-->
+
+    <EditText
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/awan_kanan"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:background="@drawable/search_layout"
+        android:drawableEnd="@drawable/ic_search_orange"
+        android:hint="@string/search_hint"
+        android:textColor="@color/black"/>
+
+    <RelativeLayout
+        android:id="@+id/menu_utama"
+        android:layout_width="match_parent"
+        android:layout_height="259dp"
+        android:layout_below="@id/search_view"
+        android:background="@drawable/menu_utama_bg">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="259dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="14dp">
+
+            <RelativeLayout
+            android:id="@+id/sembako"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/makanan"
+            android:layout_marginRight="40dp">
+
+            <ImageView
+                android:id="@+id/ic_sembako"
+                android:layout_width="51dp"
+                android:layout_height="51dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_utama_sembako"/>
+            <TextView
+                android:id="@+id/text_sembako"
+                android:layout_below="@id/ic_sembako"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/sembako"/>
+
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/makanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/ic_makanan"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_utama_snack"/>
+                <TextView
+                    android:id="@+id/text_makanan"
+                    android:layout_below="@id/ic_makanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/makanan"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/minuman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/makanan"
+                android:layout_marginLeft="40dp">
+
+                <ImageView
+                    android:id="@+id/ic_minuman"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_utama_minuman"/>
+                <TextView
+                    android:id="@+id/text_minuman"
+                    android:layout_below="@id/ic_minuman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/minuman"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/alat_mandi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/makanan"
+                android:layout_toLeftOf="@id/galon_gas"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/ic_alat_mandi"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_utama_alat_mandi"/>
+                <TextView
+                    android:id="@+id/text_alat_mandi"
+                    android:layout_below="@id/ic_alat_mandi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/alat_mandi"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/galon_gas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/makanan"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/ic_galon_gas"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_utama_galon_gas"/>
+                <TextView
+                    android:id="@+id/text_galon_gas"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/ic_galon_gas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Galon Gas"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rokok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/galon_gas"
+                android:layout_below="@id/minuman"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:id="@+id/ic_rokok"
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_utama_rokok"/>
+                <TextView
+                    android:id="@+id/text_rokok"
+                    android:layout_below="@id/ic_rokok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/rokok"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/teks_rekomendasi_toko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_utama"
+        android:text="Pilihan Toko"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textColor="@color/black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/store_recommendation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teks_rekomendasi_toko"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/sort"
+            android:backgroundTint="@color/white"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_sort_black"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toRightOf="@id/fabSort"
+            android:text="@string/filter"
+            android:backgroundTint="@color/white"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_filter_black"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

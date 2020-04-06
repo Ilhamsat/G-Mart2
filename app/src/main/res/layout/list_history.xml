@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/listHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:id="@+id/succesOrNot"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_success_white"
+            android:background="@drawable/succes_history_background"/>
+
+        <RelativeLayout
+            android:id="@+id/contentHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/succesOrNot"
+            android:layout_marginLeft="14dp">
+
+            <TextView
+                android:id="@+id/items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Indomie, dan 2 barang lainnya"
+                android:textSize="13dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/unitPriceItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/items"
+                android:text="Rp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/totalPriceItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/items"
+                android:layout_toRightOf="@id/unitPriceItems"
+                android:layout_marginLeft="4dp"
+                android:text="13000"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/textStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/totalPriceItems"
+                android:text="Status : "
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/totalPriceItems"
+                android:layout_toRightOf="@id/textStatus"
+                android:text="Terkirim"
+                android:textSize="13dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSelectedAtStore"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:strokeColor="@color/colorPrimary"
+            android:text="Beri Rating"
+            android:textAllCaps="false"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/lineListItemStore"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/listHistory"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/line"/>
+
+</RelativeLayout>

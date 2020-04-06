@@ -1,0 +1,67 @@
+package com.gmartdev.komsi.g_mart.Adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.gmartdev.komsi.g_mart.Model.TransactionHistoryModel;
+import com.gmartdev.komsi.g_mart.R;
+
+import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionHistoryAdapter.ViewHolderTransactionHistory> {
+
+    Context mContext;
+    List<TransactionHistoryModel> mData;
+
+    public TransactionHistoryAdapter(Context mContext, List<TransactionHistoryModel> mData) {
+        this.mContext = mContext;
+        this.mData = mData;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolderTransactionHistory onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v= LayoutInflater.from(mContext).inflate(R.layout.list_history,parent,false);
+        ViewHolderTransactionHistory viewHolderTransactionHistory = new ViewHolderTransactionHistory(v);
+        return viewHolderTransactionHistory;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolderTransactionHistory holder, int position) {
+        holder.items.setText(mData.get(position).getItems());
+        holder.totalPriceItems.setText(mData.get(position).getTotalPriceItems());
+        holder.status.setText(mData.get(position).getStatus());
+        holder.successOrNot.setImageResource(mData.get(position).getSuccessOrNot());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
+
+    public class ViewHolderTransactionHistory extends RecyclerView.ViewHolder {
+
+        private TextView items;
+        private TextView totalPriceItems;
+        private TextView status;
+        private ImageView successOrNot;
+
+
+        public ViewHolderTransactionHistory(@NonNull View itemView) {
+            super(itemView);
+
+            items = itemView.findViewById(R.id.items);
+            totalPriceItems = itemView.findViewById(R.id.totalPriceItems);
+            status = itemView.findViewById(R.id.status);
+            successOrNot = itemView.findViewById(R.id.succesOrNot);
+        }
+    }
+}

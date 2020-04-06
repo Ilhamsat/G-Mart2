@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/edit_profile"
+            android:title="@string/edit_profile"
+            android:icon="@drawable/ic_edit_profile_orange"
+            android:iconTint="@color/colorPrimary"/>
+
+    </group>
+
+
+        <item
+            android:title="Komunikasi">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/share"
+                    android:title="@string/share"
+                    android:icon="@drawable/ic_share_orange"/>
+                </group>
+            </menu>
+        </item>
+
+
+
+        <item
+            android:title="Sistem">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/about"
+                    android:title="@string/about"
+                    android:icon="@drawable/ic_about_orange"/>
+
+                <item
+                    android:id="@+id/logout"
+                    android:title="@string/logout"
+                    android:icon="@drawable/ic_logout_orange"/>
+                </group>
+
+            </menu>
+        </item>
+
+</menu>

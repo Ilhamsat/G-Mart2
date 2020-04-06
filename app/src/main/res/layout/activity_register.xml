@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Class.Register"
+    android:theme="@style/AppTheme">
+
+    <FrameLayout
+        android:id="@+id/toolbarRegister"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/background_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backInRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chevron_left_black_24dp"
+                android:background="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/textRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="Daftar"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:fontFamily=""/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/toolbarRegister">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--            <TextView-->
+<!--                android:id="@+id/Register"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="75dp"-->
+<!--                android:text="Register"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:textStyle="bold"/>-->
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/nomortelpon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="No. Telpon"-->
+<!--                android:layout_marginTop="34dp"-->
+<!--                android:layout_marginRight="36dp"-->
+<!--                android:layout_marginLeft="36dp"-->
+<!--                android:layout_below="@+id/Register"-->
+<!--                android:textColorHint="@color/colorPrimary"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"/>-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/NoTelepon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:hint="No. Telepon"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="#DADADA"
+                app:startIconDrawable="@drawable/ic_hp_gray"
+                app:hintTextColor="@color/black"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="14"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:hint="Password"
+                android:layout_below="@id/NoTelepon"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="#DADADA"
+                app:startIconDrawable="@drawable/ic_password_gray"
+                app:hintTextColor="@color/black"
+                app:endIconMode="password_toggle"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:hint="Nama"
+                android:layout_below="@id/Password"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="#DADADA"
+                app:startIconDrawable="@drawable/ic_name_gray"
+                app:hintTextColor="@color/black"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:hint="Alamat"
+                android:layout_below="@id/Nama"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="#DADADA"
+                app:startIconDrawable="@drawable/ic_location_gray"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:hint="Email"
+                android:layout_below="@id/Alamat"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="#DADADA"
+                app:startIconDrawable="@drawable/ic_email_gray"
+                app:hintTextColor="@color/black"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/ButtonDaftar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="122dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_below="@+id/Email"
+                android:background="@drawable/button_register"
+                android:text="Selanjutnya"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="13dp"
+                android:onClick="confirmRegister"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
