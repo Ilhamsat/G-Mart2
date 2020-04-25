@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Class.VerificationLoginActivity">
+
+    <FrameLayout
+        android:id="@+id/toolbarVerificationLogin"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/background_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backInVerificationLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chevron_left_black_24dp"
+                android:background="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/textVerificationLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="Masukkan kode yang dikirim ke"
+                android:textSize="18dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:fontFamily=""/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textNumberPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarVerificationLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="+6281347591227"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/numberVerification"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textNumberPhone"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/ButtonVerificationLogin"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginBottom="122dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_below="@+id/numberVerification"
+        android:background="@drawable/button_register"
+        android:text="Lanjutkan"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="13dp"
+        android:onClick="confirmVerification"/>
+
+</RelativeLayout>

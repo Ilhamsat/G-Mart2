@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1090246530502",
+    "firebase_url": "https://g-mart-konsumen.firebaseio.com",
+    "project_id": "g-mart-konsumen",
+    "storage_bucket": "g-mart-konsumen.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090246530502:android:5e57cec2dfa314e6310ec7",
+        "android_client_info": {
+          "package_name": "com.gmartdev.komsi.g_mart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090246530502-oqlbq7e3vh93ndbfsoo1s4rh5rcjf770.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gmartdev.komsi.g_mart",
+            "certificate_hash": "fa64d122f8511dd21a4ce7daebafa2cf2ebb27f5"
+          }
+        },
+        {
+          "client_id": "1090246530502-61jn3d128vb7t4lfe48pfav2h1o41ksi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWgVqZp4iS247spb380di6rBwcpFYhpic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090246530502-61jn3d128vb7t4lfe48pfav2h1o41ksi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

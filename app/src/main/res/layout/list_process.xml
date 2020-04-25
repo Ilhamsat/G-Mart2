@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent" android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/listHistory"
+        android:id="@+id/listProcess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
@@ -13,24 +11,35 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
-        <ImageView
-            android:id="@+id/succesOrNot"
+        <RelativeLayout
+            android:id="@+id/howMany"
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:layout_centerVertical="true"
             android:padding="10dp"
-            android:src="@drawable/ic_success_white"
-            android:background="@drawable/background_succes_history"/>
+            android:background="@drawable/background_how_many_process">
+
+            <TextView
+                android:id="@+id/textHowManyProcess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="2+"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"/>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/contentHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/succesOrNot"
+            android:layout_toRightOf="@id/howMany"
             android:layout_marginLeft="14dp">
 
             <TextView
-                android:id="@+id/items"
+                android:id="@+id/itemsProcess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Indomie, dan 2 barang lainnya"
@@ -40,16 +49,16 @@
                 android:id="@+id/unitPriceItems"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/items"
+                android:layout_below="@id/itemsProcess"
                 android:text="Rp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="13dp"/>
             <TextView
-                android:id="@+id/totalPriceItems"
+                android:id="@+id/totalPriceItemsProcess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/items"
+                android:layout_below="@id/itemsProcess"
                 android:layout_toRightOf="@id/unitPriceItems"
                 android:layout_marginLeft="4dp"
                 android:text="13000"
@@ -60,33 +69,21 @@
                 android:id="@+id/textStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/totalPriceItems"
+                android:layout_below="@id/totalPriceItemsProcess"
                 android:text="Status : "
                 android:textSize="13dp"/>
             <TextView
-                android:id="@+id/status"
+                android:id="@+id/statusProcess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/totalPriceItems"
+                android:layout_below="@id/totalPriceItemsProcess"
                 android:layout_toRightOf="@id/textStatus"
-                android:text="Terkirim"
+                android:text="Dikemas"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"/>
 
         </RelativeLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonSelectedAtStoreHistory"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@id/succesOrNot"
-            app:strokeColor="@color/colorPrimary"
-            android:text="Beri Rating"
-            android:textAllCaps="false"
-            android:textSize="12dp"/>
 
     </RelativeLayout>
 
@@ -94,7 +91,7 @@
         android:id="@+id/lineListItemStore"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:layout_below="@id/listHistory"
+        android:layout_below="@id/listProcess"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="21dp"
         android:layout_marginRight="18dp"

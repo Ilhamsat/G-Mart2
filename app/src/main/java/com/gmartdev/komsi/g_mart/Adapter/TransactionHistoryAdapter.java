@@ -1,14 +1,17 @@
 package com.gmartdev.komsi.g_mart.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gmartdev.komsi.g_mart.Class.DetailPesananRiwayatActivity;
 import com.gmartdev.komsi.g_mart.Model.TransactionHistoryModel;
 import com.gmartdev.komsi.g_mart.R;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
@@ -40,6 +43,15 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         holder.status.setText(mData.get(position).getStatus());
         holder.successOrNot.setImageResource(mData.get(position).getSuccessOrNot());
 
+        holder.buttonRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, DetailPesananRiwayatActivity.class);
+//                intent.putExtra("storeName", mData.get(position).getStoreName());
+//                intent.putExtra("storeDistance", mData.get(position).getDistance());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -53,6 +65,8 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         private TextView totalPriceItems;
         private TextView status;
         private ImageView successOrNot;
+        private MaterialButton buttonRating;
+
 
 
         public ViewHolderTransactionHistory(@NonNull View itemView) {
@@ -62,6 +76,8 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
             totalPriceItems = itemView.findViewById(R.id.totalPriceItems);
             status = itemView.findViewById(R.id.status);
             successOrNot = itemView.findViewById(R.id.succesOrNot);
+
+            buttonRating = itemView.findViewById(R.id.buttonSelectedAtStoreHistory);
         }
     }
 }

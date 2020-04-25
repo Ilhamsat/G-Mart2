@@ -16,17 +16,17 @@
 
             <ImageView
                 android:id="@+id/LogoHorizontalPSS"
-                android:layout_width="165dp"
-                android:layout_height="57dp"
+                android:layout_width="wrap_content"
+                android:layout_height="117dp"
                 android:layout_marginTop="69dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/logo_horizontal_new"/>
+                android:src="@drawable/logo_gmart_newversion"/>
 
             <ImageView
                 android:id="@+id/PostSplashScreen"
                 android:layout_width="wrap_content"
                 android:layout_height="240dp"
-                android:layout_marginTop="53dp"
+                android:layout_marginTop="0dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/LogoHorizontalPSS"
                 android:src="@drawable/post_splash_screen" />

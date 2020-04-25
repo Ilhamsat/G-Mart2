@@ -22,7 +22,7 @@ public class PostSplashScreen extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PostSplashScreen.this,MainActivity.class);
+                Intent intent = new Intent(PostSplashScreen.this,LoginActivity.class);
                 startActivity(intent);
             }
         });

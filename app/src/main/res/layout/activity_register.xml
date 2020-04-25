@@ -102,29 +102,29 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/Password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginRight="36dp"
-                android:hint="Password"
-                android:layout_below="@id/NoTelepon"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="#DADADA"
-                app:startIconDrawable="@drawable/ic_password_gray"
-                app:hintTextColor="@color/black"
-                app:endIconMode="password_toggle"
-                app:errorEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/Password"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="14dp"-->
+<!--                android:layout_marginLeft="36dp"-->
+<!--                android:layout_marginRight="36dp"-->
+<!--                android:hint="Password"-->
+<!--                android:layout_below="@id/NoTelepon"-->
+<!--                android:textColorHint="@color/black"-->
+<!--                app:boxStrokeColor="#DADADA"-->
+<!--                app:startIconDrawable="@drawable/ic_password_gray"-->
+<!--                app:hintTextColor="@color/black"-->
+<!--                app:endIconMode="password_toggle"-->
+<!--                app:errorEnabled="true"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="textPassword"/>-->
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/Nama"
@@ -134,7 +134,7 @@
                 android:layout_marginLeft="36dp"
                 android:layout_marginRight="36dp"
                 android:hint="Nama"
-                android:layout_below="@id/Password"
+                android:layout_below="@id/NoTelepon"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="#DADADA"
                 app:startIconDrawable="@drawable/ic_name_gray"
@@ -206,8 +206,7 @@
                 android:text="Selanjutnya"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="13dp"
-                android:onClick="confirmRegister"/>
+                android:textSize="13dp"/>
 
         </RelativeLayout>
     </ScrollView>

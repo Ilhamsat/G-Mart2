@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Class.EditProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bg_profile"
+                android:layout_width="match_parent"
+                android:layout_height="232dp"
+                android:src="@drawable/cherry_blossom"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_marginTop="26dp"
+                android:src="@drawable/haruna_kawaguchi"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#FF000000"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_below="@id/profile_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                android:text="Haruna Kawaguchi"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <RelativeLayout
+                android:id="@+id/contentEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bg_profile"
+                android:layout_marginTop="12dp">
+
+                <RelativeLayout
+                    android:id="@+id/titleProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/ic_title_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="19dp"
+                        android:src="@drawable/ic_title_profile_orange"/>
+
+                    <TextView
+                        android:id="@+id/title_profile"
+                        android:layout_toRightOf="@id/ic_title_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/title_profile"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/NoTelepon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginRight="36dp"
+                    android:layout_below="@id/titleProfile"
+                    android:hint="No. Telepon"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="#DADADA"
+                    app:startIconDrawable="@drawable/ic_hp_gray"
+                    app:hintTextColor="@color/black"
+                    app:errorEnabled="true"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="14"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginRight="36dp"
+                    android:hint="Nama"
+                    android:layout_below="@id/NoTelepon"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="#DADADA"
+                    app:startIconDrawable="@drawable/ic_name_gray"
+                    app:hintTextColor="@color/black"
+                    app:errorEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginRight="36dp"
+                    android:hint="Alamat"
+                    android:layout_below="@id/Nama"
+                    android:textColorHint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:boxStrokeColor="#DADADA"
+                    app:startIconDrawable="@drawable/ic_location_gray"
+                    app:errorEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginRight="36dp"
+                    android:hint="Email"
+                    android:layout_below="@id/Alamat"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="#DADADA"
+                    app:startIconDrawable="@drawable/ic_email_gray"
+                    app:hintTextColor="@color/black"
+                    app:errorEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </RelativeLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveEditProfile"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contentEditProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Simpan"
+                android:textAllCaps="false"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

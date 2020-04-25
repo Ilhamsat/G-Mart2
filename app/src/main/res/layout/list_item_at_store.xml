@@ -71,6 +71,57 @@
             android:text="Pilih"
             android:textAllCaps="false"/>
 
+        <RelativeLayout
+            android:id="@+id/contentNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/reduce"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_reduce_orange"
+                    android:background="@color/white"
+                    app:strokeColor="@color/colorPrimary"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/numberOrders"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/reduce">
+
+                    <TextView
+                        android:id="@+id/textNumberOrders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="1"
+                        android:textSize="13dp"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/add"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/numberOrders"
+                    android:src="@drawable/ic_add_white"
+                    android:background="@color/colorPrimary"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
     <View

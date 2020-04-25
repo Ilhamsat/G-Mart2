@@ -21,11 +21,11 @@
 
     <ImageView
         android:id="@+id/logo_home"
-        android:layout_width="106dp"
-        android:layout_height="34dp"
+        android:layout_width="119dp"
+        android:layout_height="49dp"
         android:layout_marginTop="14dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_home"/>
+        android:src="@drawable/logo_terbaru_putih"/>
 
     <ImageView
         android:id="@+id/awan_kanan"
@@ -63,7 +63,7 @@
     <RelativeLayout
         android:id="@+id/menu_utama"
         android:layout_width="match_parent"
-        android:layout_height="259dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/search_view"
         android:background="@drawable/menu_utama_bg">
         <RelativeLayout
@@ -74,144 +74,238 @@
             android:paddingTop="14dp">
 
             <RelativeLayout
-            android:id="@+id/sembako"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/makanan"
-            android:layout_marginRight="40dp">
-
-            <ImageView
-                android:id="@+id/ic_sembako"
-                android:layout_width="51dp"
-                android:layout_height="51dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/icon_utama_sembako"/>
-            <TextView
-                android:id="@+id/text_sembako"
-                android:layout_below="@id/ic_sembako"
+                android:id="@+id/row1Category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="@string/sembako"/>
+                android:layout_toLeftOf="@id/row2Category"
+                android:layout_marginRight="15dp">
 
-        </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/sembako"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/ic_sembako"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_sembako"/>
+                    <TextView
+                        android:id="@+id/text_sembako"
+                        android:layout_below="@id/ic_sembako"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/sembako"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/alat_mandi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sembako"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ic_alat_mandi"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_alat_mandi"/>
+                    <TextView
+                        android:id="@+id/text_alat_mandi"
+                        android:layout_below="@id/ic_alat_mandi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/alat_mandi"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/obat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/alat_mandi"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ic_obat"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_obat"/>
+                    <TextView
+                        android:id="@+id/text_obat"
+                        android:layout_below="@id/ic_obat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Obat"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/makanan"
+                android:id="@+id/row2Category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
 
-                <ImageView
-                    android:id="@+id/ic_makanan"
-                    android:layout_width="51dp"
-                    android:layout_height="51dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_utama_snack"/>
-                <TextView
-                    android:id="@+id/text_makanan"
-                    android:layout_below="@id/ic_makanan"
+                <RelativeLayout
+                    android:id="@+id/makanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/ic_makanan"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_snack"/>
+                    <TextView
+                        android:id="@+id/text_makanan"
+                        android:layout_below="@id/ic_makanan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/makanan"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/galon_gas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/makanan"/>
+                    android:layout_below="@id/makanan"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ic_galon_gas"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_galon_gas"/>
+                    <TextView
+                        android:id="@+id/text_galon_gas"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/ic_galon_gas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Galon Gas"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sayuran_buah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/galon_gas"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ic_sayuran_buah"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_sayuran_buah"/>
+                    <TextView
+                        android:id="@+id/text_sayuran_buah"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/ic_sayuran_buah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sayuran Buah"/>
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/minuman"
+                android:id="@+id/row3Category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/makanan"
-                android:layout_marginLeft="40dp">
+                android:layout_toRightOf="@id/row2Category"
+                android:layout_marginLeft="15dp">
 
-                <ImageView
-                    android:id="@+id/ic_minuman"
-                    android:layout_width="51dp"
-                    android:layout_height="51dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_utama_minuman"/>
-                <TextView
-                    android:id="@+id/text_minuman"
-                    android:layout_below="@id/ic_minuman"
+                <RelativeLayout
+                    android:id="@+id/minuman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/minuman"/>
+                    android:layout_centerHorizontal="true">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ic_minuman"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_minuman"/>
+                    <TextView
+                        android:id="@+id/text_minuman"
+                        android:layout_below="@id/ic_minuman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/minuman"/>
 
-            <RelativeLayout
-                android:id="@+id/alat_mandi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/makanan"
-                android:layout_toLeftOf="@id/galon_gas"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="8dp">
+                </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ic_alat_mandi"
-                    android:layout_width="51dp"
-                    android:layout_height="51dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_utama_alat_mandi"/>
-                <TextView
-                    android:id="@+id/text_alat_mandi"
-                    android:layout_below="@id/ic_alat_mandi"
+                <RelativeLayout
+                    android:id="@+id/rokok"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/minuman"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/alat_mandi"/>
+                    android:layout_marginTop="8dp">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ic_rokok"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_rokok"/>
+                    <TextView
+                        android:id="@+id/text_rokok"
+                        android:layout_below="@id/ic_rokok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/rokok"/>
 
-            <RelativeLayout
-                android:id="@+id/galon_gas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/makanan"
-                android:layout_marginTop="8dp">
+                </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ic_galon_gas"
-                    android:layout_width="51dp"
-                    android:layout_height="51dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_utama_galon_gas"/>
-                <TextView
-                    android:id="@+id/text_galon_gas"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_galon_gas"
+                <RelativeLayout
+                    android:id="@+id/kebersihan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Galon Gas"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rokok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/galon_gas"
-                android:layout_below="@id/minuman"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="8dp">
-
-                <ImageView
-                    android:id="@+id/ic_rokok"
-                    android:layout_width="51dp"
-                    android:layout_height="51dp"
+                    android:layout_below="@id/rokok"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_utama_rokok"/>
-                <TextView
-                    android:id="@+id/text_rokok"
-                    android:layout_below="@id/ic_rokok"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/rokok"/>
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ic_kebersihan"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/icon_utama_alat_kebersihan"/>
+                    <TextView
+                        android:id="@+id/text_kebersihan"
+                        android:layout_below="@id/ic_kebersihan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="Kebersihan"/>
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
