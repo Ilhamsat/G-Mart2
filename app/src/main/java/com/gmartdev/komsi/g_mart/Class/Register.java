@@ -81,19 +81,19 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String NumberPhone = etNumberPhone.getEditText().getText().toString();
-                String Address = etAddress.getEditText().getText().toString();
-                String Name = etName.getEditText().getText().toString();
-                String Email = etEmail.getEditText().getText().toString();
+                no_hp = etNumberPhone.getEditText().getText().toString();
+                alamat = etAddress.getEditText().getText().toString();
+                nama = etName.getEditText().getText().toString();
+                email = etEmail.getEditText().getText().toString();
 
                 if(!validateNumberPhone() | !validateName() | !validateAddress() | !validateEmail()){
                     return;
                 } else{
-//                    register();
-                    mAPI = APIClient.getClient().create(API.class);
-                    SetNewComsumer("spId", etNumberPhone.getEditText().getText().toString(), etAddress.getEditText().getText().toString(), etName.getEditText().getText().toString(), etEmail.getEditText().getText().toString(), "spToken");
-                    Intent intent = new Intent(Register.this,MainActivity.class);
-                    startActivity(intent);
+                    register();
+//                    mAPI = APIClient.getClient().create(API.class);
+//                    SetNewComsumer("spId", etNumberPhone.getEditText().getText().toString(), etAddress.getEditText().getText().toString(), etName.getEditText().getText().toString(), etEmail.getEditText().getText().toString(), "spToken");
+//                    Intent intent = new Intent(Register.this,MainActivity.class);
+//                    startActivity(intent);
                 }
             }
         });
@@ -246,7 +246,7 @@ public class Register extends AppCompatActivity {
 
                         editor.commit();
                     }
-                    Intent i = new Intent(Register.this,LoginActivity.class);
+                    Intent i = new Intent(Register.this,MainActivity.class);
                     startActivity(i);
 
                 }else {

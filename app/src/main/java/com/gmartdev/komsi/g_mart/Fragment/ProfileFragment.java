@@ -2,6 +2,7 @@ package com.gmartdev.komsi.g_mart.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -23,10 +25,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ProfileFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    TextView phoneNumber, address, name, email;
+
 
     Activity context;
 
@@ -39,6 +46,20 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
 
         drawerLayout = (DrawerLayout) v.findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) v.findViewById(R.id.navigation_view_profile);
+
+        phoneNumber = (TextView) v.findViewById(R.id.profile_number_phone);
+        address = (TextView) v.findViewById(R.id.profile_address);
+        name = (TextView) v.findViewById(R.id.profile_name);
+        email = (TextView) v.findViewById(R.id.profile_email);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
+
+
+
+        phoneNumber.setText(sharedPreferences.getString("no_hp",null));
+        address.setText(sharedPreferences.getString("alamat",null));
+        name.setText(sharedPreferences.getString("nama",null));
+        email.setText(sharedPreferences.getString("email",null));
 
         navigationView.bringToFront();
 
@@ -62,5 +83,7 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
 
         return true;
     }
+
+
 
 }
