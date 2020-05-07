@@ -1,11 +1,14 @@
 package com.gmartdev.komsi.g_mart.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gmartdev.komsi.g_mart.Class.DetailPesananKeranjangActivity;
 import com.gmartdev.komsi.g_mart.Model.TransactionBasketModel;
 import com.gmartdev.komsi.g_mart.R;
 
@@ -38,6 +41,13 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
         holder.items.setText(mData.get(position).getItems());
         holder.totalPriceItems.setText(mData.get(position).getTotalPriceItems());
         holder.delivery.setText(mData.get(position).getDelivery());
+        holder.contentBasket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, DetailPesananKeranjangActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -51,6 +61,7 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
         private TextView items;
         private TextView totalPriceItems;
         private TextView delivery;
+        private RelativeLayout contentBasket;
 
         public ViewHolderTransactionBasket(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +70,7 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
             items = itemView.findViewById(R.id.itemsBasket);
             totalPriceItems = itemView.findViewById(R.id.totalPriceItemsBasket);
             delivery = itemView.findViewById(R.id.delivery);
+            contentBasket = itemView.findViewById(R.id.contentBasket);
         }
     }
 }

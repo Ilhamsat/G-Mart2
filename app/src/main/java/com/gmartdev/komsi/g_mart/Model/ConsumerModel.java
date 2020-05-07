@@ -77,4 +77,5 @@ public class ConsumerModel {
     public void setRating(String rating) {
         this.rating = rating;
     }
+
 }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/listHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <ImageView
+            android:id="@+id/imgItemDetailPesananKeranjang"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/beras"
+            android:background="@drawable/background_succes_history"/>
+
+        <RelativeLayout
+            android:id="@+id/contentDetailPesananKeranjang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgItemDetailPesananKeranjang"
+            android:layout_marginLeft="14dp">
+
+            <TextView
+                android:id="@+id/itemDetailPesananKeranjang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beras"
+                android:textSize="13dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/unitPriceItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/itemDetailPesananKeranjang"
+                android:text="Rp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/priceItemDetailPesananKeranjang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/itemDetailPesananKeranjang"
+                android:layout_toRightOf="@id/unitPriceItems"
+                android:layout_marginLeft="4dp"
+                android:text="25000"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/textJumlah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/priceItemDetailPesananKeranjang"
+                android:text="Jumlah : "
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/jumlahDetailPesananKeranjang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/priceItemDetailPesananKeranjang"
+                android:layout_toRightOf="@id/textJumlah"
+                android:text="2"
+                android:textSize="13dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/imgItemDetailPesananKeranjang">
+
+            <TextView
+                android:id="@+id/unitTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp "
+                android:textSize="13dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/textTotalPriceDetailPesananKeranjang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/unitTotalPrice"
+                android:text="50000"
+                android:textSize="13dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
