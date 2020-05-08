@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Class.DetailPesananKeranjangActivity;
+import com.gmartdev.komsi.g_mart.Model.PesananModel;
+import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
 import com.gmartdev.komsi.g_mart.Model.TransactionBasketModel;
 import com.gmartdev.komsi.g_mart.R;
 
@@ -20,9 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBasketAdapter.ViewHolderTransactionBasket> {
 
     Context mContext;
-    List<TransactionBasketModel> mData;
+    List<PesananModel> mData;
 
-    public TransactionBasketAdapter(Context mContext, List<TransactionBasketModel> mData) {
+    public TransactionBasketAdapter(Context mContext, List<PesananModel> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -37,10 +39,10 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderTransactionBasket holder, int position) {
-        holder.howMany.setText(mData.get(position).getHowMany());
-        holder.items.setText(mData.get(position).getItems());
-        holder.totalPriceItems.setText(mData.get(position).getTotalPriceItems());
-        holder.delivery.setText(mData.get(position).getDelivery());
+        holder.howMany.setText(mData.get(position).getStatus());
+        holder.items.setText(mData.get(position).getId_order());
+        holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
+        holder.delivery.setText(mData.get(position).getMetode_kirim());
         holder.contentBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

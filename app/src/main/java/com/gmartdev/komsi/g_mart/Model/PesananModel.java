@@ -28,7 +28,14 @@ public class PesananModel {
     @SerializedName("nama")
     private String nama;
     @SerializedName("produk")
-    List<ProductDetailPesananModel> listProdukPesanan;
+    List<ProductDetailPesananModel> produk;
+
+    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim) {
+        this.id_order = id_order;
+        this.subtotal_harga = subtotal_harga;
+        this.status = status;
+        this.metode_kirim = metode_kirim;
+    }
 
     public String getId_order() {
         return id_order;
@@ -118,11 +125,11 @@ public class PesananModel {
         this.nama = nama;
     }
 
-    public List<ProductDetailPesananModel> getListProdukPesanan() {
-        return listProdukPesanan;
+    public List<ProductDetailPesananModel> getProduk() {
+        return produk;
     }
 
-    public void setListProdukPesanan(List<ProductDetailPesananModel> listProdukPesanan) {
-        this.listProdukPesanan = listProdukPesanan;
+    public void setProduk(List<ProductDetailPesananModel> produk) {
+        this.produk = produk;
     }
 }

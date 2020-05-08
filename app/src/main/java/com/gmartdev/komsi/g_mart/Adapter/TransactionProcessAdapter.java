@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.gmartdev.komsi.g_mart.Model.TransactionProcessModel;
+import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.R;
 
 import java.util.List;
@@ -18,9 +18,9 @@ public class TransactionProcessAdapter extends RecyclerView.Adapter<TransactionP
 
 
     Context mContext;
-    List<TransactionProcessModel> mData;
+    List<PesananModel> mData;
 
-    public TransactionProcessAdapter(Context mContext, List<TransactionProcessModel> mData) {
+    public TransactionProcessAdapter(Context mContext, List<PesananModel> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -36,10 +36,10 @@ public class TransactionProcessAdapter extends RecyclerView.Adapter<TransactionP
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderTransactionProcess holder, int position) {
-        holder.howMany.setText(mData.get(position).getHowMany());
-        holder.items.setText(mData.get(position).getItems());
-        holder.totalPriceItems.setText(mData.get(position).getTotalPriceItems());
-        holder.status.setText(mData.get(position).getStatus());
+        holder.howMany.setText(mData.get(position).getStatus());
+        holder.items.setText(mData.get(position).getId_order());
+        holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
+        holder.status.setText("Dikemas");
     }
 
     @Override

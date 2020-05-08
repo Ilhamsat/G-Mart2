@@ -57,4 +57,11 @@ public interface API {
             @Field("id_konsumen") String id_konsumen,
             @Field("token") String token
     );
+
+    @FormUrlEncoded
+    @POST("konsumen/get_pesanan_diproses.php")
+    Call<GetPesananModel> getPesananDiproses(
+            @Field("id_konsumen") String id_konsumen,
+            @Field("token") String token
+    );
 }

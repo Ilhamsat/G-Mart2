@@ -8,7 +8,7 @@ public class GetPesananModel {
     @SerializedName("code")
     String code;
     @SerializedName("result")
-    List<PesananModel> listPesanan;
+    List<PesananModel> result;
     @SerializedName("message")
     String message;
 
@@ -20,12 +20,12 @@ public class GetPesananModel {
         this.code = code;
     }
 
-    public List<PesananModel> getListPesanan() {
-        return listPesanan;
+    public List<PesananModel> getResult() {
+        return result;
     }
 
-    public void setListPesanan(List<PesananModel> listPesanan) {
-        this.listPesanan = listPesanan;
+    public void setResult(List<PesananModel> result) {
+        this.result = result;
     }
 
     public String getMessage() {
