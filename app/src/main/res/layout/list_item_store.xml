@@ -36,6 +36,16 @@
                 android:textColor="@color/black"/>
 
             <TextView
+                android:id="@+id/itemMerk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/itemName"
+                android:layout_marginLeft="5dp"
+                android:text="Premium"
+                android:textSize="13dp"
+                android:textColor="@color/black"/>
+
+            <TextView
                 android:id="@+id/itemUnitPrice"
                 android:layout_below="@id/itemName"
                 android:layout_width="wrap_content"

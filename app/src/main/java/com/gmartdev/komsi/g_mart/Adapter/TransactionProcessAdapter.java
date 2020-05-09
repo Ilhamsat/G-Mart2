@@ -34,10 +34,18 @@ public class TransactionProcessAdapter extends RecyclerView.Adapter<TransactionP
         return viewHolderTransactionProcess;
     }
 
+    public int minus(int position){
+        return mData.get(position).getProduk().size()-1;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolderTransactionProcess holder, int position) {
-        holder.howMany.setText(mData.get(position).getStatus());
-        holder.items.setText(mData.get(position).getId_order());
+        holder.howMany.setText(String.valueOf(mData.get(position).getProduk().size()));
+        if(minus(position) == 0){
+            holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk());
+        }else {
+            holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk() + " dan " + minus(position) + " barang lainnya");
+        }
         holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
         holder.status.setText("Dikemas");
     }

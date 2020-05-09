@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Class.DetailPesananKeranjangActivity"></activity>
+        <activity android:name=".Class.CleaningToolsCategoryActivity"></activity>
+        <activity android:name=".Class.FruitVegetablesCategoryActivity" />
+        <activity android:name=".Class.MedicineCategoryActivity" />
+        <activity android:name=".Class.DetailPesananKeranjangActivity" />
         <activity android:name=".Class.EditProfileActivity" />
         <activity android:name=".Class.DetailPesananRiwayatActivity" />
         <activity android:name=".Class.VerificationLoginActivity" />

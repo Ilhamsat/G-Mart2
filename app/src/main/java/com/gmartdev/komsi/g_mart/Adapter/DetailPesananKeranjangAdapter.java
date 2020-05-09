@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Model.DetailPesananKeranjangModel;
+import com.gmartdev.komsi.g_mart.Model.ProductPesananDetailModel;
 import com.gmartdev.komsi.g_mart.R;
 
 import java.util.List;
@@ -17,9 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DetailPesananKeranjangAdapter extends RecyclerView.Adapter<DetailPesananKeranjangAdapter.ViewHolderDetailPesananKeranjang> {
 
     Context mContext;
-    List<DetailPesananKeranjangModel> mData;
+    List<ProductPesananDetailModel> mData;
 
-    public DetailPesananKeranjangAdapter(Context mContext, List<DetailPesananKeranjangModel> mData){
+    public DetailPesananKeranjangAdapter(Context mContext, List<ProductPesananDetailModel> mData){
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -33,12 +34,16 @@ public class DetailPesananKeranjangAdapter extends RecyclerView.Adapter<DetailPe
         return viewHolderDetailPesananKeranjang;
     }
 
+    public int totalPrice(int position){
+        return Integer.parseInt(mData.get(position).getJumlah_pesan()) * Integer.parseInt(mData.get(position).getHarga());
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDetailPesananKeranjang holder, int position) {
-        holder.itemName.setText(mData.get(position).getItemName());
-        holder.itemPrice.setText(mData.get(position).getItemPrice());
-        holder.totalItem.setText(mData.get(position).getTotalItem());
-        holder.totalPrice.setText(mData.get(position).getTotalPrice());
+        holder.itemName.setText(mData.get(position).getMerk() + "" + mData.get(position).getNama_produk());
+        holder.itemPrice.setText(mData.get(position).getHarga());
+        holder.totalItem.setText(mData.get(position).getJumlah_pesan());
+        holder.totalPrice.setText(String.valueOf(totalPrice(position)));
     }
 
     @Override

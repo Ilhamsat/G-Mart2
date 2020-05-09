@@ -10,6 +10,14 @@ import android.widget.RelativeLayout;
 
 import com.gmartdev.komsi.g_mart.Adapter.StoreRecommendationAdapter;
 import com.gmartdev.komsi.g_mart.Class.BasicNeedsCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.BathToolsCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.BeverageCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.CigaretteCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.CleaningToolsCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.FruitVegetablesCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.GallonGasCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.MedicineCategoryActivity;
+import com.gmartdev.komsi.g_mart.Class.SnackCategoryActivity;
 import com.gmartdev.komsi.g_mart.Class.StoreActivity;
 import com.gmartdev.komsi.g_mart.Model.StoreRecomendationModel;
 import com.gmartdev.komsi.g_mart.R;
@@ -74,7 +82,70 @@ public class HomeFragment extends Fragment {
         makanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, StoreActivity.class);
+                Intent intent = new Intent(context, SnackCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout minuman = (RelativeLayout) context.findViewById(R.id.minuman);
+        minuman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, BeverageCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout alat_mandi = (RelativeLayout) context.findViewById(R.id.alat_mandi);
+        alat_mandi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, BathToolsCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout galon_gas = (RelativeLayout) context.findViewById(R.id.galon_gas);
+        galon_gas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, GallonGasCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout rokok = (RelativeLayout) context.findViewById(R.id.rokok);
+        rokok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CigaretteCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout obat = (RelativeLayout) context.findViewById(R.id.obat);
+        obat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MedicineCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout sayur_buah = (RelativeLayout) context.findViewById(R.id.sayuran_buah);
+        sayur_buah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, FruitVegetablesCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        RelativeLayout kebersihan = (RelativeLayout) context.findViewById(R.id.kebersihan);
+        kebersihan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CleaningToolsCategoryActivity.class);
                 startActivity(intent);
             }
         });

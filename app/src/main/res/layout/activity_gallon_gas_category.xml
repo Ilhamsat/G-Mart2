@@ -7,7 +7,7 @@
     tools:context=".Class.GallonGasCategoryActivity">
 
     <FrameLayout
-        android:id="@+id/toolbarCigaretteCategory"
+        android:id="@+id/toolbarGallonGasCategory"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/background_toolbar">
@@ -17,7 +17,7 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/backInCigaretteCategory"
+                android:id="@+id/backInGallonGasCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -26,13 +26,13 @@
                 android:background="#FFFFFF"/>
 
             <TextView
-                android:id="@+id/textCigaretteCategory"
+                android:id="@+id/textGallonGasCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:text="@string/galon"
+                android:text="Galon dan Gas"
                 android:textSize="24dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
@@ -40,5 +40,31 @@
 
         </RelativeLayout>
     </FrameLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchGallonGas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarGallonGasCategory"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="18dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="false"
+        android:hint="@string/searchGallonGas"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_search_gray">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listItemGallonGas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchGallonGas"/>
 
 </RelativeLayout>

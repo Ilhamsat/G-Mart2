@@ -23,18 +23,30 @@ public class PesananModel {
     private String metode_kirim;
     @SerializedName("biaya_kirim")
     private String biaya_kirim;
-    @SerializedName("alamat")
-    private String alamat;
-    @SerializedName("nama")
-    private String nama;
+    @SerializedName("alamat_konsumen")
+    private String alamat_konsumen;
+    @SerializedName("nama_konsumen")
+    private String nama_konsumen;
+    @SerializedName("alamat_kios")
+    private String alamat_kios;
+    @SerializedName("nama_kios")
+    private String nama_kios;
     @SerializedName("produk")
     List<ProductDetailPesananModel> produk;
 
-    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim) {
+    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen) {
         this.id_order = id_order;
         this.subtotal_harga = subtotal_harga;
         this.status = status;
         this.metode_kirim = metode_kirim;
+        this.produk = produk;
+        this.nama_kios = nama_kios;
+        this.alamat_konsumen = alamat_konsumen;
+    }
+
+    public PesananModel(String id_order, String subtotal_harga) {
+        this.id_order = id_order;
+        this.subtotal_harga = subtotal_harga;
     }
 
     public String getId_order() {
@@ -109,20 +121,36 @@ public class PesananModel {
         this.biaya_kirim = biaya_kirim;
     }
 
-    public String getAlamat() {
-        return alamat;
+    public String getAlamat_konsumen() {
+        return alamat_konsumen;
     }
 
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
+    public void setAlamat_konsumen(String alamat_konsumen) {
+        this.alamat_konsumen = alamat_konsumen;
     }
 
-    public String getNama() {
-        return nama;
+    public String getNama_konsumen() {
+        return nama_konsumen;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setNama_konsumen(String nama_konsumen) {
+        this.nama_konsumen = nama_konsumen;
+    }
+
+    public String getAlamat_kios() {
+        return alamat_kios;
+    }
+
+    public void setAlamat_kios(String alamat_kios) {
+        this.alamat_kios = alamat_kios;
+    }
+
+    public String getNama_kios() {
+        return nama_kios;
+    }
+
+    public void setNama_kios(String nama_kios) {
+        this.nama_kios = nama_kios;
     }
 
     public List<ProductDetailPesananModel> getProduk() {

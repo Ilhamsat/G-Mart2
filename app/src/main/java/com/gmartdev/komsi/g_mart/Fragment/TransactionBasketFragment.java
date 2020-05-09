@@ -24,6 +24,7 @@ import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.TransactionBasketAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
+import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
 import com.gmartdev.komsi.g_mart.Model.TransactionBasketModel;
 import com.gmartdev.komsi.g_mart.R;
 
@@ -40,6 +41,8 @@ public class TransactionBasketFragment extends Fragment {
 
     List<PesananModel> mList = new ArrayList<>();
     Activity context;
+
+    private List<ProductDetailPesananModel> mDataProduk ;
 
     private RecyclerView recyclerView;
     String id_konsumen, token_konsumen;
@@ -61,7 +64,7 @@ public class TransactionBasketFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        context=getActivity();
+        context = getActivity();
 
         View v = inflater.inflate(R.layout.fragment_transaction_basket, container, false);
 
@@ -73,7 +76,6 @@ public class TransactionBasketFragment extends Fragment {
 //        TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(),mList);
 //        recyclerView.setAdapter(transactionBasketAdapter);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
 
 
         return v;
@@ -92,7 +94,7 @@ public class TransactionBasketFragment extends Fragment {
 //        mList.add(new TransactionBasketModel("4+" ,"Minyak, dan 4 barang lainnya","13000", "Diantar"));
     }
 
-    private void callApi(){
+    private void callApi() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
         id_konsumen = sharedPreferences.getString("id_konsumen", null);
         token_konsumen = sharedPreferences.getString("token", null);
@@ -102,15 +104,22 @@ public class TransactionBasketFragment extends Fragment {
             public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
 
 
-                if (response.body().getResult() != null){
+                if (response.body().getResult() != null) {
                     List<PesananModel> list = response.body().getResult();
+
+
                     Log.d(TAG, "Code :" + response.body().getResult());
-                    for (PesananModel pesananModel : list){
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim()));
+                    for (PesananModel pesananModel : list) {
+                        List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
+                        mDataProduk = new ArrayList<>();
+                        for(ProductDetailPesananModel productDetailPesananModel : listProduk){
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                        }
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
                     }
                     Log.d(TAG, "Data " + mList);
 
-                    TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(),mList);
+                    TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(), mList);
                     recyclerView.setAdapter(transactionBasketAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 

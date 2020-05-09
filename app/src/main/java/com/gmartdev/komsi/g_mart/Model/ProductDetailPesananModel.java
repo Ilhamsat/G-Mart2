@@ -8,6 +8,12 @@ public class ProductDetailPesananModel {
     @SerializedName("nama_produk")
     private String nama_produk;
 
+
+    public ProductDetailPesananModel(String merk, String nama_produk) {
+        this.merk = merk;
+        this.nama_produk = nama_produk;
+    }
+
     public String getMerk() {
         return merk;
     }

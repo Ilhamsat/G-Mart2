@@ -72,4 +72,8 @@ public class StoreActivity extends AppCompatActivity {
     private void setData(){
         storeNameTitle.setText(storeName);
     }
+
+    private void callApi(){
+
+    }
 }

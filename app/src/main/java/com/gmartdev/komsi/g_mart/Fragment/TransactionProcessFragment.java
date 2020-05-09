@@ -24,6 +24,7 @@ import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.TransactionProcessAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
+import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
 import com.gmartdev.komsi.g_mart.Model.TransactionProcessModel;
 import com.gmartdev.komsi.g_mart.R;
 
@@ -40,6 +41,7 @@ public class TransactionProcessFragment extends Fragment {
 
     List<PesananModel> mList = new ArrayList<>();
     Activity context;
+    private List<ProductDetailPesananModel> mDataProduk ;
 
     private RecyclerView recyclerView;
     String id_konsumen, token_konsumen;
@@ -99,7 +101,12 @@ public class TransactionProcessFragment extends Fragment {
                     List<PesananModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getResult());
                     for (PesananModel pesananModel : list){
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim()));
+                        List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
+                        mDataProduk = new ArrayList<>();
+                        for(ProductDetailPesananModel productDetailPesananModel : listProduk){
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                        }
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
                     }
                     Log.d(TAG, "Data " + mList);
 

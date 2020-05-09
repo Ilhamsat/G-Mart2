@@ -12,6 +12,9 @@
     <string name="galon">Galon</string>
     <string name="gas">Gas</string>
     <string name="rokok">Rokok</string>
+    <string name="obat">Obat</string>
+    <string name="sayur_buah">Sayur Buah</string>
+    <string name="alat_kebersihan">Kebersihan</string>
 
     <string name="edit_profile">Edit Profil</string>
     <string name="share">Bagikan</string>
@@ -45,4 +48,12 @@
     <string name="tersedia">Tersedia</string>
 
     <string name="searchBasicNeeds">Sembako apa yang kamu cari ?</string>
+    <string name="searchSnack">Makanan apa yang kamu cari ?</string>
+    <string name="searchBeverage">Minuman apa yang kamu cari ?</string>
+    <string name="searchBathTools">Alat Mandi apa yang kamu cari ?</string>
+    <string name="searchGallonGas">Galon atau gas apa yang kamu cari ?</string>
+    <string name="searchCigarette">Rokok apa yang kamu cari ?</string>
+    <string name="searchMedicine">Obat apa yang kamu cari ?</string>
+    <string name="searchFruitVegetables">Sayur atau buah apa yang kamu cari ?</string>
+    <string name="searchCleaningTools">Alat Kebersihan apa yang kamu cari ?</string>
 </resources>

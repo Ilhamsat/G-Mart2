@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Class.DetailPesananRiwayatActivity;
+import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.Model.TransactionHistoryModel;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.button.MaterialButton;
@@ -21,9 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionHistoryAdapter.ViewHolderTransactionHistory> {
 
     Context mContext;
-    List<TransactionHistoryModel> mData;
+    List<PesananModel> mData;
 
-    public TransactionHistoryAdapter(Context mContext, List<TransactionHistoryModel> mData) {
+    public TransactionHistoryAdapter(Context mContext, List<PesananModel> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -36,12 +37,20 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         return viewHolderTransactionHistory;
     }
 
+    public int minus(int position){
+        return mData.get(position).getProduk().size()-1;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolderTransactionHistory holder, int position) {
-        holder.items.setText(mData.get(position).getItems());
-        holder.totalPriceItems.setText(mData.get(position).getTotalPriceItems());
-        holder.status.setText(mData.get(position).getStatus());
-        holder.successOrNot.setImageResource(mData.get(position).getSuccessOrNot());
+        if(minus(position) == 0){
+            holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk());
+        }else {
+            holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk() + " dan " + minus(position) + " barang lainnya");
+        }
+        holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
+        holder.status.setText("Terkirim");
+        holder.successOrNot.setImageResource(R.drawable.ic_success_white);
 
         holder.buttonRating.setOnClickListener(new View.OnClickListener() {
             @Override

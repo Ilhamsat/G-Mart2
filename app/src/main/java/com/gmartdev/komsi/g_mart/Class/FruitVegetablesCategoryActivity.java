@@ -24,7 +24,7 @@ import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class BeverageCategoryActivity extends AppCompatActivity {
+public class FruitVegetablesCategoryActivity extends AppCompatActivity {
 
     List<ProductCategoryModel> mList = new ArrayList<>();
 
@@ -41,9 +41,9 @@ public class BeverageCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_beverage_category);
+        setContentView(R.layout.activity_fruit_vegetables_category);
 
-        recyclerView = (RecyclerView) findViewById(R.id.listItemBeverage);
+        recyclerView = (RecyclerView) findViewById(R.id.listItemFruitVegetables);
 
         callApi();
     }
@@ -52,7 +52,7 @@ public class BeverageCategoryActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         id_konsumen = sharedPreferences.getString("id_konsumen", null);
         token_konsumen = sharedPreferences.getString("token", null);
-        Call<GetProductCategoryModel> call = api.getProductCategory(token_konsumen, "3");
+        Call<GetProductCategoryModel> call = api.getProductCategory(token_konsumen, "8");
         call.enqueue(new Callback<GetProductCategoryModel>() {
             @Override
             public void onResponse(Call<GetProductCategoryModel> call, Response<GetProductCategoryModel> response) {
@@ -66,9 +66,9 @@ public class BeverageCategoryActivity extends AppCompatActivity {
                     }
                     Log.d(TAG, "Data " + mList);
 
-                    ItemStoreCategoryAdapter itemStoreCategoryAdapter = new ItemStoreCategoryAdapter(BeverageCategoryActivity.this, mList);
+                    ItemStoreCategoryAdapter itemStoreCategoryAdapter = new ItemStoreCategoryAdapter(FruitVegetablesCategoryActivity.this, mList);
                     recyclerView.setAdapter(itemStoreCategoryAdapter);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(BeverageCategoryActivity.this));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(FruitVegetablesCategoryActivity.this));
 
                 } else {
                     Log.d(TAG, "Code :" + response.body().getMessage());

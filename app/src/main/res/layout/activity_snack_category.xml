@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Class.SnackCategoryActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/toolbarSnackCategory"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/background_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/backInSnackCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chevron_left_black_24dp"
+                android:background="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/textSnackCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/makanan"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:fontFamily=""/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchSnack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarSnackCategory"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="18dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="false"
+        android:hint="@string/searchSnack"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_search_gray">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listItemSnack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchSnack"/>
+
+</RelativeLayout>

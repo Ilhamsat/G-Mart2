@@ -41,4 +41,30 @@
         </RelativeLayout>
     </FrameLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchBeverage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarBeverageCategory"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="18dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="false"
+        android:hint="@string/searchBeverage"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_search_gray">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listItemBeverage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchBeverage"/>
+
 </RelativeLayout>

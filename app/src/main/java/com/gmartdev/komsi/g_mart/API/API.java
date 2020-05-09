@@ -3,6 +3,8 @@ package com.gmartdev.komsi.g_mart.API;
 import com.gmartdev.komsi.g_mart.Model.GetConsumerModel;
 import com.gmartdev.komsi.g_mart.Model.GetLoginModel;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
+import com.gmartdev.komsi.g_mart.Model.GetProduckPesananDetailModel;
+import com.gmartdev.komsi.g_mart.Model.GetProductCategoryModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductModel;
 
 import okhttp3.ResponseBody;
@@ -45,13 +47,6 @@ public interface API {
     );
 
     @FormUrlEncoded
-    @POST("produk/get_produk_kategori.php")
-    Call<GetProductModel> getProductCategory(
-            @Field("token") String token,
-            @Field("id_kategori") String id_kios
-    );
-
-    @FormUrlEncoded
     @POST("konsumen/get_pesanan_menunggu.php")
     Call<GetPesananModel> getPesananMenunggu(
             @Field("id_konsumen") String id_konsumen,
@@ -64,4 +59,34 @@ public interface API {
             @Field("id_konsumen") String id_konsumen,
             @Field("token") String token
     );
+
+    @FormUrlEncoded
+    @POST("konsumen/get_pesanan_riwayat.php")
+    Call<GetPesananModel> getPesananRiwayat(
+            @Field("token") String token,
+            @Field("id_konsumen") String id_konsumen
+    );
+
+    @FormUrlEncoded
+    @POST("produk/get_produk_kategori.php")
+    Call<GetProductCategoryModel> getProductCategory(
+            @Field("token") String token,
+            @Field("id_kategori") String id_kategori
+    );
+
+    @FormUrlEncoded
+    @POST("produk/get_produk_kios.php")
+    Call<GetProductModel> getProdukKios(
+            @Field("id_kios") String id_kios,
+            @Field("token") String token
+    );
+
+    @FormUrlEncoded
+    @POST("produk/get_pesanan_detail.php")
+    Call<GetProduckPesananDetailModel> getProdukPesananDetail(
+            @Field("id_order") String id_order,
+            @Field("token") String token
+    );
+
+
 }

@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Class.DetailPesananKeranjangActivity;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
-import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
-import com.gmartdev.komsi.g_mart.Model.TransactionBasketModel;
 import com.gmartdev.komsi.g_mart.R;
 
 import java.util.List;
@@ -24,9 +22,12 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
     Context mContext;
     List<PesananModel> mData;
 
+
+
     public TransactionBasketAdapter(Context mContext, List<PesananModel> mData) {
         this.mContext = mContext;
         this.mData = mData;
+
     }
 
     @NonNull
@@ -37,16 +38,27 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
         return viewHolderTransactionBasket;
     }
 
+    public int minus(int position){
+        return mData.get(position).getProduk().size()-1;
+    }
     @Override
     public void onBindViewHolder(@NonNull ViewHolderTransactionBasket holder, int position) {
-        holder.howMany.setText(mData.get(position).getStatus());
-        holder.items.setText(mData.get(position).getId_order());
+        holder.howMany.setText(String.valueOf(mData.get(position).getProduk().size()));
+
+        if(minus(position) == 0){
+            holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk());
+        }else {
+            holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk() + " dan " + minus(position) + " barang lainnya");
+        }
         holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
         holder.delivery.setText(mData.get(position).getMetode_kirim());
         holder.contentBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, DetailPesananKeranjangActivity.class);
+                intent.putExtra("id_order", mData.get(position).getId_order());
+                intent.putExtra("nama_kios", mData.get(position).getNama_kios());
+                intent.putExtra("alamat_konsumen", mData.get(position).getAlamat_konsumen());
                 mContext.startActivity(intent);
             }
         });

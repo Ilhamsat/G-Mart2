@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Class.BathToolsCategoryActivity">
+    tools:context=".Class.FruitVegetablesCategoryActivity">
 
     <FrameLayout
-        android:id="@+id/toolbarBathToolsCategory"
+        android:id="@+id/toolbarFruitVegetablesCategory"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/background_toolbar">
@@ -17,7 +17,7 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/backInBathToolsCategory"
+                android:id="@+id/backInFruitVegetablesCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -26,13 +26,13 @@
                 android:background="#FFFFFF"/>
 
             <TextView
-                android:id="@+id/textBathToolsCategory"
+                android:id="@+id/textFruitVegetablesCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:text="@string/alat_mandi"
+                android:text="@string/sayur_buah"
                 android:textSize="24dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
@@ -42,10 +42,10 @@
     </FrameLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchBathTools"
+        android:id="@+id/searchFruitVegetables"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbarBathToolsCategory"
+        android:layout_below="@id/toolbarFruitVegetablesCategory"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="6dp"
         android:layout_marginLeft="21dp"
@@ -53,7 +53,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:hintEnabled="true"
         app:hintAnimationEnabled="false"
-        android:hint="@string/searchBathTools"
+        android:hint="@string/searchFruitVegetables"
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_search_gray">
         <com.google.android.material.textfield.TextInputEditText
@@ -62,9 +62,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listItemBathTools"
+        android:id="@+id/listItemFruitVegetables"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/searchBathTools"/>
+        android:layout_below="@id/searchFruitVegetables"/>
 
 </RelativeLayout>
