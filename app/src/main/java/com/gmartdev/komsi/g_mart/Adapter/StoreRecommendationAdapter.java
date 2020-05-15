@@ -39,14 +39,14 @@ public class StoreRecommendationAdapter extends RecyclerView.Adapter<StoreRecomm
     @Override
     public void onBindViewHolder(@NonNull ViewHolderListStore holder, final int position) {
         holder.storeName.setText(mData.get(position).getStoreName());
-        holder.storeDistance.setText(mData.get(position).getDistance());
+        holder.storeDistance.setText("?");
 
         holder.storeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, StoreActivity.class);
                 intent.putExtra("storeName", mData.get(position).getStoreName());
-                intent.putExtra("storeDistance", mData.get(position).getDistance());
+                intent.putExtra("storeDistance", "?");
                 mContext.startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.gmartdev.komsi.g_mart.API;
 
+import com.gmartdev.komsi.g_mart.Model.GetCartModel;
 import com.gmartdev.komsi.g_mart.Model.GetConsumerModel;
 import com.gmartdev.komsi.g_mart.Model.GetLoginModel;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
@@ -7,9 +8,12 @@ import com.gmartdev.komsi.g_mart.Model.GetProduckPesananDetailModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductCategoryModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductModel;
 
+import java.util.Map;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
@@ -44,6 +48,14 @@ public interface API {
             @Field("id_konsumen") String id_konsumen,
             @Field("no_hp") String no_hp,
             @Field("token") String token
+    );
+
+    @FormUrlEncoded
+    @POST("produk/get_keranjang.php")
+    Call<GetPesananModel> getPesananKeranjang(
+            @Field("token") String token,
+            @Field("id_konsumen") String id_konsumen
+
     );
 
     @FormUrlEncoded
@@ -85,6 +97,17 @@ public interface API {
     @POST("produk/get_pesanan_detail.php")
     Call<GetProduckPesananDetailModel> getProdukPesananDetail(
             @Field("id_order") String id_order,
+            @Field("token") String token
+    );
+
+    @FormUrlEncoded
+    @POST("produk/keranjang/post_create_keranjang")
+    Call<GetCartModel> setNewKeranjang(
+            @Field("id_pembayaran") String id_pembayaran,
+            @Field("id_pengiriman") String id_pengiriman,
+            @Field("id_kios") String id_kios,
+            @Field("id_konsumen") String id_konsumen,
+            @FieldMap Map<String, String> cart,
             @Field("token") String token
     );
 

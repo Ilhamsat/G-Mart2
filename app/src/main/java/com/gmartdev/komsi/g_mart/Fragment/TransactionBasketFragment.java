@@ -98,7 +98,7 @@ public class TransactionBasketFragment extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
         id_konsumen = sharedPreferences.getString("id_konsumen", null);
         token_konsumen = sharedPreferences.getString("token", null);
-        Call<GetPesananModel> call = api.getPesananMenunggu(id_konsumen, token_konsumen);
+        Call<GetPesananModel> call = api.getPesananKeranjang(token_konsumen, id_konsumen);
         call.enqueue(new Callback<GetPesananModel>() {
             @Override
             public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
@@ -115,7 +115,7 @@ public class TransactionBasketFragment extends Fragment {
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
                             mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
                         }
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getTotal()));
                     }
                     Log.d(TAG, "Data " + mList);
 

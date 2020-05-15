@@ -2,16 +2,15 @@ package com.gmartdev.komsi.g_mart.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class GetProductModel {
+public class GetCartModel {
     @SerializedName("code")
     String code;
     @SerializedName("message")
     String message;
     @SerializedName("result")
-    List<ProductModel> result;
+    List<CartModel> result;
 
     public String getCode() {
         return code;
@@ -29,11 +28,11 @@ public class GetProductModel {
         this.message = message;
     }
 
-    public List<ProductModel> getResult() {
+    public List<CartModel> getResult() {
         return result;
     }
 
-    public void setResult(List<ProductModel> result) {
+    public void setResult(List<CartModel> result) {
         this.result = result;
     }
 }

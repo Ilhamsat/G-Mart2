@@ -34,6 +34,20 @@ public class PesananModel {
     @SerializedName("produk")
     List<ProductDetailPesananModel> produk;
 
+    @SerializedName("total")
+    private String total;
+
+    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String total) {
+        this.id_order = id_order;
+        this.subtotal_harga = subtotal_harga;
+        this.status = status;
+        this.metode_kirim = metode_kirim;
+        this.produk = produk;
+        this.nama_kios = nama_kios;
+        this.alamat_konsumen = alamat_konsumen;
+        this.total = total;
+    }
+
     public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen) {
         this.id_order = id_order;
         this.subtotal_harga = subtotal_harga;
@@ -159,5 +173,13 @@ public class PesananModel {
 
     public void setProduk(List<ProductDetailPesananModel> produk) {
         this.produk = produk;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
     }
 }

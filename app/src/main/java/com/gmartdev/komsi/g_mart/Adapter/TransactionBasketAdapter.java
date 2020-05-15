@@ -50,7 +50,7 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
         }else {
             holder.items.setText(mData.get(position).getProduk().get(0).getMerk() + " " + mData.get(position).getProduk().get(0).getNama_produk() + " dan " + minus(position) + " barang lainnya");
         }
-        holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
+        holder.totalPriceItems.setText(mData.get(position).getTotal());
         holder.delivery.setText(mData.get(position).getMetode_kirim());
         holder.contentBasket.setOnClickListener(new View.OnClickListener() {
             @Override

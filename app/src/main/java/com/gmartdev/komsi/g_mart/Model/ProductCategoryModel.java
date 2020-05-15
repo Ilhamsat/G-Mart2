@@ -24,11 +24,12 @@ public class ProductCategoryModel {
     @SerializedName("nama_kios")
     private String nama_kios;
 
-    public ProductCategoryModel(String merk, String nama_produk, String harga, String nama_kios) {
+    public ProductCategoryModel(String merk, String nama_produk, String harga, String nama_kios, String id_kios) {
         this.merk = merk;
         this.nama_produk = nama_produk;
         this.harga = harga;
         this.nama_kios = nama_kios;
+        this.id_kios = id_kios;
     }
 
     public String getId_produkkios() {

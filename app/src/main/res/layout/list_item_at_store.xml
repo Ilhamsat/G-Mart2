@@ -69,7 +69,7 @@
             android:layout_centerVertical="true"
             app:strokeColor="@color/colorPrimary"
             android:text="Pilih"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false" />
 
         <RelativeLayout
             android:id="@+id/contentNumber"
