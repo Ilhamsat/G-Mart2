@@ -9,6 +9,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +47,7 @@ public class StoreActivity extends AppCompatActivity implements  HelperKeranjang
     MaterialButton btnAddBasket;
     TextView storeNameTitle;
     TextView storeAddress;
-    ImageButton buttonBack;
+    ImageButton buttonBack, mapStore;
 
     private RecyclerView recyclerView;
     ItemAtStoreAdapter itemAtStoreAdapter;
@@ -86,6 +87,16 @@ public class StoreActivity extends AppCompatActivity implements  HelperKeranjang
 
             }
         });
+
+        mapStore = findViewById(R.id.mapStore);
+        mapStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StoreActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 //        mList = new ArrayList<>();
 //        mList.add(new ItemAtStoreModel("Beras", "25000"));
 //        mList.add(new ItemAtStoreModel("Gula", "5000"));
