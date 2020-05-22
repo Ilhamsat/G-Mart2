@@ -26,7 +26,8 @@ public class ProductModel {
     @SerializedName("alamat_kios")
     private String alamat_kios;
 
-    public ProductModel(String merk, String nama_produk, String harga,String gambar) {
+    public ProductModel(String id_produkkios, String merk, String nama_produk, String harga, String gambar) {
+        this.id_produkkios = id_produkkios;
         this.merk = merk;
         this.nama_produk = nama_produk;
         this.harga = harga;

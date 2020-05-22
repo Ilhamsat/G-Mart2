@@ -2,12 +2,12 @@ package com.gmartdev.komsi.g_mart.Class;
 
 public class Nilai {
     private String id_produkkios;
-    private String jumlah;
+    private String jumlah_pesan;
     private String harga;
 
-    public Nilai(String id_produkkios, String jumlah, String harga) {
+    public Nilai(String id_produkkios, String jumlah_pesan, String harga) {
         this.id_produkkios = id_produkkios;
-        this.jumlah = jumlah;
+        this.jumlah_pesan = jumlah_pesan;
         this.harga= harga;
     }
 
@@ -19,8 +19,8 @@ public class Nilai {
         return id_produkkios;
     }
 
-    public String getJumlah() {
-        return jumlah;
+    public String getJumlah_pesan() {
+        return jumlah_pesan;
     }
 
     public String getHarga() {
@@ -31,8 +31,8 @@ public class Nilai {
         this.id_produkkios = id_produkkios;
     }
 
-    public void setJumlah(String jumlah) {
-        this.jumlah = jumlah;
+    public void setJumlah_pesan(String jumlah_pesan) {
+        this.jumlah_pesan = jumlah_pesan;
     }
 
     public void setHarga(String harga) {

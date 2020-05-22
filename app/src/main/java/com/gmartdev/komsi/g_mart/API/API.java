@@ -1,5 +1,9 @@
 package com.gmartdev.komsi.g_mart.API;
 
+import android.renderscript.Sampler;
+
+import com.gmartdev.komsi.g_mart.Class.Nilai;
+import com.gmartdev.komsi.g_mart.Model.CartModel;
 import com.gmartdev.komsi.g_mart.Model.GetCartModel;
 import com.gmartdev.komsi.g_mart.Model.GetConsumerModel;
 import com.gmartdev.komsi.g_mart.Model.GetLoginModel;
@@ -7,15 +11,25 @@ import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.GetProduckPesananDetailModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductCategoryModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductModel;
+import com.here.posclient.PositionEstimate;
 
+import org.json.JSONArray;
+
+import java.security.Key;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface API {
 
@@ -100,16 +114,65 @@ public interface API {
             @Field("token") String token
     );
 
+//    @Multipart
+//    @POST("produk/post_create_keranjang.php")
+//    Call<GetCartModel> setNewKeranjang(
+//            @Part("id_pembayaran") String id_pembayaran,
+//            @Part("id_pengiriman") String id_pengiriman,
+//            @Part("id_kios") String id_kios,
+//            @Part("id_konsumen") String id_konsumen,
+//            @Body JSONArray cart,
+//            @Part("token") String token
+//    );
+
     @FormUrlEncoded
-    @POST("produk/keranjang/post_create_keranjang")
+    @POST("produk/post_create_keranjang.php")
     Call<GetCartModel> setNewKeranjang(
             @Field("id_pembayaran") String id_pembayaran,
             @Field("id_pengiriman") String id_pengiriman,
             @Field("id_kios") String id_kios,
             @Field("id_konsumen") String id_konsumen,
-            @FieldMap Map<String, String> cart,
+            @Field("cart") JSONArray cart,
+//            @FieldMap Map<String, String> cart,
             @Field("token") String token
     );
 
+    @FormUrlEncoded
+    @POST("produk/delete_keranjang.php")
+    Call<GetCartModel> deleteKeranjang(
+        @Field("token") String token_konsumen,
+        @Field("id_konsumen") String id_konsumen,
+        @Field("id_keranjang") String id_keranjang
+    );
+
+    @FormUrlEncoded
+    @POST("konsumen/get_detail_keranjang.php")
+    Call<GetProduckPesananDetailModel> getProdukPesananDetailKeranjang(
+            @Field("token") String token,
+            @Field("id_konsumen") String id_konsumen,
+            @Field("id_keranjang") String id_keranjang
+    );
+
+    @FormUrlEncoded
+    @POST("konsumen/update_detail_keranjang.php")
+    Call<GetCartModel> updateKeranjang(
+            @Field("token") String token,
+            @Field("id_konsumen") String id_konsumen,
+            @Field("id_keranjang") String id_keranjang,
+            @Field("cart") JSONArray cart,
+            @Field("id_pengiriman") String id_pengiriman,
+            @Field("total") String total
+    );
+
+    @FormUrlEncoded
+    @POST("produk/create_pesanan.php")
+    Call<GetCartModel> setNewOrder(
+            @Field("id_pembayaran") String id_pembayaran,
+            @Field("id_pengiriman") String id_pengiriman,
+            @Field("id_kios") String id_kios,
+            @Field("id_konsumen") String id_konsumen,
+            @Field("cart") JSONArray cart,
+            @Field("token") String token
+    );
 
 }

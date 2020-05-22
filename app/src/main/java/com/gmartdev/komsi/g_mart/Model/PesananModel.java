@@ -1,5 +1,7 @@
 package com.gmartdev.komsi.g_mart.Model;
 
+import com.gmartdev.komsi.g_mart.Class.Nilai;
+import com.google.gson.JsonArray;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -37,6 +39,34 @@ public class PesananModel {
     @SerializedName("total")
     private String total;
 
+    @SerializedName("id_keranjang")
+    private String id_keranjang;
+    @SerializedName("cart")
+    private String cart;
+    @SerializedName("id_kios")
+    private String id_kios;
+    @SerializedName("id_pembayaran")
+    private String id_pembayaran;
+    @SerializedName("id_pengiriman")
+    private String id_pengiriman;
+
+
+    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String total, String id_keranjang, String cart, String id_kios, String id_pembayaran, String id_pengiriman) {
+        this.id_order = id_order;
+        this.subtotal_harga = subtotal_harga;
+        this.status = status;
+        this.metode_kirim = metode_kirim;
+        this.produk = produk;
+        this.nama_kios = nama_kios;
+        this.alamat_konsumen = alamat_konsumen;
+        this.total = total;
+        this.id_keranjang = id_keranjang;
+        this.cart = cart;
+        this.id_kios = id_kios;
+        this.id_pembayaran = id_pembayaran;
+        this.id_pengiriman = id_pengiriman;
+    }
+
     public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String total) {
         this.id_order = id_order;
         this.subtotal_harga = subtotal_harga;
@@ -58,10 +88,6 @@ public class PesananModel {
         this.alamat_konsumen = alamat_konsumen;
     }
 
-    public PesananModel(String id_order, String subtotal_harga) {
-        this.id_order = id_order;
-        this.subtotal_harga = subtotal_harga;
-    }
 
     public String getId_order() {
         return id_order;
@@ -181,5 +207,45 @@ public class PesananModel {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public String getId_keranjang() {
+        return id_keranjang;
+    }
+
+    public void setId_keranjang(String id_keranjang) {
+        this.id_keranjang = id_keranjang;
+    }
+
+    public String getCart() {
+        return cart;
+    }
+
+    public void setCart(String cart) {
+        this.cart = cart;
+    }
+
+    public String getId_kios() {
+        return id_kios;
+    }
+
+    public void setId_kios(String id_kios) {
+        this.id_kios = id_kios;
+    }
+
+    public String getId_pembayaran() {
+        return id_pembayaran;
+    }
+
+    public void setId_pembayaran(String id_pembayaran) {
+        this.id_pembayaran = id_pembayaran;
+    }
+
+    public String getId_pengiriman() {
+        return id_pengiriman;
+    }
+
+    public void setId_pengiriman(String id_pengiriman) {
+        this.id_pengiriman = id_pengiriman;
     }
 }

@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,9 +32,11 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
 
     List<ProductPesananDetailModel> mList = new ArrayList<>();
 
-    String nama_kios, alamat_konsumen, id_order, token_konsumen;
+    String nama_kios, alamat_konsumen, id_order, token_konsumen, id_keranjang, id_konsumen, total_harga;
 
-    TextView namaKios, alamatKonsumen;
+    TextView namaKios, alamatKonsumen, totalHarga;
+
+    Spinner metodePengiriman;
 
     private RecyclerView recyclerView;
 
@@ -58,6 +61,9 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
 
         namaKios = (TextView) findViewById(R.id.textStoreName);
         alamatKonsumen = (TextView) findViewById(R.id.alamatPengiriman);
+        totalHarga = (TextView) findViewById(R.id.costTotalDetailPesananKeranjang);
+
+        metodePengiriman = (Spinner) findViewById(R.id.spinnerMetodePengiriman);
 
         getData();
         setData();
@@ -71,6 +77,7 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
 
             nama_kios = getIntent().getStringExtra("nama_kios");
             alamat_konsumen = getIntent().getStringExtra("alamat_konsumen");
+            total_harga = getIntent().getStringExtra("total_harga");
 
         }else {
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
@@ -80,13 +87,16 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
     private void setData(){
         namaKios.setText(nama_kios);
         alamatKonsumen.setText(alamat_konsumen);
+        totalHarga.setText(total_harga);
     }
 
     private void callApi(){
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         id_order = getIntent().getStringExtra("id_order");
+        id_konsumen = sharedPreferences.getString("id_konsumen", null);
         token_konsumen = sharedPreferences.getString("token", null);
-        Call<GetProduckPesananDetailModel> call = api.getProdukPesananDetail(id_order, token_konsumen);
+        id_keranjang = getIntent().getStringExtra("id_keranjang");
+        Call<GetProduckPesananDetailModel> call = api.getProdukPesananDetailKeranjang(token_konsumen, id_konsumen, id_keranjang);
         call.enqueue(new Callback<GetProduckPesananDetailModel>() {
             @Override
             public void onResponse(Call<GetProduckPesananDetailModel> call, Response<GetProduckPesananDetailModel> response) {
@@ -94,7 +104,7 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
                     List<ProductPesananDetailModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     for (ProductPesananDetailModel productPesananDetailModel : list){
-                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan()));
+                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan(), productPesananDetailModel.getId_produkkios()));
                     }
 
                     DetailPesananKeranjangAdapter detailPesananKeranjangAdapter = new DetailPesananKeranjangAdapter(DetailPesananKeranjangActivity.this, mList);

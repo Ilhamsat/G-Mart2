@@ -39,6 +39,8 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
  */
 public class TransactionBasketFragment extends Fragment {
 
+    private static final String TAG = "TransactionBasket";
+
     List<PesananModel> mList = new ArrayList<>();
     Activity context;
 
@@ -67,10 +69,7 @@ public class TransactionBasketFragment extends Fragment {
         context = getActivity();
 
         View v = inflater.inflate(R.layout.fragment_transaction_basket, container, false);
-
-//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
-//        id_konsumen = sharedPreferences.getString("id_konsumen", null);
-//        token_konsumen = sharedPreferences.getString("token", null);
+        
 
         recyclerView = (RecyclerView) v.findViewById(R.id.basket);
 //        TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(),mList);
@@ -98,11 +97,12 @@ public class TransactionBasketFragment extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
         id_konsumen = sharedPreferences.getString("id_konsumen", null);
         token_konsumen = sharedPreferences.getString("token", null);
+        Log.d(TAG, "callApi: ");
         Call<GetPesananModel> call = api.getPesananKeranjang(token_konsumen, id_konsumen);
         call.enqueue(new Callback<GetPesananModel>() {
             @Override
             public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
-
+                Log.d(TAG, "onResponse: Kenapa ");
 
                 if (response.body().getResult() != null) {
                     List<PesananModel> list = response.body().getResult();
@@ -115,7 +115,7 @@ public class TransactionBasketFragment extends Fragment {
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
                             mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
                         }
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getTotal()));
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getTotal(), pesananModel.getId_keranjang(), pesananModel.getCart(), pesananModel.getId_kios(), pesananModel.getId_pembayaran(), pesananModel.getId_pengiriman()));
                     }
                     Log.d(TAG, "Data " + mList);
 

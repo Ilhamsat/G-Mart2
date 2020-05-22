@@ -166,7 +166,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fabSort"
@@ -188,6 +189,35 @@
             android:backgroundTint="@color/white"
             android:textAllCaps="false"
             app:icon="@drawable/ic_filter_black"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lihatKeranjang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="17dp"
+        android:padding="10dp"
+        android:background="@drawable/background_succes_history"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/totalItemBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 Pesanan"
+            android:textColor="@color/white"
+            android:textSize="13dp"/>
+
+        <TextView
+            android:id="@+id/textLihatPesanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Lihat Detail"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 

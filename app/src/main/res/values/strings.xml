@@ -56,4 +56,10 @@
     <string name="searchMedicine">Obat apa yang kamu cari ?</string>
     <string name="searchFruitVegetables">Sayur atau buah apa yang kamu cari ?</string>
     <string name="searchCleaningTools">Alat Kebersihan apa yang kamu cari ?</string>
+
+    <string-array name="metode_pengiriman">
+        <item>Diantar</item>
+        <item>Diambil</item>
+    </string-array>
+
 </resources>

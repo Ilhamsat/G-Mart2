@@ -330,34 +330,34 @@
         android:layout_below="@id/teks_rekomendasi_toko"/>
 
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true">-->
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/fabSort"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@string/sort"
-            android:backgroundTint="@color/white"
-            android:textAllCaps="false"
-            app:icon="@drawable/ic_sort_black"/>
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/fabSort"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:text="@string/sort"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:textAllCaps="false"-->
+<!--            app:icon="@drawable/ic_sort_black"/>-->
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/fabFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_toRightOf="@id/fabSort"
-            android:text="@string/filter"
-            android:backgroundTint="@color/white"
-            android:textAllCaps="false"
-            app:icon="@drawable/ic_filter_black"/>
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/fabFilter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:layout_toRightOf="@id/fabSort"-->
+<!--            android:text="@string/filter"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:textAllCaps="false"-->
+<!--            app:icon="@drawable/ic_filter_black"/>-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
 
 </RelativeLayout>
