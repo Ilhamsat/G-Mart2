@@ -35,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:text="Indomie, dan 2 barang lainnya"
                 android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/unitPriceItems"
                 android:layout_width="wrap_content"
@@ -43,8 +44,8 @@
                 android:layout_below="@id/items"
                 android:text="Rp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/totalPriceItems"
                 android:layout_width="wrap_content"
@@ -54,15 +55,16 @@
                 android:layout_marginLeft="4dp"
                 android:text="13000"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/textStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/totalPriceItems"
                 android:text="Status : "
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
@@ -72,7 +74,7 @@
                 android:text="Terkirim"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
@@ -86,7 +88,8 @@
             app:strokeColor="@color/colorPrimary"
             android:text="Beri Rating"
             android:textAllCaps="false"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_medium"/>
 
     </RelativeLayout>
 

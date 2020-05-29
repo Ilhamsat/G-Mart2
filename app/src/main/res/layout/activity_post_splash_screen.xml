@@ -17,16 +17,16 @@
             <ImageView
                 android:id="@+id/LogoHorizontalPSS"
                 android:layout_width="wrap_content"
-                android:layout_height="117dp"
+                android:layout_height="49dp"
                 android:layout_marginTop="69dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/logo_gmart_newversion"/>
+                android:src="@drawable/logo_horizontal_color_customer_new"/>
 
             <ImageView
                 android:id="@+id/PostSplashScreen"
                 android:layout_width="wrap_content"
                 android:layout_height="240dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="43dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/LogoHorizontalPSS"
                 android:src="@drawable/post_splash_screen" />
@@ -54,7 +54,8 @@
                 android:layout_marginTop="43dp"
                 android:text="Masuk"
                 android:textAllCaps="false"
-                android:textSize="16dp"/>
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_medium"/>
 
 <!--            <Button-->
 <!--                android:id="@+id/ButtonRegister"-->
@@ -80,7 +81,8 @@
                 android:layout_marginBottom="100dp"
                 android:text="Daftar"
                 android:textAllCaps="false"
-                android:textSize="16dp"/>
+                android:textSize="16dp"
+                android:fontFamily="@font/roboto_medium"/>
 
         </RelativeLayout>
 

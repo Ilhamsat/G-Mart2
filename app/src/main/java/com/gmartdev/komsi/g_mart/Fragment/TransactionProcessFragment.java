@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.TransactionProcessAdapter;
+import com.gmartdev.komsi.g_mart.Adapter.TransactionProcessMenungguAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
@@ -40,10 +41,14 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class TransactionProcessFragment extends Fragment {
 
     List<PesananModel> mList = new ArrayList<>();
+    List<PesananModel> mListMenunggu = new ArrayList<>();
     Activity context;
     private List<ProductDetailPesananModel> mDataProduk ;
 
     private RecyclerView recyclerView;
+    private RecyclerView recyclerViewMenunggu;
+    private RecyclerView recyclerViewDiantar;
+
     String id_konsumen, token_konsumen;
 
     Retrofit retrofit = new Retrofit.Builder()
@@ -69,6 +74,8 @@ public class TransactionProcessFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_transaction_process, container, false);
 
         recyclerView = (RecyclerView) v.findViewById(R.id.process);
+        recyclerViewMenunggu = (RecyclerView) v.findViewById(R.id.menunggu);
+//        recyclerViewDiantar = (RecyclerView) v.findViewById(R.id.diantar);
 
 
         return v;
@@ -79,6 +86,7 @@ public class TransactionProcessFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         callApi();
+        callApiMenunggu();
 
 //        mList = new ArrayList<>();
 //        mList.add(new TransactionProcessModel("2+" ,"Indomie, dan 2 barang lainnya","13000", "Dikemas"));
@@ -128,4 +136,88 @@ public class TransactionProcessFragment extends Fragment {
             }
         });
     }
+
+    private void callApiMenunggu(){
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
+        id_konsumen = sharedPreferences.getString("id_konsumen", null);
+        token_konsumen = sharedPreferences.getString("token", null);
+        Call<GetPesananModel> call = api.getPesananMenunggu(id_konsumen, token_konsumen);
+        call.enqueue(new Callback<GetPesananModel>() {
+            @Override
+            public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
+
+
+                if (response.body().getResult() != null){
+                    List<PesananModel> list = response.body().getResult();
+                    Log.d(TAG, "Code :" + response.body().getResult());
+                    for (PesananModel pesananModel : list){
+                        List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
+                        mDataProduk = new ArrayList<>();
+                        for(ProductDetailPesananModel productDetailPesananModel : listProduk){
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                        }
+                        mListMenunggu.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
+                    }
+                    Log.d(TAG, "Data Menunggu" + mListMenunggu);
+
+                    TransactionProcessMenungguAdapter transactionProcessMenungguAdapter = new TransactionProcessMenungguAdapter(getContext(),mListMenunggu);
+                    recyclerViewMenunggu.setAdapter(transactionProcessMenungguAdapter);
+                    recyclerViewMenunggu.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+                } else {
+                    Log.d(TAG, "Code :" + response.body().getMessage());
+                    Log.d(TAG, "Code :" + id_konsumen);
+                    Log.d(TAG, "Code :" + token_konsumen);
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetPesananModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+//    private void callApiDiantar(){
+//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
+//        id_konsumen = sharedPreferences.getString("id_konsumen", null);
+//        token_konsumen = sharedPreferences.getString("token", null);
+//        Call<GetPesananModel> call = api.getPesananDiproses(id_konsumen, token_konsumen);
+//        call.enqueue(new Callback<GetPesananModel>() {
+//            @Override
+//            public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
+//
+//
+//                if (response.body().getResult() != null){
+//                    List<PesananModel> list = response.body().getResult();
+//                    Log.d(TAG, "Code :" + response.body().getResult());
+//                    for (PesananModel pesananModel : list){
+//                        List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
+//                        mDataProduk = new ArrayList<>();
+//                        for(ProductDetailPesananModel productDetailPesananModel : listProduk){
+//                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+//                        }
+//                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
+//                    }
+//                    Log.d(TAG, "Data " + mList);
+//
+//                    TransactionProcessAdapter transactionProcessAdapter = new TransactionProcessAdapter(getContext(),mList);
+//                    recyclerView.setAdapter(transactionProcessAdapter);
+//                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//
+//                } else {
+//                    Log.d(TAG, "Code :" + response.body().getMessage());
+//                    Log.d(TAG, "Code :" + id_konsumen);
+//                    Log.d(TAG, "Code :" + token_konsumen);
+//                    return;
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<GetPesananModel> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

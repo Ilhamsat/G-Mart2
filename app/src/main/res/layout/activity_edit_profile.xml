@@ -38,8 +38,8 @@
                 android:layout_marginTop="7dp"
                 android:text="Haruna Kawaguchi"
                 android:textSize="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"/>
 
             <RelativeLayout
                 android:id="@+id/contentEditProfile"
@@ -69,19 +69,20 @@
                         android:text="@string/title_profile"
                         android:textSize="15dp"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_medium"/>
 
                 </RelativeLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoTelepon"
+                    android:id="@+id/TanggalLahir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:layout_marginLeft="36dp"
                     android:layout_marginRight="36dp"
                     android:layout_below="@id/titleProfile"
-                    android:hint="No. Telepon"
+                    android:hint="Tanggal Lahir (YYYY-MM-DD)"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="#DADADA"
                     app:startIconDrawable="@drawable/ic_hp_gray"
@@ -93,7 +94,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +107,7 @@
                     android:layout_marginLeft="36dp"
                     android:layout_marginRight="36dp"
                     android:hint="Nama"
-                    android:layout_below="@id/NoTelepon"
+                    android:layout_below="@id/TanggalLahir"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="#DADADA"
                     app:startIconDrawable="@drawable/ic_name_gray"
@@ -115,7 +117,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,7 +140,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,7 +164,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="textEmailAddress"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,7 +180,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:text="Simpan"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto_medium"/>
 
         </RelativeLayout>
 

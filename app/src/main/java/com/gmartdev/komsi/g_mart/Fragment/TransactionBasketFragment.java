@@ -93,6 +93,7 @@ public class TransactionBasketFragment extends Fragment {
 //        mList.add(new TransactionBasketModel("4+" ,"Minyak, dan 4 barang lainnya","13000", "Diantar"));
     }
 
+
     private void callApi() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
         id_konsumen = sharedPreferences.getString("id_konsumen", null);

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.gmartdev.komsi.g_mart.Class.EditProfileActivity;
+import com.gmartdev.komsi.g_mart.Class.PostSplashScreen;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -78,6 +79,10 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
                 startActivity(intent);
                 break;
             case R.id.share:
+                break;
+            case R.id.logout:
+                Intent intent1 = new Intent(getActivity(), PostSplashScreen.class);
+                startActivity(intent1);
                 break;
         }
 

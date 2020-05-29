@@ -47,6 +47,17 @@ public interface API {
     );
 
     @FormUrlEncoded
+    @POST("konsumen/update_konsumen.php")
+    Call<GetConsumerModel> updateConsumer(
+            @Field("id_konsumen") String id_konsumen,
+            @Field("nama") String nama,
+            @Field("email") String email,
+            @Field("alamat") String alamat,
+            @Field("token") String token,
+            @Field("tanggal_lahir") String tanggal_lahir
+    );
+
+    @FormUrlEncoded
     @POST("konsumen/set_newkonsumen.php")
     Call<GetConsumerModel> setNewConsumer(
             @Field("nama") String nama,

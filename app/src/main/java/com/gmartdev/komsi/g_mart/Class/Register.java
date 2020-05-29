@@ -30,8 +30,6 @@ import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
-    API mAPI;
-    SharedPrefManager sharedPrefManager;
 
     private String nama, no_hp, email, alamat, password;
 
@@ -90,10 +88,6 @@ public class Register extends AppCompatActivity {
                     return;
                 } else{
                     register();
-//                    mAPI = APIClient.getClient().create(API.class);
-//                    SetNewComsumer("spId", etNumberPhone.getEditText().getText().toString(), etAddress.getEditText().getText().toString(), etName.getEditText().getText().toString(), etEmail.getEditText().getText().toString(), "spToken");
-//                    Intent intent = new Intent(Register.this,MainActivity.class);
-//                    startActivity(intent);
                 }
             }
         });

@@ -34,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:text="Beras"
                 android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/unitPriceItems"
                 android:layout_width="wrap_content"
@@ -42,8 +43,8 @@
                 android:layout_below="@id/itemDetailPesananRiwayat"
                 android:text="Rp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/priceItemDetailPesananRiwayat"
                 android:layout_width="wrap_content"
@@ -53,15 +54,16 @@
                 android:layout_marginLeft="4dp"
                 android:text="25000"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/textJumlah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/priceItemDetailPesananRiwayat"
                 android:text="Jumlah : "
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/jumlah"
                 android:layout_width="wrap_content"
@@ -71,7 +73,8 @@
                 android:text="2"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_medium"/>
 
         </RelativeLayout>
 
@@ -88,7 +91,7 @@
                 android:text="Rp "
                 android:textSize="13dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_bold"/>
 
             <TextView
                 android:id="@+id/textTotalPrice"
@@ -98,7 +101,7 @@
                 android:text="50000"
                 android:textSize="13dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 

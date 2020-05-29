@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -33,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:text="Beras"
                 android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/unitPriceItems"
                 android:layout_width="wrap_content"
@@ -41,8 +44,8 @@
                 android:layout_below="@id/itemDetailPesananKeranjang"
                 android:text="Rp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/priceItemDetailPesananKeranjang"
                 android:layout_width="wrap_content"
@@ -52,15 +55,16 @@
                 android:layout_marginLeft="4dp"
                 android:text="25000"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/textJumlah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/priceItemDetailPesananKeranjang"
                 android:text="Jumlah : "
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/jumlahDetailPesananKeranjang"
                 android:layout_width="wrap_content"
@@ -70,7 +74,55 @@
                 android:text="2"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/contentNumberDetailPesananKeranjang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/reduce"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_reduce_orange"
+                    android:background="@drawable/background_reduce"/>
+
+                <RelativeLayout
+                    android:id="@+id/numberOrders"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/reduce">
+
+                    <TextView
+                        android:id="@+id/textNumberOrders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="1"
+                        android:textSize="13dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto_regular"/>
+
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/add"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/numberOrders"
+                    android:src="@drawable/ic_add_white"
+                    android:background="@drawable/background_add"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
@@ -87,7 +139,7 @@
                 android:text="Rp "
                 android:textSize="13dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_bold"/>
 
             <TextView
                 android:id="@+id/textTotalPriceDetailPesananKeranjang"
@@ -97,7 +149,7 @@
                 android:text="50000"
                 android:textSize="13dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 

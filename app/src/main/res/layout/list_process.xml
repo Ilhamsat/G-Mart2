@@ -44,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:text="Indomie, dan 2 barang lainnya"
                 android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/unitPriceItems"
                 android:layout_width="wrap_content"
@@ -52,8 +53,8 @@
                 android:layout_below="@id/itemsProcess"
                 android:text="Rp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/totalPriceItemsProcess"
                 android:layout_width="wrap_content"
@@ -63,15 +64,16 @@
                 android:layout_marginLeft="4dp"
                 android:text="13000"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/textStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/totalPriceItemsProcess"
                 android:text="Status : "
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/statusProcess"
                 android:layout_width="wrap_content"
@@ -81,7 +83,7 @@
                 android:text="Dikemas"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 

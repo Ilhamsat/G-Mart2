@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="128dp"
+        android:layout_width="186dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -17,6 +17,6 @@
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="90dp"
         android:layout_marginRight="90dp"
-        android:src="@drawable/logo_terbaru_putih_2" />
+        android:src="@drawable/logo_vertical_putih_customer_new" />
 
 </RelativeLayout>

@@ -13,6 +13,9 @@ public class GetProductModel {
     @SerializedName("result")
     List<ProductModel> result;
 
+    @SerializedName("lokasi_kios")
+    String lokasi_kios;
+
     public String getCode() {
         return code;
     }
@@ -35,5 +38,13 @@ public class GetProductModel {
 
     public void setResult(List<ProductModel> result) {
         this.result = result;
+    }
+
+    public String getLokasi_kios() {
+        return lokasi_kios;
+    }
+
+    public void setLokasi_kios(String lokasi_kios) {
+        this.lokasi_kios = lokasi_kios;
     }
 }

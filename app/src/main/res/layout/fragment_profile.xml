@@ -55,8 +55,8 @@
                 android:layout_marginTop="7dp"
                 android:text="Haruna Kawaguchi"
                 android:textSize="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"/>
 
             <RelativeLayout
                 android:layout_below="@id/profile_name"
@@ -94,7 +94,7 @@
                             android:text="@string/title_profile"
                             android:textSize="15dp"
                             android:textColor="@color/black"
-                            android:textStyle="bold"/>
+                            android:fontFamily="@font/roboto_medium"/>
 
                     </RelativeLayout>
 
@@ -105,7 +105,8 @@
                         android:layout_marginTop="17dp"
                         android:text="@string/number_phone"
                         android:textColor="@color/black"
-                        android:textSize="13dp"/>
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                     <TextView
                         android:id="@+id/profile_number_phone"
@@ -115,7 +116,7 @@
                         android:layout_marginTop="8dp"
                         android:text="081347591227"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/roboto_medium"/>
 
                     <View
                         android:id="@+id/line_number_phone"
@@ -133,7 +134,8 @@
                         android:layout_marginTop="13dp"
                         android:text="@string/date_of_birth"
                         android:textColor="@color/black"
-                        android:textSize="13dp"/>
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                     <TextView
                         android:id="@+id/profile_date_of_birth"
@@ -143,7 +145,7 @@
                         android:layout_marginTop="8dp"
                         android:text="10 Februari 1995"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/roboto_medium"/>
 
                     <View
                         android:id="@+id/line_date_of_birth"
@@ -161,7 +163,8 @@
                         android:layout_marginTop="13dp"
                         android:text="@string/address"
                         android:textColor="@color/black"
-                        android:textSize="13dp"/>
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                     <TextView
                         android:id="@+id/profile_address"
@@ -171,7 +174,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Jl. Kenari No. 195, Nagasaki, Jepang"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/roboto_medium"/>
 
                     <View
                         android:id="@+id/line_address"
@@ -189,7 +192,8 @@
                         android:layout_marginTop="13dp"
                         android:text="@string/email"
                         android:textColor="@color/black"
-                        android:textSize="13dp"/>
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                     <TextView
                         android:id="@+id/profile_email"
@@ -199,7 +203,7 @@
                         android:layout_marginTop="8dp"
                         android:text="harunakawaguchi@gmail.com"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/roboto_medium"/>
 
                     <View
                         android:id="@+id/line_email"

@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Class.DetailPesananKeranjangActivity;
+import com.gmartdev.komsi.g_mart.Class.MainActivity;
 import com.gmartdev.komsi.g_mart.Model.GetCartModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.R;
@@ -81,6 +83,9 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
             public void onResponse(Call<GetCartModel> call, Response<GetCartModel> response) {
                 if(response.isSuccessful()){
                     Log.d(TAG, "onResponse: Keranjang dengan id " + id_keranjang +" berhasil di batalkan");
+                    Toast.makeText(mContext, "Keranjang ini telah dihapus", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mContext, MainActivity.class);
+                    mContext.startActivity(intent);
                 }else {
                     Log.d(TAG, "onResponse: Keranjang dengan id " + id_keranjang +" gagal di batalkan");
                 }
@@ -112,6 +117,7 @@ public class TransactionBasketAdapter extends RecyclerView.Adapter<TransactionBa
             public void onResponse(Call<GetCartModel> call, Response<GetCartModel> response) {
                 if(response.isSuccessful()){
                     Log.d(TAG, "onResponse: Keranjang dengan id " + id_keranjang + " berhasil di beli");
+                    Toast.makeText(mContext, "Keranjang ini telah berhasil dibeli", Toast.LENGTH_SHORT).show();
                     deleteKeranjang(id_keranjang);
                 }else {
                     Log.d(TAG, "onResponse: Keranjang dengan id " + id_keranjang + "  gagal di beli");

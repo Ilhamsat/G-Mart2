@@ -21,11 +21,11 @@
 
     <ImageView
         android:id="@+id/logo_home"
-        android:layout_width="119dp"
+        android:layout_width="140dp"
         android:layout_height="49dp"
         android:layout_marginTop="14dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_terbaru_putih"/>
+        android:src="@drawable/logo_horizontal_white_customer_new"/>
 
     <ImageView
         android:id="@+id/awan_kanan"
@@ -77,8 +77,7 @@
                 android:id="@+id/row1Category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/row2Category"
-                android:layout_marginRight="15dp">
+                android:layout_toLeftOf="@id/row2Category">
 
                 <RelativeLayout
                     android:id="@+id/sembako"
@@ -98,7 +97,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/sembako"/>
+                        android:text="@string/sembako"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -122,7 +124,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/alat_mandi"/>
+                        android:text="@string/alat_mandi"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -146,7 +151,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="Obat"/>
+                        android:text="Obat"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -156,7 +164,9 @@
                 android:id="@+id/row2Category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp">
 
                 <RelativeLayout
                     android:id="@+id/makanan"
@@ -176,7 +186,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/makanan"/>
+                        android:text="@string/makanan"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -200,7 +213,10 @@
                         android:layout_below="@id/ic_galon_gas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Galon Gas"/>
+                        android:text="Galon Gas"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -224,7 +240,10 @@
                         android:layout_below="@id/ic_sayuran_buah"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sayuran Buah"/>
+                        android:text="Sayuran Buah"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -234,8 +253,7 @@
                 android:id="@+id/row3Category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/row2Category"
-                android:layout_marginLeft="15dp">
+                android:layout_toRightOf="@id/row2Category">
 
                 <RelativeLayout
                     android:id="@+id/minuman"
@@ -255,7 +273,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/minuman"/>
+                        android:text="@string/minuman"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -279,7 +300,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/rokok"/>
+                        android:text="@string/rokok"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -303,7 +327,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="Kebersihan"/>
+                        android:text="Kebersihan"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/roboto_light"/>
 
                 </RelativeLayout>
 
@@ -312,12 +339,20 @@
         </RelativeLayout>
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/banner_konsumen"
+        android:layout_width="match_parent"
+        android:layout_height="109dp"
+        android:layout_below="@id/menu_utama"
+        android:src="@drawable/banner_konsumen"/>
+
     <TextView
         android:id="@+id/teks_rekomendasi_toko"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/menu_utama"
+        android:layout_below="@id/banner_konsumen"
         android:text="Pilihan Toko"
+        android:layout_marginTop="11dp"
         android:layout_marginLeft="16dp"
         android:textStyle="bold"
         android:textSize="15dp"

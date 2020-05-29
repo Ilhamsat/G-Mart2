@@ -68,10 +68,6 @@ public class ItemAtStoreAdapter extends RecyclerView.Adapter<ItemAtStoreAdapter.
         return viewHolderListItemAtStore;
     }
 
-//    public int jumlahPesanan(int position){
-//        int jumlahPesan = 0;
-//        return jumlahPesan;
-//    }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderListItemAtStore holder, int position) {

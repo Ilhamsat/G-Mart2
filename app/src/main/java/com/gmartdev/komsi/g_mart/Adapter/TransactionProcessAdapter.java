@@ -48,6 +48,8 @@ public class TransactionProcessAdapter extends RecyclerView.Adapter<TransactionP
         }
         holder.totalPriceItems.setText(mData.get(position).getSubtotal_harga());
         holder.status.setText("Dikemas");
+
+
     }
 
     @Override

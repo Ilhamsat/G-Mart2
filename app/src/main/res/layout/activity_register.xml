@@ -36,8 +36,7 @@
                 android:text="Daftar"
                 android:textSize="24dp"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily=""/>
+                android:fontFamily="@font/roboto_medium"/>
 
         </RelativeLayout>
     </FrameLayout>
@@ -98,7 +97,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,7 +144,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +167,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,7 +191,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/roboto_light"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,7 +209,8 @@
                 android:text="Selanjutnya"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_medium"/>
 
         </RelativeLayout>
     </ScrollView>

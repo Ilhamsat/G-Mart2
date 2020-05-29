@@ -28,8 +28,8 @@
                 android:layout_centerInParent="true"
                 android:text="2+"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/roboto_regular"/>
 
         </RelativeLayout>
 
@@ -46,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:text="Indomie, dan 2 barang lainnya"
                 android:textSize="13dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/unitPriceItems"
                 android:layout_width="wrap_content"
@@ -54,8 +55,8 @@
                 android:layout_below="@id/itemsBasket"
                 android:text="Rp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/totalPriceItemsBasket"
                 android:layout_width="wrap_content"
@@ -65,15 +66,16 @@
                 android:layout_marginLeft="4dp"
                 android:text="13000"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/textPengiriman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/totalPriceItemsBasket"
                 android:text="Pengiriman : "
-                android:textSize="13dp"/>
+                android:textSize="13dp"
+                android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/delivery"
                 android:layout_width="wrap_content"
@@ -83,7 +85,7 @@
                 android:text="Offline"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/roboto_medium"/>
 
         </RelativeLayout>
 
@@ -97,7 +99,8 @@
             android:backgroundTint="#FF7878"
             android:text="Batal"
             android:textAllCaps="false"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_medium"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonBeli"
@@ -110,7 +113,8 @@
             app:strokeColor="@color/colorPrimary"
             android:text="Beli"
             android:textAllCaps="false"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_medium"/>
 
     </RelativeLayout>
 

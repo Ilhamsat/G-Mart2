@@ -14,8 +14,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,15 +47,22 @@ public class StoreActivity extends AppCompatActivity{
     List<Nilai> listNilai = new ArrayList<>();
     List<ProductModel> mList = new ArrayList<>();
 
-    String storeName, storeDistance, id_kios, token_konsumen, id_konsumen, id_pengiriman, id_pembayaran, totalHarga, listPesananString;
+    List<String> spinnerItem = new ArrayList<String>();
+
+    String storeName, storeDistance, id_kios, token_konsumen, id_konsumen, id_pengiriman, id_pembayaran, totalHarga, selected_item_spinner, lokasi_kios, latitude, longitude;
+
+    int total_harga_update = 0;
+    int total_harga_peritem = 0;
 
     MaterialButton btnAddBasket;
     TextView storeNameTitle;
     TextView storeAddress;
     TextView totalPesanan;
     TextView totalPriceText;
+    TextView lihatPesanan;
     ImageButton buttonBack, mapStore;
     RelativeLayout popUpLihatKeranjang;
+    Spinner metodePengiriman;
 
     TransactionBasketFragment transactionBasketFragment = new TransactionBasketFragment();
 
@@ -76,6 +86,27 @@ public class StoreActivity extends AppCompatActivity{
         totalPriceText = (TextView) findViewById(R.id.totalPriceText);
         totalPesanan = (TextView) findViewById(R.id.totalItemBuy);
         popUpLihatKeranjang = (RelativeLayout) findViewById(R.id.lihatKeranjang);
+        metodePengiriman = (Spinner) findViewById(R.id.spinnerMetodePengiriman);
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>  (this,R.layout.spinner_item_metode_pengiriman, spinnerItem);
+        spinnerItem.add("Diantar");
+        spinnerItem.add("Diambil");
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        metodePengiriman.setAdapter(dataAdapter);
+        AdapterView.OnItemSelectedListener myListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = adapterView.getItemAtPosition(i).toString();
+                selected_item_spinner = item;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                adapterView.setSelection(0);
+                selected_item_spinner = "Diantar";
+            }
+        };
+        metodePengiriman.setOnItemSelectedListener(myListener);
 
         buttonBack = (ImageButton) findViewById(R.id.backInStore);
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +124,16 @@ public class StoreActivity extends AppCompatActivity{
                         for (int j = 0; j < listNilai.size(); j++){
                             if(Integer.parseInt(listNilai.get(j).getJumlah_pesan()) != 0){
                                 listNilaiFix.add(new Nilai(listNilai.get(j).getId_produkkios(), listNilai.get(j).getJumlah_pesan(), listNilai.get(j).getHarga()));
+                                total_harga_peritem = Integer.parseInt(listNilai.get(j).getJumlah_pesan()) * Integer.parseInt(listNilai.get(j).getHarga());
+                                total_harga_update = total_harga_update + total_harga_peritem;
                             }
+                        }
+                    if(selected_item_spinner == "Diantar"){
+                        id_pengiriman = "1";
+                    }else if(selected_item_spinner == "Diambil"){
+                        id_pengiriman = "2";
                     }
+                        totalPriceText.setText(String.valueOf(total_harga_update));
                         createPesanan();
                         totalPesanan.setText(String.valueOf(listNilaiFix.size()) + " " +"Pesanan");
                         popUpLihatKeranjang.setVisibility(View.VISIBLE);
@@ -109,10 +148,25 @@ public class StoreActivity extends AppCompatActivity{
         mapStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: latitude " + latitude);
+                Log.d(TAG, "onClick: longitude " + longitude);
                 Intent intent = new Intent(StoreActivity.this, MapsActivity.class);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude",longitude);
                 startActivity(intent);
             }
         });
+
+        lihatPesanan = (TextView) findViewById(R.id.textLihatPesanan);
+        lihatPesanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(StoreActivity.this, "Silahkan ke bagian Transaksi", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(StoreActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 //        mList = new ArrayList<>();
 //        mList.add(new ItemAtStoreModel("Beras", "25000"));
@@ -154,6 +208,10 @@ public class StoreActivity extends AppCompatActivity{
             public void onResponse(Call<GetProductModel> call, Response<GetProductModel> response) {
 
                 if(response.body().getResult() != null){
+                    lokasi_kios = response.body().getLokasi_kios();
+                    String[] parts = lokasi_kios.split(",");
+                    latitude = parts[0];
+                    longitude = parts[1];
 
                     List<ProductModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getMessage());
@@ -196,7 +254,6 @@ public class StoreActivity extends AppCompatActivity{
         token_konsumen = sharedPreferences.getString("token", null);
         id_konsumen = sharedPreferences.getString("id_konsumen", null);
         id_pembayaran = "1";
-        id_pengiriman = "1";
 
         JSONArray jsonArray = new JSONArray();
             try {
