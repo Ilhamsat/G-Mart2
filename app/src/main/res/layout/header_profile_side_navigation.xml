@@ -18,6 +18,7 @@
         android:layout_centerHorizontal="true"/>
 
     <TextView
+        android:id="@+id/headerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Haruna Kawaguchi"
@@ -26,6 +27,7 @@
         android:fontFamily="@font/roboto_medium"/>
 
     <TextView
+        android:id="@+id/headerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="harunakawaguchi@gmail.com"

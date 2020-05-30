@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    TextView phoneNumber, address, name, email;
+    TextView phoneNumber, address, name, email, headerName, headerEmail;
 
 
     Activity context;
@@ -47,6 +47,10 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
 
         drawerLayout = (DrawerLayout) v.findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) v.findViewById(R.id.navigation_view_profile);
+        View headerView = navigationView.getHeaderView(0);
+
+        headerName = headerView.findViewById(R.id.headerName);
+        headerEmail = headerView.findViewById(R.id.headerEmail);
 
         phoneNumber = (TextView) v.findViewById(R.id.profile_number_phone);
         address = (TextView) v.findViewById(R.id.profile_address);
@@ -56,7 +60,8 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
 
 
-
+        headerName.setText(sharedPreferences.getString("nama",null));
+        headerEmail.setText(sharedPreferences.getString("email",null));
         phoneNumber.setText(sharedPreferences.getString("no_hp",null));
         address.setText(sharedPreferences.getString("alamat",null));
         name.setText(sharedPreferences.getString("nama",null));
