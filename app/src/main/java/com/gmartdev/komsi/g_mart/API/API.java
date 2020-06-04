@@ -6,6 +6,7 @@ import com.gmartdev.komsi.g_mart.Class.Nilai;
 import com.gmartdev.komsi.g_mart.Model.CartModel;
 import com.gmartdev.komsi.g_mart.Model.GetCartModel;
 import com.gmartdev.komsi.g_mart.Model.GetConsumerModel;
+import com.gmartdev.komsi.g_mart.Model.GetKiosTerdekatModel;
 import com.gmartdev.komsi.g_mart.Model.GetLoginModel;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.GetProduckPesananDetailModel;
@@ -132,16 +133,6 @@ public interface API {
             @Field("token") String token
     );
 
-//    @Multipart
-//    @POST("produk/post_create_keranjang.php")
-//    Call<GetCartModel> setNewKeranjang(
-//            @Part("id_pembayaran") String id_pembayaran,
-//            @Part("id_pengiriman") String id_pengiriman,
-//            @Part("id_kios") String id_kios,
-//            @Part("id_konsumen") String id_konsumen,
-//            @Body JSONArray cart,
-//            @Part("token") String token
-//    );
 
     @FormUrlEncoded
     @POST("produk/post_create_keranjang.php")
@@ -193,6 +184,22 @@ public interface API {
             @Field("token") String token
     );
 
+    @FormUrlEncoded
+    @POST("konsumen/post_rating_kios.php")
+    Call<GetProduckPesananDetailModel> postRatingKios(
+            @Field("token") String token,
+            @Field("id_konsumen") String id_konsumen,
+            @Field("id_kios") String id_kios,
+            @Field("rating") String rating,
+            @Field("id_order") String id_order
+    );
 
+    @FormUrlEncoded
+    @POST("map/get_lokasi_terdekat.php")
+    Call<GetKiosTerdekatModel> kiosTerdekat(
+            @Field("lat") String lat,
+            @Field("long") String longitude,
+            @Field("radius") String radius
+    );
 
 }

@@ -9,6 +9,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +17,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.DetailPesananRiwayatAdapter;
 import com.gmartdev.komsi.g_mart.Model.DetailPesananRiwayatModel;
+import com.gmartdev.komsi.g_mart.Model.GetKiosTerdekatModel;
 import com.gmartdev.komsi.g_mart.Model.GetProduckPesananDetailModel;
 import com.gmartdev.komsi.g_mart.Model.ItemAtStoreModel;
 import com.gmartdev.komsi.g_mart.Model.ProductPesananDetailModel;
@@ -33,7 +36,7 @@ public class DetailPesananRiwayatActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailRiwayat";
 
-    String nama_kios, alamat_konsumen, id_order, token_konsumen, id_konsumen;
+    String nama_kios, alamat_konsumen, id_order, token_konsumen, id_konsumen, id_kios, rating;
     float ratingPenilaian = 0;
 
     TextView textStoreName, alamatPengiriman;
@@ -75,7 +78,7 @@ public class DetailPesananRiwayatActivity extends AppCompatActivity {
         simpanRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: rating dari pesanan ini = " + ratingPenilaian);
+                postRatingKios();
             }
         });
 
@@ -120,5 +123,37 @@ public class DetailPesananRiwayatActivity extends AppCompatActivity {
         });
 
     }
+
+    private void postRatingKios(){
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        id_order = getIntent().getStringExtra("id_order");
+        id_kios = getIntent().getStringExtra("id_kios");
+        id_konsumen = sharedPreferences.getString("id_konsumen", null);
+        token_konsumen = sharedPreferences.getString("token", null);
+        rating = String.valueOf(ratingPenilaian);
+        Call<GetProduckPesananDetailModel> callApi = api.postRatingKios(token_konsumen, id_konsumen, id_kios, rating, id_order);
+        callApi.enqueue(new Callback<GetProduckPesananDetailModel>() {
+            @Override
+            public void onResponse(Call<GetProduckPesananDetailModel> call, Response<GetProduckPesananDetailModel> response) {
+                if (response.isSuccessful()){
+                    Log.d(TAG, "onResponse: Rating untuk kios ini = " + rating);
+                    Toast.makeText(DetailPesananRiwayatActivity.this, "Terima Kasih atas Penilaiannya", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DetailPesananRiwayatActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Log.d(TAG, "onResponse: Gagal Memberikan rating untuk Pesanan ini");
+                    response.body().getMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetProduckPesananDetailModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+
 }
 

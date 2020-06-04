@@ -354,9 +354,24 @@
         android:text="Pilihan Toko"
         android:layout_marginTop="11dp"
         android:layout_marginLeft="16dp"
-        android:textStyle="bold"
         android:textSize="15dp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_bold"/>
+
+    <TextView
+        android:id="@+id/kiosTerdekatIsEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teks_rekomendasi_toko"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="Tidak ada kios dalam jangkauan 1,5 km dari posisi mu saat ini."
+        android:textSize="15dp"
+        android:fontFamily="@font/roboto_medium"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/store_recommendation"

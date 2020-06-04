@@ -233,6 +233,8 @@ public class StoreActivity extends AppCompatActivity{
                     recyclerView.setLayoutManager(new LinearLayoutManager(StoreActivity.this));
 
                 }else {
+                    storeNameTitle.setText(getIntent().getStringExtra("nama_kios"));
+                    storeAddress.setText(getIntent().getStringExtra("alamat_kios"));
                     Log.d(TAG, "Code :" + id_kios);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                 }
