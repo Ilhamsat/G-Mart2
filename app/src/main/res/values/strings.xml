@@ -62,4 +62,9 @@
         <item>Diambil</item>
     </string-array>
 
+    <string name="keranjangIsEmpty">Anda belum mengisi keranjang</string>
+    <string name="menungguIsEmpty">Tidak ada pesanan yang Anda tunggu</string>
+    <string name="diprosesIsEmpty">Tidak ada pesanan yang sedang Dikemas</string>
+    <string name="riwayatIsEmpty">Anda tidak memiliki riwayat pesanan yang belum Anda nilai</string>
+
 </resources>

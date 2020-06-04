@@ -13,6 +13,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ProgressBar
+                android:id="@+id/progressBarProcess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:indeterminateDrawable="@drawable/progress_bar"/>
+
+            <TextView
+                android:id="@+id/teksMenungguIsEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:textAlignment="center"
+                android:text="@string/menungguIsEmpty"
+                android:textSize="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/teksProsesIsEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/teksMenungguIsEmpty"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:textAlignment="center"
+                android:text="@string/diprosesIsEmpty"
+                android:textSize="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:visibility="gone"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menunggu"
                 android:layout_width="match_parent"

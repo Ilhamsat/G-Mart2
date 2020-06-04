@@ -358,6 +358,14 @@
         android:textColor="@color/black"
         android:fontFamily="@font/roboto_bold"/>
 
+    <ProgressBar
+        android:id="@+id/progressBarKiosTerdekat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teks_rekomendasi_toko"
+        android:layout_marginTop="12dp"
+        android:indeterminateDrawable="@drawable/progress_bar"/>
+
     <TextView
         android:id="@+id/kiosTerdekatIsEmpty"
         android:layout_width="wrap_content"

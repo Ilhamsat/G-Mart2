@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.TransactionBasketAdapter;
@@ -49,6 +51,9 @@ public class TransactionBasketFragment extends Fragment {
     private RecyclerView recyclerView;
     String id_konsumen, token_konsumen;
 
+    ProgressBar progressBar;
+    TextView keranjangIsEmpty;
+
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://gmart.vokasidev.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -70,7 +75,8 @@ public class TransactionBasketFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_transaction_basket, container, false);
         
-
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBarKeranjang);
+        keranjangIsEmpty = (TextView) v.findViewById(R.id.teksKeranjangIsEmpty);
         recyclerView = (RecyclerView) v.findViewById(R.id.basket);
 //        TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(),mList);
 //        recyclerView.setAdapter(transactionBasketAdapter);
@@ -108,7 +114,6 @@ public class TransactionBasketFragment extends Fragment {
                 if (response.body().getResult() != null) {
                     List<PesananModel> list = response.body().getResult();
 
-
                     Log.d(TAG, "Code :" + response.body().getResult());
                     for (PesananModel pesananModel : list) {
                         List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
@@ -120,11 +125,14 @@ public class TransactionBasketFragment extends Fragment {
                     }
                     Log.d(TAG, "Data " + mList);
 
+                    progressBar.setVisibility(View.GONE);
+                    keranjangIsEmpty.setVisibility(View.GONE);
                     TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(), mList);
                     recyclerView.setAdapter(transactionBasketAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
+                    keranjangIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     Log.d(TAG, "Code :" + id_konsumen);
                     Log.d(TAG, "Code :" + token_konsumen);

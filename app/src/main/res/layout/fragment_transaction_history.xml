@@ -6,6 +6,28 @@
     tools:context=".Fragment.TransactionHistoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ProgressBar
+        android:id="@+id/progressBarRiwayat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:indeterminateDrawable="@drawable/progress_bar"/>
+
+    <TextView
+        android:id="@+id/teksRiwayatIsEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textAlignment="center"
+        android:text="@string/riwayatIsEmpty"
+        android:textSize="15dp"
+        android:fontFamily="@font/roboto_medium"
+        android:visibility="gone"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/history"
         android:layout_width="match_parent"

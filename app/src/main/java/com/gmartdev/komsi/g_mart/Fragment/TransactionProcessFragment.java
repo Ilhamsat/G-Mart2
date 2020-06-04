@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.TransactionProcessAdapter;
@@ -45,6 +47,8 @@ public class TransactionProcessFragment extends Fragment {
     Activity context;
     private List<ProductDetailPesananModel> mDataProduk ;
 
+    TextView menungguIsEmpty, diprosesIsEmpty;
+    ProgressBar progressBar;
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewMenunggu;
     private RecyclerView recyclerViewDiantar;
@@ -73,6 +77,9 @@ public class TransactionProcessFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_transaction_process, container, false);
 
+        menungguIsEmpty = (TextView) v.findViewById(R.id.teksMenungguIsEmpty);
+        diprosesIsEmpty = (TextView) v.findViewById(R.id.teksProsesIsEmpty);
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBarProcess);
         recyclerView = (RecyclerView) v.findViewById(R.id.process);
         recyclerViewMenunggu = (RecyclerView) v.findViewById(R.id.menunggu);
 //        recyclerViewDiantar = (RecyclerView) v.findViewById(R.id.diantar);
@@ -118,11 +125,15 @@ public class TransactionProcessFragment extends Fragment {
                     }
                     Log.d(TAG, "Data " + mList);
 
+                    progressBar.setVisibility(View.GONE);
+                    diprosesIsEmpty.setVisibility(View.GONE);
+                    menungguIsEmpty.setVisibility(View.GONE);
                     TransactionProcessAdapter transactionProcessAdapter = new TransactionProcessAdapter(getContext(),mList);
                     recyclerView.setAdapter(transactionProcessAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
+                    diprosesIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     Log.d(TAG, "Code :" + id_konsumen);
                     Log.d(TAG, "Code :" + token_konsumen);
@@ -160,11 +171,15 @@ public class TransactionProcessFragment extends Fragment {
                     }
                     Log.d(TAG, "Data Menunggu" + mListMenunggu);
 
+                    progressBar.setVisibility(View.GONE);
+                    menungguIsEmpty.setVisibility(View.GONE);
+                    diprosesIsEmpty.setVisibility(View.GONE);
                     TransactionProcessMenungguAdapter transactionProcessMenungguAdapter = new TransactionProcessMenungguAdapter(getContext(),mListMenunggu);
                     recyclerViewMenunggu.setAdapter(transactionProcessMenungguAdapter);
                     recyclerViewMenunggu.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
+                    menungguIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     Log.d(TAG, "Code :" + id_konsumen);
                     Log.d(TAG, "Code :" + token_konsumen);

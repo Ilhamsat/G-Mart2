@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,7 @@ public class HomeFragment extends Fragment {
 
     TextView kiosTerdekatIsEmpty, teksRekomendasiToko;
     private RecyclerView recyclerView;
+    ProgressBar progressBar;
 
     FusedLocationProviderClient mFusedLocationClient;
 
@@ -94,6 +96,7 @@ public class HomeFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBarKiosTerdekat);
         kiosTerdekatIsEmpty = (TextView) v.findViewById(R.id.kiosTerdekatIsEmpty);
         teksRekomendasiToko = (TextView) v.findViewById(R.id.teks_rekomendasi_toko);
         teksRekomendasiToko.setText("Pilihan Toko ( dalam jangkauan " + radiusDalamKm + " km )");
@@ -337,12 +340,14 @@ public class HomeFragment extends Fragment {
                     }
                     Log.d(TAG, "Data " + mList);
 
+                    progressBar.setVisibility(View.GONE);
                     StoreRecommendationAdapter storeRecommendationAdapter = new StoreRecommendationAdapter(getContext(),mList);
                     recyclerView.setAdapter(storeRecommendationAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
                     kiosTerdekatIsEmpty.setText("Tidak ada kios dalam jangkauan " + radiusDalamKm + " km dari posisi Anda saat ini.");
+                    progressBar.setVisibility(View.GONE);
                     kiosTerdekatIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code KiosTerdekat : " + response.body().getMessage());
                 }

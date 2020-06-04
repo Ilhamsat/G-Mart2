@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.TransactionHistoryAdapter;
@@ -45,6 +47,8 @@ public class TransactionHistoryFragment extends Fragment {
 
     int images[] = {R.drawable.ic_success_white,R.drawable.ic_not_success_white};
 
+    TextView riwayatIsEmpty;
+    ProgressBar progressBar;
     private RecyclerView recyclerView;
     String id_konsumen, token_konsumen;
 
@@ -69,6 +73,8 @@ public class TransactionHistoryFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_transaction_history, container, false);
 
+        riwayatIsEmpty = (TextView) v.findViewById(R.id.teksRiwayatIsEmpty);
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBarRiwayat);
         recyclerView = (RecyclerView) v.findViewById(R.id.history);
 
 
@@ -113,11 +119,14 @@ public class TransactionHistoryFragment extends Fragment {
                     }
                     Log.d(TAG, "Data " + mList);
 
+                    progressBar.setVisibility(View.GONE);
+                    riwayatIsEmpty.setVisibility(View.GONE);
                     TransactionHistoryAdapter transactionHistoryAdapter = new TransactionHistoryAdapter(getContext(),mList);
                     recyclerView.setAdapter(transactionHistoryAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
+                    riwayatIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     Log.d(TAG, "Code :" + id_konsumen);
                     Log.d(TAG, "Code :" + token_konsumen);
