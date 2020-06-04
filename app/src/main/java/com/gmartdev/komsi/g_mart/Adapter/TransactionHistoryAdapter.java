@@ -58,6 +58,9 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
                 Intent intent = new Intent(mContext, DetailPesananRiwayatActivity.class);
 //                intent.putExtra("storeName", mData.get(position).getStoreName());
 //                intent.putExtra("storeDistance", mData.get(position).getDistance());
+                intent.putExtra("id_order", mData.get(position).getId_order());
+                intent.putExtra("nama_kios", mData.get(position).getNama_kios());
+                intent.putExtra("alamat_konsumen", mData.get(position).getAlamat_konsumen());
                 mContext.startActivity(intent);
             }
         });

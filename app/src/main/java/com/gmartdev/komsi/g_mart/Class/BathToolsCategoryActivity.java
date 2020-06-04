@@ -11,6 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 
 import com.gmartdev.komsi.g_mart.API.API;
@@ -18,6 +20,7 @@ import com.gmartdev.komsi.g_mart.Adapter.ItemStoreCategoryAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetProductCategoryModel;
 import com.gmartdev.komsi.g_mart.Model.ProductCategoryModel;
 import com.gmartdev.komsi.g_mart.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +30,12 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class BathToolsCategoryActivity extends AppCompatActivity {
 
     List<ProductCategoryModel> mList = new ArrayList<>();
+    ItemStoreCategoryAdapter itemStoreCategoryAdapter;
 
     private RecyclerView recyclerView;
     String id_konsumen, token_konsumen;
+
+    TextInputLayout searchBathTools;
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://gmart.vokasidev.com/api/")
@@ -42,6 +48,26 @@ public class BathToolsCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bath_tools_category);
+
+        searchBathTools = (TextInputLayout) findViewById(R.id.searchBathTools);
+        searchBathTools.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                itemStoreCategoryAdapter.getFilter().filter(charSequence);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.listItemBathTools);
 
@@ -66,7 +92,7 @@ public class BathToolsCategoryActivity extends AppCompatActivity {
                     }
                     Log.d(TAG, "Data " + mList);
 
-                    ItemStoreCategoryAdapter itemStoreCategoryAdapter = new ItemStoreCategoryAdapter(BathToolsCategoryActivity.this, mList);
+                    itemStoreCategoryAdapter = new ItemStoreCategoryAdapter(BathToolsCategoryActivity.this, mList);
                     recyclerView.setAdapter(itemStoreCategoryAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(BathToolsCategoryActivity.this));
 

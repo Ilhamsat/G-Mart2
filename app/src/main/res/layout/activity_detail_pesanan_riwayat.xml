@@ -26,7 +26,7 @@
                 android:background="#FFFFFF"/>
 
             <TextView
-                android:id="@+id/textRegister"
+                android:id="@+id/textDetailPesananRiwayat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -130,8 +130,9 @@
             android:layout_below="@id/textRating"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
-            android:isIndicator="true"
-            android:rating="3.5"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="0"
             android:stepSize="0.5"
             android:progressTint="@color/colorPrimary"
             android:progressBackgroundTint="#DADADA"/>

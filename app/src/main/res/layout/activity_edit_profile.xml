@@ -24,7 +24,7 @@
                 android:layout_width="77dp"
                 android:layout_height="77dp"
                 android:layout_marginTop="26dp"
-                android:src="@drawable/haruna_kawaguchi"
+                android:src="@drawable/profil_photo_default"
                 app:civ_border_width="0dp"
                 app:civ_border_color="#FF000000"
                 android:layout_centerHorizontal="true"/>
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="7dp"
-                android:text="Haruna Kawaguchi"
+                android:text="Kios Rakyat"
                 android:textSize="15dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/roboto_medium"/>
@@ -85,7 +85,7 @@
                     android:hint="Tanggal Lahir (YYYY-MM-DD)"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="#DADADA"
-                    app:startIconDrawable="@drawable/ic_hp_gray"
+                    app:startIconDrawable="@drawable/ic_date_gray"
                     app:hintTextColor="@color/black"
                     app:errorEnabled="true"
                     app:counterEnabled="true"

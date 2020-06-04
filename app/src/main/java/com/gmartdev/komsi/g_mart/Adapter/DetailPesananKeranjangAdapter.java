@@ -62,7 +62,7 @@ public class DetailPesananKeranjangAdapter extends RecyclerView.Adapter<DetailPe
     public void onBindViewHolder(@NonNull ViewHolderDetailPesananKeranjang holder, int position) {
         mNilai.add(new Nilai(mData.get(position).getId_produkkios(), String.valueOf(jumlahPesan[position]), mData.get(position).getHarga()));
         helperKeranjang.setValues(mNilai);
-        holder.itemName.setText(mData.get(position).getMerk() + "" + mData.get(position).getNama_produk());
+        holder.itemName.setText(mData.get(position).getMerk() + " " + mData.get(position).getNama_produk());
         holder.itemPrice.setText(mData.get(position).getHarga());
         holder.totalItem.setText(mData.get(position).getJumlah_pesan());
         holder.totalPrice.setText(String.valueOf(totalPrice(position)));

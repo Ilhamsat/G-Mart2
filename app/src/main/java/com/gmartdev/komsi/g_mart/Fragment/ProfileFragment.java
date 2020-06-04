@@ -33,8 +33,9 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    TextView phoneNumber, address, name, email, headerName, headerEmail;
+    TextView phoneNumber, address, name, email, headerName, headerEmail, dateOfBirth;
 
+    String year, month, day, birth, monthIndo;
 
     Activity context;
 
@@ -56,6 +57,7 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
         address = (TextView) v.findViewById(R.id.profile_address);
         name = (TextView) v.findViewById(R.id.profile_name);
         email = (TextView) v.findViewById(R.id.profile_email);
+        dateOfBirth = (TextView) v.findViewById(R.id.profile_date_of_birth);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
 
@@ -66,6 +68,41 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
         address.setText(sharedPreferences.getString("alamat",null));
         name.setText(sharedPreferences.getString("nama",null));
         email.setText(sharedPreferences.getString("email",null));
+        birth = sharedPreferences.getString("date", "1995-2-10");
+
+        String[] parts = birth.split("-");
+        year = parts[0];
+        month = parts[1];
+        day = parts[2];
+        if(month.equals("1")){
+            monthIndo = "Januari";
+        }else if(month.equals("2")){
+            monthIndo = "Februari";
+        }else if(month.equals("3")){
+            monthIndo = "Maret";
+        }else if(month.equals("4")){
+            monthIndo = "April";
+        }else if(month.equals("5")){
+            monthIndo = "Mei";
+        }else if(month.equals("6")){
+            monthIndo = "Juni";
+        }else if(month.equals("7")){
+            monthIndo = "Juli";
+        }else if(month.equals("8")){
+            monthIndo = "Agustus";
+        }else if(month.equals("9")){
+            monthIndo = "September";
+        }else if(month.equals("10")){
+            monthIndo = "Oktober";
+        }else if(month.equals("11")){
+            monthIndo = "November";
+        }else if(month.equals("12")){
+            monthIndo = "Desember";
+        }else {
+            monthIndo = month;
+        }
+
+        dateOfBirth.setText(day + " " + monthIndo + " " + year);
 
         navigationView.bringToFront();
 

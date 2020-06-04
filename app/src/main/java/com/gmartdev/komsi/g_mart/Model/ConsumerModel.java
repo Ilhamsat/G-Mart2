@@ -16,6 +16,10 @@ public class ConsumerModel {
     private String alamat;
     @SerializedName("rating")
     private String rating;
+    @SerializedName("tanggal_lahir")
+    private String tanggal_lahir;
+    @SerializedName("token")
+    private String token;
 
     public ConsumerModel(){
 
@@ -78,4 +82,19 @@ public class ConsumerModel {
         this.rating = rating;
     }
 
+    public String getTanggal_lahir() {
+        return tanggal_lahir;
+    }
+
+    public void setTanggal_lahir(String tanggal_lahir) {
+        this.tanggal_lahir = tanggal_lahir;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

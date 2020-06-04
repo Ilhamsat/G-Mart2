@@ -68,6 +68,13 @@ public interface API {
     );
 
     @FormUrlEncoded
+    @POST("konsumen/get_profile_konsumen.php")
+    Call<GetConsumerModel> getProfileConsumer(
+            @Field("id_konsumen") String id_konsumen,
+            @Field("token") String token
+    );
+
+    @FormUrlEncoded
     @POST("konsumen/update_konsumen_token.php")
     Call<GetConsumerModel> updateConsumerToken(
             @Field("id_konsumen") String id_konsumen,
@@ -185,5 +192,7 @@ public interface API {
             @Field("cart") JSONArray cart,
             @Field("token") String token
     );
+
+
 
 }
