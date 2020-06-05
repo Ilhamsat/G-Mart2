@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Model.DetailPesananRiwayatModel;
 import com.gmartdev.komsi.g_mart.Model.ProductPesananDetailModel;
 import com.gmartdev.komsi.g_mart.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class DetailPesananRiwayatAdapter extends RecyclerView.Adapter<DetailPesa
         holder.itemPrice.setText(mData.get(position).getHarga());
         holder.totalItem.setText(mData.get(position).getJumlah_pesan());
         holder.totalPrice.setText(String.valueOf(totalPrice(position)));
+//        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImage);
     }
 
     @Override
@@ -57,6 +60,7 @@ public class DetailPesananRiwayatAdapter extends RecyclerView.Adapter<DetailPesa
         private TextView itemPrice;
         private TextView totalItem;
         private TextView totalPrice;
+        private ImageView itemImage;
 
         public ViewHolderDetailPesananRiwayat(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +69,7 @@ public class DetailPesananRiwayatAdapter extends RecyclerView.Adapter<DetailPesa
             itemPrice = itemView.findViewById(R.id.priceItemDetailPesananRiwayat);
             totalItem = itemView.findViewById(R.id.jumlah);
             totalPrice = itemView.findViewById(R.id.textTotalPrice);
+            itemImage = itemView.findViewById(R.id.imgItemDetailPesananRiwayat);
 
         }
     }

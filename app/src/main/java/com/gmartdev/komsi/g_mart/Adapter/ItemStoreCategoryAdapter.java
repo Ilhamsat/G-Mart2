@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Class.StoreActivity;
@@ -14,6 +16,7 @@ import com.gmartdev.komsi.g_mart.Model.ItemStoreCategoryModel;
 import com.gmartdev.komsi.g_mart.Model.ProductCategoryModel;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.button.MaterialButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +50,8 @@ public class ItemStoreCategoryAdapter extends RecyclerView.Adapter<ItemStoreCate
         holder.itemName.setText(mDataFiltered.get(position).getNama_produk());
         holder.itemPrice.setText(mDataFiltered.get(position).getHarga());
         holder.storeName.setText(mDataFiltered.get(position).getNama_kios());
+        holder.ratingItem.setRating(Float.parseFloat(mData.get(position).getRating()));
+        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImage);
         holder.storeDistance.setText("?");
         holder.buttonSelected.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +116,8 @@ public class ItemStoreCategoryAdapter extends RecyclerView.Adapter<ItemStoreCate
         private TextView itemPrice;
         private TextView storeName;
         private TextView storeDistance;
-
+        private RatingBar ratingItem;
+        private ImageView itemImage;
         private MaterialButton buttonSelected;
 
         public ViewHolderListItemCategory(@NonNull View itemView) {
@@ -123,6 +129,8 @@ public class ItemStoreCategoryAdapter extends RecyclerView.Adapter<ItemStoreCate
             storeName = itemView.findViewById(R.id.text_store_item_name);
             storeDistance = itemView.findViewById(R.id.text_store_item_distance);
             buttonSelected = itemView.findViewById(R.id.buttonSelected);
+            ratingItem = itemView.findViewById(R.id.ratingItem);
+            itemImage = itemView.findViewById(R.id.itemImage);
 
         }
     }

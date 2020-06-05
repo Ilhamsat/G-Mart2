@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import com.gmartdev.komsi.g_mart.Model.CartModel;
 import com.gmartdev.komsi.g_mart.Model.ProductModel;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.button.MaterialButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +38,6 @@ public class ItemAtStoreAdapter extends RecyclerView.Adapter<ItemAtStoreAdapter.
     HelperKeranjang helperKeranjang;
 
     List<Nilai> mNilai = new ArrayList<>();
-    List<CartModel> mCart = new ArrayList<>();
 
     public ItemAtStoreAdapter() {
     }
@@ -73,6 +74,10 @@ public class ItemAtStoreAdapter extends RecyclerView.Adapter<ItemAtStoreAdapter.
     public void onBindViewHolder(@NonNull ViewHolderListItemAtStore holder, int position) {
 
         mNilai.add(new Nilai(mData.get(position).getId_produkkios(), String.valueOf(jumlahPesan[position]), mData.get(position).getHarga()));
+
+//        holder.itemImageAtStore.setImageResource("");
+        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImageAtStore);
+//        Picasso.get().load("https://cf.shopee.co.id/file/4127f546911719cb67003644e9895fa9").into(holder.itemImageAtStore);
 
         holder.itemName.setText(mData.get(position).getMerk() + " " + mData.get(position).getNama_produk());
         holder.itemPrice.setText(mData.get(position).getHarga());
@@ -162,6 +167,7 @@ public class ItemAtStoreAdapter extends RecyclerView.Adapter<ItemAtStoreAdapter.
         private ImageButton reduce;
         private ImageButton add;
         private TextView numberOrders;
+        private ImageView itemImageAtStore;
 
         public ViewHolderListItemAtStore(@NonNull View itemView) {
             super(itemView);
@@ -173,6 +179,7 @@ public class ItemAtStoreAdapter extends RecyclerView.Adapter<ItemAtStoreAdapter.
             reduce = itemView.findViewById(R.id.reduce);
             add = itemView.findViewById(R.id.add);
             numberOrders = itemView.findViewById(R.id.textNumberOrders);
+            itemImageAtStore = itemView.findViewById(R.id.itemImageAtStore);
 
         }
     }

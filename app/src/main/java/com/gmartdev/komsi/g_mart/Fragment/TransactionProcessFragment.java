@@ -121,7 +121,7 @@ public class TransactionProcessFragment extends Fragment {
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
                             mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
                         }
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getNo_hp(), pesananModel.getBiaya_kirim()));
                     }
                     Log.d(TAG, "Data " + mList);
 
@@ -167,7 +167,7 @@ public class TransactionProcessFragment extends Fragment {
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
                             mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
                         }
-                        mListMenunggu.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen()));
+                        mListMenunggu.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getNo_hp(), pesananModel.getBiaya_kirim()));
                     }
                     Log.d(TAG, "Data Menunggu" + mListMenunggu);
 

@@ -15,6 +15,7 @@ public class ProductPesananDetailModel {
     @SerializedName("id_produkkios")
     private String id_produkkios;
 
+    //keranjang
     public ProductPesananDetailModel(String nama_produk, String merk, String harga, String jumlah_pesan, String id_produkkios) {
         this.nama_produk = nama_produk;
         this.merk = merk;
@@ -23,6 +24,7 @@ public class ProductPesananDetailModel {
         this.id_produkkios = id_produkkios;
     }
 
+    //riwayat
     public ProductPesananDetailModel(String nama_produk, String merk, String harga, String jumlah_pesan) {
         this.nama_produk = nama_produk;
         this.merk = merk;

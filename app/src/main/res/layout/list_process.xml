@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/listProcess"
@@ -86,6 +88,19 @@
                 android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hubungiKiosByWA"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/contentHistory"
+            app:strokeColor="@color/colorPrimary"
+            android:text="Hubungi Kios"
+            android:textAllCaps="false"
+            android:textSize="10dp"
+            android:fontFamily="@font/roboto_medium"/>
 
     </RelativeLayout>
 

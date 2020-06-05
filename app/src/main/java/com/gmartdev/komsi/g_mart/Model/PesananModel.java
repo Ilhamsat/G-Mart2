@@ -49,8 +49,11 @@ public class PesananModel {
     private String id_pembayaran;
     @SerializedName("id_pengiriman")
     private String id_pengiriman;
+    @SerializedName("no_hp")
+    private String no_hp;
 
 
+    //dipake di transaksi keranjang
     public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String total, String id_keranjang, String cart, String id_kios, String id_pembayaran, String id_pengiriman) {
         this.id_order = id_order;
         this.subtotal_harga = subtotal_harga;
@@ -67,7 +70,20 @@ public class PesananModel {
         this.id_pengiriman = id_pengiriman;
     }
 
-    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String total) {
+//    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String total) {
+//        this.id_order = id_order;
+//        this.subtotal_harga = subtotal_harga;
+//        this.status = status;
+//        this.metode_kirim = metode_kirim;
+//        this.produk = produk;
+//        this.nama_kios = nama_kios;
+//        this.alamat_konsumen = alamat_konsumen;
+//        this.total = total;
+//    }
+
+
+    //dipake di transaksi proses
+    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String no_hp, String biaya_kirim) {
         this.id_order = id_order;
         this.subtotal_harga = subtotal_harga;
         this.status = status;
@@ -75,10 +91,12 @@ public class PesananModel {
         this.produk = produk;
         this.nama_kios = nama_kios;
         this.alamat_konsumen = alamat_konsumen;
-        this.total = total;
+        this.no_hp = no_hp;
+        this.biaya_kirim = biaya_kirim;
     }
 
-    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen) {
+    //dipake di transaksi riwayat
+    public PesananModel(String id_order, String subtotal_harga, String status, String metode_kirim, List<ProductDetailPesananModel> produk, String nama_kios, String alamat_konsumen, String id_kios) {
         this.id_order = id_order;
         this.subtotal_harga = subtotal_harga;
         this.status = status;
@@ -86,6 +104,7 @@ public class PesananModel {
         this.produk = produk;
         this.nama_kios = nama_kios;
         this.alamat_konsumen = alamat_konsumen;
+        this.id_kios = id_kios;
     }
 
 
@@ -247,5 +266,13 @@ public class PesananModel {
 
     public void setId_pengiriman(String id_pengiriman) {
         this.id_pengiriman = id_pengiriman;
+    }
+
+    public String getNo_hp() {
+        return no_hp;
+    }
+
+    public void setNo_hp(String no_hp) {
+        this.no_hp = no_hp;
     }
 }

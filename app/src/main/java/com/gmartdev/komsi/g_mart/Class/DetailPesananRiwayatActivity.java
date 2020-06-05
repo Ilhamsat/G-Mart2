@@ -136,7 +136,8 @@ public class DetailPesananRiwayatActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GetProduckPesananDetailModel> call, Response<GetProduckPesananDetailModel> response) {
                 if (response.isSuccessful()){
-                    Log.d(TAG, "onResponse: Rating untuk kios ini = " + rating);
+
+                    Log.d(TAG, "onResponse: Rating untuk kios ini = " + rating + " dengan id order " + id_order);
                     Toast.makeText(DetailPesananRiwayatActivity.this, "Terima Kasih atas Penilaiannya", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(DetailPesananRiwayatActivity.this, MainActivity.class);
                     startActivity(intent);

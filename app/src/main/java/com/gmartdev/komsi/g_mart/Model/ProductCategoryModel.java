@@ -23,13 +23,17 @@ public class ProductCategoryModel {
     private String nama_kategori;
     @SerializedName("nama_kios")
     private String nama_kios;
+    @SerializedName("rating")
+    private String rating;
 
-    public ProductCategoryModel(String merk, String nama_produk, String harga, String nama_kios, String id_kios) {
+    public ProductCategoryModel(String merk, String nama_produk, String harga, String nama_kios, String id_kios, String rating, String gambar) {
         this.merk = merk;
         this.nama_produk = nama_produk;
         this.harga = harga;
         this.nama_kios = nama_kios;
         this.id_kios = id_kios;
+        this.rating = rating;
+        this.gambar = gambar;
     }
 
     public String getId_produkkios() {
@@ -110,5 +114,13 @@ public class ProductCategoryModel {
 
     public void setNama_kios(String nama_kios) {
         this.nama_kios = nama_kios;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }
