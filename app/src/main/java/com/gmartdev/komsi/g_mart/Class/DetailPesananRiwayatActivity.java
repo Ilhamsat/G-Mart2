@@ -107,7 +107,7 @@ public class DetailPesananRiwayatActivity extends AppCompatActivity {
                     List<ProductPesananDetailModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     for (ProductPesananDetailModel productPesananDetailModel : list){
-                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan()));
+                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan(), productPesananDetailModel.getGambar()));
                     }
 
                     DetailPesananRiwayatAdapter detailPesananRiwayatAdapter = new DetailPesananRiwayatAdapter(DetailPesananRiwayatActivity.this, mList);

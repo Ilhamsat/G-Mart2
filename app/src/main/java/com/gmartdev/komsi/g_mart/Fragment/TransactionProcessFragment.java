@@ -179,6 +179,7 @@ public class TransactionProcessFragment extends Fragment {
                     recyclerViewMenunggu.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
+                    progressBar.setVisibility(View.GONE);
                     menungguIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     Log.d(TAG, "Code :" + id_konsumen);

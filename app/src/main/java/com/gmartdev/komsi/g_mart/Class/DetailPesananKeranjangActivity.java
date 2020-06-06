@@ -183,7 +183,7 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
                     List<ProductPesananDetailModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     for (ProductPesananDetailModel productPesananDetailModel : list){
-                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan(), productPesananDetailModel.getId_produkkios()));
+                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan(), productPesananDetailModel.getId_produkkios(), productPesananDetailModel.getGambar()));
                     }
 
                     HelperKeranjang helperKeranjang = new HelperKeranjang() {

@@ -14,22 +14,26 @@ public class ProductPesananDetailModel {
 
     @SerializedName("id_produkkios")
     private String id_produkkios;
+    @SerializedName("gambar")
+    private String gambar;
 
     //keranjang
-    public ProductPesananDetailModel(String nama_produk, String merk, String harga, String jumlah_pesan, String id_produkkios) {
+    public ProductPesananDetailModel(String nama_produk, String merk, String harga, String jumlah_pesan, String id_produkkios, String gambar) {
         this.nama_produk = nama_produk;
         this.merk = merk;
         this.harga = harga;
         this.jumlah_pesan = jumlah_pesan;
         this.id_produkkios = id_produkkios;
+        this.gambar = gambar;
     }
 
     //riwayat
-    public ProductPesananDetailModel(String nama_produk, String merk, String harga, String jumlah_pesan) {
+    public ProductPesananDetailModel(String nama_produk, String merk, String harga, String jumlah_pesan, String gambar) {
         this.nama_produk = nama_produk;
         this.merk = merk;
         this.harga = harga;
         this.jumlah_pesan = jumlah_pesan;
+        this.gambar = gambar;
     }
 
     public String getNama_produk() {
@@ -70,5 +74,13 @@ public class ProductPesananDetailModel {
 
     public void setId_produkkios(String id_produkkios) {
         this.id_produkkios = id_produkkios;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(String gambar) {
+        this.gambar = gambar;
     }
 }

@@ -132,6 +132,7 @@ public class TransactionBasketFragment extends Fragment {
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
                 } else {
+                    progressBar.setVisibility(View.GONE);
                     keranjangIsEmpty.setVisibility(View.VISIBLE);
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     Log.d(TAG, "Code :" + id_konsumen);

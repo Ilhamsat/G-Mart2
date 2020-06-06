@@ -46,7 +46,7 @@ public class DetailPesananRiwayatAdapter extends RecyclerView.Adapter<DetailPesa
         holder.itemPrice.setText(mData.get(position).getHarga());
         holder.totalItem.setText(mData.get(position).getJumlah_pesan());
         holder.totalPrice.setText(String.valueOf(totalPrice(position)));
-//        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImage);
+        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImage);
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Class.HelperKeranjang;
@@ -12,6 +13,7 @@ import com.gmartdev.komsi.g_mart.Class.Nilai;
 import com.gmartdev.komsi.g_mart.Model.DetailPesananKeranjangModel;
 import com.gmartdev.komsi.g_mart.Model.ProductPesananDetailModel;
 import com.gmartdev.komsi.g_mart.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,7 @@ public class DetailPesananKeranjangAdapter extends RecyclerView.Adapter<DetailPe
     public void onBindViewHolder(@NonNull ViewHolderDetailPesananKeranjang holder, int position) {
         mNilai.add(new Nilai(mData.get(position).getId_produkkios(), String.valueOf(jumlahPesan[position]), mData.get(position).getHarga()));
         helperKeranjang.setValues(mNilai);
+        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImage);
         holder.itemName.setText(mData.get(position).getMerk() + " " + mData.get(position).getNama_produk());
         holder.itemPrice.setText(mData.get(position).getHarga());
         holder.totalItem.setText(mData.get(position).getJumlah_pesan());
@@ -112,6 +115,7 @@ public class DetailPesananKeranjangAdapter extends RecyclerView.Adapter<DetailPe
         private TextView jumlahPesan;
         private ImageButton reduce;
         private ImageButton add;
+        private ImageView itemImage;
 
         public ViewHolderDetailPesananKeranjang(@NonNull View itemView) {
             super(itemView);
@@ -123,6 +127,7 @@ public class DetailPesananKeranjangAdapter extends RecyclerView.Adapter<DetailPe
             jumlahPesan = itemView.findViewById(R.id.textNumberOrders);
             reduce = itemView.findViewById(R.id.reduce);
             add = itemView.findViewById(R.id.add);
+            itemImage = itemView.findViewById(R.id.imgItemDetailPesananKeranjang);
         }
     }
 }
