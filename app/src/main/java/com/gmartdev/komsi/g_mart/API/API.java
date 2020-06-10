@@ -6,6 +6,7 @@ import com.gmartdev.komsi.g_mart.Class.Nilai;
 import com.gmartdev.komsi.g_mart.Model.CartModel;
 import com.gmartdev.komsi.g_mart.Model.GetCartModel;
 import com.gmartdev.komsi.g_mart.Model.GetConsumerModel;
+import com.gmartdev.komsi.g_mart.Model.GetDistanceModel;
 import com.gmartdev.komsi.g_mart.Model.GetKiosTerdekatModel;
 import com.gmartdev.komsi.g_mart.Model.GetLoginModel;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
@@ -28,9 +29,11 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 public interface API {
 
@@ -200,6 +203,14 @@ public interface API {
             @Field("lat") String lat,
             @Field("long") String longitude,
             @Field("radius") String radius
+    );
+
+    @GET("api.php")
+    Call<GetDistanceModel> hitungJarak(
+            @Query("lat1") Double lat1,
+            @Query("long1") Double long1,
+            @Query("lat2") Double lat2,
+            @Query("long2") Double long2
     );
 
 }

@@ -87,12 +87,10 @@
 
                 <ImageButton
                     android:id="@+id/reduce"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_reduce_orange"
-                    android:background="@color/white"
-                    app:strokeColor="@color/colorPrimary"/>
+                    android:background="@drawable/background_reduce"/>
 
 
                 <RelativeLayout
@@ -108,7 +106,8 @@
                         android:layout_centerInParent="true"
                         android:text="1"
                         android:textSize="13dp"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto_regular"/>
 
                 </RelativeLayout>
 
@@ -118,7 +117,7 @@
                     android:layout_height="40dp"
                     android:layout_toRightOf="@id/numberOrders"
                     android:src="@drawable/ic_add_white"
-                    android:background="@color/colorPrimary"/>
+                    android:background="@drawable/background_add"/>
 
             </RelativeLayout>
 

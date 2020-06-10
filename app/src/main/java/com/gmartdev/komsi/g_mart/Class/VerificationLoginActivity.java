@@ -42,6 +42,8 @@ import java.util.concurrent.TimeUnit;
 
 public class VerificationLoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "VerifActivity";
+
     String verificationCodeBySystem, phoneNumber, token, NumberPhone;
 
     TextView textNumberPhone;
@@ -174,6 +176,7 @@ public class VerificationLoginActivity extends AppCompatActivity {
 
                         editor.commit();
 //                        Log.d("token :",token);
+                        Log.d(TAG, "onStart: Yang login = " + FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
                         Log.d("Retrofit set", response.body().getCode() + " "+response.body().getMessage());
                         Intent i = new Intent(VerificationLoginActivity.this, MainActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -221,7 +224,8 @@ public class VerificationLoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if(FirebaseAuth.getInstance().getCurrentUser() !=null){
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            Log.d(TAG, "onStart: Yang login = " + FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber());
             login();
 //            Intent i = new Intent(VerificationLoginActivity.this, MainActivity.class);
 //            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -228,6 +228,13 @@ public class HomeFragment extends Fragment {
                                 if (location == null) {
                                     requestNewLocationData();
                                 } else {
+                                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
+
+                                    SharedPreferences.Editor editor= sharedPreferences.edit();
+                                    editor.putString("latUser", String.valueOf(location.getLatitude()));
+                                    editor.putString("longUser", String.valueOf(location.getLongitude()));
+                                    editor.commit();
+
                                     latitude = String.valueOf(location.getLatitude());
                                     longitude = String.valueOf(location.getLongitude());
                                     Log.d(TAG, "onComplete: User Latitude " + latitude);
@@ -266,6 +273,14 @@ public class HomeFragment extends Fragment {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
+
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
+
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            editor.putString("latUser", String.valueOf(mLastLocation.getLatitude()));
+            editor.putString("longUser", String.valueOf(mLastLocation.getLongitude()));
+            editor.commit();
+
             latitude = String.valueOf(mLastLocation.getLatitude());
             longitude = String.valueOf(mLastLocation.getLongitude());
             Log.d(TAG, "onComplete: User Latitude " + latitude);
@@ -323,8 +338,8 @@ public class HomeFragment extends Fragment {
         Log.d(TAG, "lat: " + latExample);
         Log.d(TAG, "long: " + longExample);
         Log.d(TAG, "radius: " + radius);
-//        Call<GetKiosTerdekatModel> call = api.kiosTerdekat("-7.6687424", "110.6438944", "1500");
-        Call<GetKiosTerdekatModel> call = api.kiosTerdekat(latitude, longitude, radius);
+        Call<GetKiosTerdekatModel> call = api.kiosTerdekat("-7.6687424", "110.6438944", "1500");
+//        Call<GetKiosTerdekatModel> call = api.kiosTerdekat(latitude, longitude, radius);
         call.enqueue(new Callback<GetKiosTerdekatModel>() {
             @Override
             public void onResponse(Call<GetKiosTerdekatModel> call, Response<GetKiosTerdekatModel> response) {

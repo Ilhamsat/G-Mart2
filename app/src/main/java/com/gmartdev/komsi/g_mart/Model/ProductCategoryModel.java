@@ -25,8 +25,12 @@ public class ProductCategoryModel {
     private String nama_kios;
     @SerializedName("rating")
     private String rating;
+    @SerializedName("latitude")
+    private String latitude;
+    @SerializedName("longitude")
+    private String longitude;
 
-    public ProductCategoryModel(String merk, String nama_produk, String harga, String nama_kios, String id_kios, String rating, String gambar) {
+    public ProductCategoryModel(String merk, String nama_produk, String harga, String nama_kios, String id_kios, String rating, String gambar, String latitude, String longitude) {
         this.merk = merk;
         this.nama_produk = nama_produk;
         this.harga = harga;
@@ -34,6 +38,8 @@ public class ProductCategoryModel {
         this.id_kios = id_kios;
         this.rating = rating;
         this.gambar = gambar;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getId_produkkios() {
@@ -122,5 +128,21 @@ public class ProductCategoryModel {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

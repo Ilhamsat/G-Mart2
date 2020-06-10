@@ -43,28 +43,28 @@
 <!--        android:layout_marginRight="20dp"-->
 <!--        android:queryHint="Apa yang kamu cari?"/>-->
 
-    <EditText
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/awan_kanan"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="6dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:background="@drawable/search_layout"
-        android:drawableEnd="@drawable/ic_search_orange"
-        android:hint="@string/search_hint"
-        android:textColor="@color/black"/>
+<!--    <EditText-->
+<!--        android:id="@+id/search_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/awan_kanan"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginRight="16dp"-->
+<!--        android:paddingLeft="8dp"-->
+<!--        android:paddingRight="6dp"-->
+<!--        android:paddingBottom="5dp"-->
+<!--        android:paddingTop="5dp"-->
+<!--        android:background="@drawable/search_layout"-->
+<!--        android:drawableEnd="@drawable/ic_search_orange"-->
+<!--        android:hint="@string/search_hint"-->
+<!--        android:textColor="@color/black"/>-->
 
     <RelativeLayout
         android:id="@+id/menu_utama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/search_view"
+        android:layout_below="@id/logo_home"
         android:background="@drawable/menu_utama_bg">
         <RelativeLayout
             android:layout_width="match_parent"

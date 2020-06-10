@@ -18,6 +18,7 @@ import com.gmartdev.komsi.g_mart.Class.EditProfileActivity;
 import com.gmartdev.komsi.g_mart.Class.PostSplashScreen;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -123,7 +124,9 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
             case R.id.share:
                 break;
             case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
                 Intent intent1 = new Intent(getActivity(), PostSplashScreen.class);
+                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent1);
                 break;
         }

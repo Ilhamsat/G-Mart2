@@ -88,7 +88,7 @@ public class SnackCategoryActivity extends AppCompatActivity {
                     List<ProductCategoryModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     for (ProductCategoryModel productCategoryModel : list){
-                        mList.add(new ProductCategoryModel( productCategoryModel.getNama_produk(), productCategoryModel.getMerk(), productCategoryModel.getHarga(), productCategoryModel.getNama_kios(), productCategoryModel.getId_kios(), productCategoryModel.getRating(), productCategoryModel.getGambar()));
+                        mList.add(new ProductCategoryModel( productCategoryModel.getNama_produk(), productCategoryModel.getMerk(), productCategoryModel.getHarga(), productCategoryModel.getNama_kios(), productCategoryModel.getId_kios(), productCategoryModel.getRating(), productCategoryModel.getGambar(), productCategoryModel.getLatitude(), productCategoryModel.getLongitude()));
                     }
                     Log.d(TAG, "Data " + mList);
 

@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/ic_store_location"
                 android:layout_marginLeft="3dp"
-                android:text="1,3"
+                android:text="0,00"
                 android:textSize="13dp"/>
 
             <TextView
