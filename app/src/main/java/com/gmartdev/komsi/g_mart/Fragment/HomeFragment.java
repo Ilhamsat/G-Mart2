@@ -132,8 +132,6 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-
-
         RelativeLayout sembako = (RelativeLayout) context.findViewById(R.id.sembako);
         sembako.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -338,8 +336,8 @@ public class HomeFragment extends Fragment {
         Log.d(TAG, "lat: " + latExample);
         Log.d(TAG, "long: " + longExample);
         Log.d(TAG, "radius: " + radius);
-        Call<GetKiosTerdekatModel> call = api.kiosTerdekat("-7.6687424", "110.6438944", "1500");
-//        Call<GetKiosTerdekatModel> call = api.kiosTerdekat(latitude, longitude, radius);
+//        Call<GetKiosTerdekatModel> call = api.kiosTerdekat("-7.6687424", "110.6438944", "1500");
+        Call<GetKiosTerdekatModel> call = api.kiosTerdekat(latitude, longitude, radius);
         call.enqueue(new Callback<GetKiosTerdekatModel>() {
             @Override
             public void onResponse(Call<GetKiosTerdekatModel> call, Response<GetKiosTerdekatModel> response) {
@@ -364,7 +362,7 @@ public class HomeFragment extends Fragment {
                     kiosTerdekatIsEmpty.setText("Tidak ada kios dalam jangkauan " + radiusDalamKm + " km dari posisi Anda saat ini.");
                     progressBar.setVisibility(View.GONE);
                     kiosTerdekatIsEmpty.setVisibility(View.VISIBLE);
-                    Log.d(TAG, "Code KiosTerdekat : " + response.body().getMessage());
+                    Log.d(TAG, "Code KiosTerdekat : " + response.body().getCode());
                 }
             }
 

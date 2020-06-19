@@ -28,7 +28,6 @@ import com.gmartdev.komsi.g_mart.Adapter.TransactionProcessMenungguAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
-import com.gmartdev.komsi.g_mart.Model.TransactionProcessModel;
 import com.gmartdev.komsi.g_mart.R;
 
 import java.util.ArrayList;
@@ -95,11 +94,6 @@ public class TransactionProcessFragment extends Fragment {
         callApi();
         callApiMenunggu();
 
-//        mList = new ArrayList<>();
-//        mList.add(new TransactionProcessModel("2+" ,"Indomie, dan 2 barang lainnya","13000", "Dikemas"));
-//        mList.add(new TransactionProcessModel("3+" ,"Gula, dan 3 barang lainnya","20000", "Dikemas"));
-//        mList.add(new TransactionProcessModel("1" ,"Beras 5Kg","50000", "Dikemas"));
-//        mList.add(new TransactionProcessModel("4+" ,"Minyak, dan 4 barang lainnya","13000", "Dikemas"));
     }
 
     private void callApi(){

@@ -51,6 +51,8 @@
         android:text="+6281347591227"
         android:textColor="@color/black"/>
 
+
+
     <EditText
         android:id="@+id/numberVerification"
         android:layout_width="235dp"

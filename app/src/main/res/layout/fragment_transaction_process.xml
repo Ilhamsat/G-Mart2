@@ -52,7 +52,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menunggu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/teksProsesIsEmpty"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/process"
                 android:layout_width="match_parent"

@@ -105,7 +105,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 nama = etName.getEditText().getText().toString();
                 email = etEmail.getEditText().getText().toString();
 
-                if(!validateName() | !validateAddress() | !validateEmail()){
+                if(!validateName() | !validateAddress() | !validateEmail() | !validateBirth()){
                     return;
                 } else{
                     updateProfile();
@@ -114,7 +114,16 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
-
+    private boolean validateBirth(){
+        String Birth = etBirth.getEditText().getText().toString().trim();
+        if(Birth.isEmpty()){
+            etBirth.setError("Field can't be empty");
+            return false;
+        }else {
+            etBirth.setError(null);
+            return true;
+        }
+    }
 
     private boolean validateName(){
         String Name = etName.getEditText().getText().toString().trim();

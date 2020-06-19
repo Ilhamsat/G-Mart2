@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.gmartdev.komsi.g_mart.Class.DetailPesananRiwayatActivity;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
-import com.gmartdev.komsi.g_mart.Model.TransactionHistoryModel;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.button.MaterialButton;
 

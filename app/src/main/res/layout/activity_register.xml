@@ -78,29 +78,83 @@
 <!--                    android:layout_height="wrap_content"/>-->
 <!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/NoTelepon"
+            <RelativeLayout
+                android:id="@+id/containerNoTelpon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:layout_marginLeft="36dp"
-                android:layout_marginRight="36dp"
-                android:hint="No. Telepon"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="#DADADA"
-                app:startIconDrawable="@drawable/ic_hp_gray"
-                app:hintTextColor="@color/black"
-                app:errorEnabled="true"
-                app:counterEnabled="true"
-                app:counterMaxLength="14"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_marginRight="36dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textIndoCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="+62"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="#DADADA"
+                    app:startIconDrawable="@drawable/ic_hp_gray"
+                    app:hintTextColor="@color/black"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_light"
+                        android:enabled="false"
+                        android:hint="+62"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/NoTelepon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_light"/>
+                    android:layout_toRightOf="@id/textIndoCode"
+                    android:hint="No. Telepon"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="#DADADA"
+                    app:hintTextColor="@color/black"
+                    app:errorEnabled="true"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="11"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_light"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </RelativeLayout>
+
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/NoTelepon"-->
+<!--                android:layout_below="@id/containerNoTelpon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="14dp"-->
+<!--                android:layout_marginLeft="36dp"-->
+<!--                android:layout_marginRight="36dp"-->
+<!--                android:hint="No. Telepon"-->
+<!--                android:textColorHint="@color/black"-->
+<!--                app:boxStrokeColor="#DADADA"-->
+<!--                app:startIconDrawable="@drawable/ic_hp_gray"-->
+<!--                app:hintTextColor="@color/black"-->
+<!--                app:errorEnabled="true"-->
+<!--                app:counterEnabled="true"-->
+<!--                app:counterMaxLength="14"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/roboto_light"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 <!--            <com.google.android.material.textfield.TextInputLayout-->
 <!--                android:id="@+id/Password"-->
@@ -134,7 +188,7 @@
                 android:layout_marginLeft="36dp"
                 android:layout_marginRight="36dp"
                 android:hint="Nama"
-                android:layout_below="@id/NoTelepon"
+                android:layout_below="@id/containerNoTelpon"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="#DADADA"
                 app:startIconDrawable="@drawable/ic_name_gray"

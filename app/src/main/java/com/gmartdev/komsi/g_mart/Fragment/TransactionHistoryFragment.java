@@ -27,7 +27,6 @@ import com.gmartdev.komsi.g_mart.Adapter.TransactionHistoryAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
-import com.gmartdev.komsi.g_mart.Model.TransactionHistoryModel;
 import com.gmartdev.komsi.g_mart.R;
 
 import java.util.ArrayList;
@@ -86,12 +85,6 @@ public class TransactionHistoryFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         callApi();
-
-//        mList = new ArrayList<>();
-//        mList.add(new TransactionHistoryModel("Indomie, dan 2 barang lainnya","13000", "Terkirim", images[0]));
-//        mList.add(new TransactionHistoryModel("Rokok Gudang Garam","20000", "Dibatalkan", images[1]));
-//        mList.add(new TransactionHistoryModel("Teh Kotak","5000", "Dibatalkan", images[1]));
-//        mList.add(new TransactionHistoryModel("Galon Aqua","110000", "Terkirim", images[0]));
     }
 
 

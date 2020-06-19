@@ -27,14 +27,12 @@ import com.gmartdev.komsi.g_mart.Adapter.TransactionBasketAdapter;
 import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.Model.ProductDetailPesananModel;
-import com.gmartdev.komsi.g_mart.Model.TransactionBasketModel;
 import com.gmartdev.komsi.g_mart.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,12 +89,6 @@ public class TransactionBasketFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         callApi();
-
-//        mList = new ArrayList<>();
-//        mList.add(new TransactionBasketModel("2+" ,"Indomie, dan 2 barang lainnya","13000", "Diambil"));
-//        mList.add(new TransactionBasketModel("3+" ,"Gula, dan 3 barang lainnya","20000", "Diantar"));
-//        mList.add(new TransactionBasketModel("1" ,"Beras 5Kg","50000", "Diambil"));
-//        mList.add(new TransactionBasketModel("4+" ,"Minyak, dan 4 barang lainnya","13000", "Diantar"));
     }
 
 
