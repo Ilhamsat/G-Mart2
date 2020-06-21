@@ -58,21 +58,22 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                if(FirebaseAuth.getInstance().getCurrentUser() != null){
-                    Log.d(TAG, "run: ");
-                    phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
-                    tokenFirebase = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    String[] parts = phoneNumberUser.split("\\+62");
-                    phoneNumberUserAPI = parts[1];
-                    Log.d(TAG, "run: phoneNumberUserAPI " + phoneNumberUserAPI);
-                    checkKonsumen(phoneNumberUserAPI);
-
-                }else {
-                    Intent i = new Intent(SplashScreen.this, PostSplashScreen.class);
-                    startActivity(i);
-                    // close this activity
-                    finish();
-                }
+                dataDummy();
+//                if(FirebaseAuth.getInstance().getCurrentUser() != null){
+//                    Log.d(TAG, "run: ");
+//                    phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+//                    tokenFirebase = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                    String[] parts = phoneNumberUser.split("\\+62");
+//                    phoneNumberUserAPI = parts[1];
+//                    Log.d(TAG, "run: phoneNumberUserAPI " + phoneNumberUserAPI);
+//                    checkKonsumen(phoneNumberUserAPI);
+//
+//                }else {
+//                    Intent i = new Intent(SplashScreen.this, PostSplashScreen.class);
+//                    startActivity(i);
+//                    // close this activity
+//                    finish();
+//                }
 
             }
         }, SPLASH_TIME_OUT);
@@ -137,7 +138,7 @@ public class SplashScreen extends AppCompatActivity {
 
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("token", response.body().getData().getToken());
-                        editor.putString("no_hp", phoneNumberUserAPI);
+                        editor.putString("no_hp", phoneNumberUser);
 
                         editor.commit();
 //                        Log.d("token :",token);
@@ -186,5 +187,20 @@ public class SplashScreen extends AppCompatActivity {
             }
         });
     }
+    public void dataDummy(){
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("id_konsumen","54337");
+        editor.putString("nama","Joe MantapBos");
+        editor.putString("email","joetaslim@gmail.com");
+        editor.putString("alamat","yogyakarta");
+        editor.putString("token", "$2y$10$9df733661f50f5dcf8ae7u6g69HlxOYmqCA1UtOlO6qo/DBiy5j.K");
+        editor.putString("no_hp", "+6281347591227");
+        editor.commit();
 
+        Intent i = new Intent(SplashScreen.this, MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        finish();
+    }
 }
