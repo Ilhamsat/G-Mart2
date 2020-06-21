@@ -13,7 +13,7 @@ import com.gmartdev.komsi.g_mart.Model.GetPesananModel;
 import com.gmartdev.komsi.g_mart.Model.GetProduckPesananDetailModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductCategoryModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductModel;
-import com.here.posclient.PositionEstimate;
+//import com.here.posclient.PositionEstimate;
 
 import org.json.JSONArray;
 
