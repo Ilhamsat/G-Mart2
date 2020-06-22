@@ -1,4 +1,4 @@
-package com.gmartdev.komsi.g_mart.Class;
+package com.gmartdev.komsi.g_mart.Class.Maps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
