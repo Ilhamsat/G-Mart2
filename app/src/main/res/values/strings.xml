@@ -66,5 +66,6 @@
     <string name="menungguIsEmpty">Tidak ada pesanan yang Anda tunggu</string>
     <string name="diprosesIsEmpty">Tidak ada pesanan yang sedang Dikemas</string>
     <string name="riwayatIsEmpty">Anda tidak memiliki riwayat pesanan yang belum Anda nilai</string>
+    <string name="google_maps_key">AIzaSyCEGgcp1I_mzO7_mYJyqOZzeR268ak2Qag</string>
 
 </resources>
