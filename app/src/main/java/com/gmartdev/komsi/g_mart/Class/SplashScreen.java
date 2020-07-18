@@ -48,52 +48,42 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         new Handler().postDelayed(new Runnable() {
-
-            /*
-             * Showing splash screen with a timer. This will be useful when you
-             * want to show case your app logo / company
-             */
-
             @Override
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                dataDummy();
-//                if(FirebaseAuth.getInstance().getCurrentUser() != null){
-//                    Log.d(TAG, "run: ");
-//                    phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
-//                    tokenFirebase = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//                    String[] parts = phoneNumberUser.split("\\+62");
-//                    phoneNumberUserAPI = parts[1];
-//                    Log.d(TAG, "run: phoneNumberUserAPI " + phoneNumberUserAPI);
-//                    checkKonsumen(phoneNumberUserAPI);
-//
-//                }else {
-//                    Intent i = new Intent(SplashScreen.this, PostSplashScreen.class);
-//                    startActivity(i);
-//                    // close this activity
-//                    finish();
-//                }
+                //dataDummy();
+                if(FirebaseAuth.getInstance().getCurrentUser() != null){
+                    Log.d(TAG, "run: ");
+                    phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+                    tokenFirebase = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    String[] parts = phoneNumberUser.split("\\+62");
+                    phoneNumberUserAPI = parts[1];
+                    Log.d(TAG, "run: phoneNumberUserAPI " + phoneNumberUserAPI);
+                    checkKonsumen(phoneNumberUserAPI);
+
+                }else {
+                    Intent i = new Intent(SplashScreen.this, PostSplashScreen.class);
+                    startActivity(i);
+                    // close this activity
+                    finish();
+                }
 
             }
         }, SPLASH_TIME_OUT);
     }
-
 
     public void checkKonsumen(String phoneNumber){
         Call<GetConsumerModel> call = api.getRegisteredKonsumen(phoneNumber);
         call.enqueue(new Callback<GetConsumerModel>() {
             @Override
             public void onResponse(Call<GetConsumerModel> call, Response<GetConsumerModel> response) {
-
                 String code = response.body().getCode();
                 List<ConsumerModel> listDataKonsumen = response.body().getListDataKonsumen();
                 String berhasil = "200";
-
                 if (code.equals(berhasil)) {
                     SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
                     Toast.makeText(SplashScreen.this,"Login Complete",Toast.LENGTH_LONG);
-
                     sharedPreferences.edit()
                             .clear()
                             .commit();
@@ -105,9 +95,7 @@ public class SplashScreen extends AppCompatActivity {
                     editor.putString("alamat",listDataKonsumen.get(0).getAlamat());
                     editor.putString("token", tokenFirebase);
                     editor.commit();
-
                     login();
-
                 } else {
                     Log.d("Retrofit Get", "onResponse: gak kebaca");
                 }
@@ -187,6 +175,7 @@ public class SplashScreen extends AppCompatActivity {
             }
         });
     }
+
     public void dataDummy(){
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -194,7 +183,7 @@ public class SplashScreen extends AppCompatActivity {
         editor.putString("nama","Joe MantapBos");
         editor.putString("email","joetaslim@gmail.com");
         editor.putString("alamat","yogyakarta");
-        editor.putString("token", "$2y$10$9df733661f50f5dcf8ae7u6g69HlxOYmqCA1UtOlO6qo/DBiy5j.K");
+        editor.putString("token", "$2y$10$9df733661f50f5dcf8ae7uCwlEgJ/NqI66fSy2cicoQSMihige8DC");
         editor.putString("no_hp", "+6281347591227");
         editor.commit();
 
@@ -203,4 +192,5 @@ public class SplashScreen extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
 }

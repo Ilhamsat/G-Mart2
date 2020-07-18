@@ -1,6 +1,9 @@
 package com.gmartdev.komsi.g_mart.Class.Maps;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -12,9 +15,16 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gmartdev.komsi.g_mart.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,6 +32,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -44,15 +55,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
+
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
+    ArrayList<LatLng> markerPoints;
+
     private LocationManager mLocationManager;
     private LocationListener mLocationListener;
     private MarkerOptions mMarkerOptions;
-    private LatLng mDevice;
-    private LatLng mKios;
+    private LatLng mDevice,mKios;
     private Polyline mPolyline;
+    private Button directionButton;
     //private Map map = null;
     //private AndroidXMapFragment mapFragment = null;
 
@@ -62,6 +76,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        directionButton = findViewById(R.id.directionButton);
+        directionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ;
+            }
+        });
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -76,7 +98,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults){
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
         if (requestCode == 100){
             if (!verifyAllPermissions(grantResults)){
                 Toast.makeText(getApplicationContext(),"No sufficient permissions",Toast.LENGTH_LONG).show();
@@ -104,7 +126,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onLocationChanged(Location location) {
                 mDevice = new LatLng(location.getLatitude(),location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDevice,13));
                 if (mDevice != null && mKios != null)
                     drawRoute();
             }
@@ -132,21 +153,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.setMyLocationEnabled(true);
                 mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,0,mLocationListener);
 
+//                mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+//                    @Override
+//                    public void onMapLongClick(LatLng latLng) {
+//                        mKios = latLng;
+//                        mMap.clear();
+//                        mMarkerOptions = new MarkerOptions().position(mKios);
+//                        mMap.addMarker(mMarkerOptions);
+//                        if (mDevice != null && mKios != null)
+//                            drawRoute();
+//                    }
+//                });
+
+                //Destination (Kios)
+
                 latitude = Double.parseDouble(getIntent().getStringExtra("latitude"));
                 longitude = Double.parseDouble(getIntent().getStringExtra("longitude"));
 
                 Log.d(TAG, "onCreate: latitude " + latitude);
                 Log.d(TAG, "onCreate: longitude " + longitude);
 
-                //Destination (Kios)
-                LatLng kios = new LatLng(latitude,longitude);
+
+                mKios = new LatLng(latitude,longitude);
                 mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(kios).title("Kios"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kios,13));
-                GroundOverlayOptions kiosOverlay = new GroundOverlayOptions()
-                        .image(BitmapDescriptorFactory.fromResource(R.drawable.ic_store_name))
-                        .position(kios,100);
-                mMap.addGroundOverlay(kiosOverlay);
+                mMarkerOptions = new MarkerOptions().position(mKios);
+                mMap.addMarker(mMarkerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mKios,15));
 
                 if (mDevice != null && mKios !=null)
                     drawRoute();
@@ -168,18 +200,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         downloadTask.execute(url);
     }
 
-    private String getDirectionsUrl(LatLng device, LatLng kios){
+    private String getDirectionsUrl(LatLng origin, LatLng dest){
         //Device
-        String str_device = "device="+device.latitude+","+device.longitude;
+        String str_origin = "origin="+origin.latitude+","+origin.longitude;
 
         //Kios
-        String str_kios = "kios="+kios.latitude+","+kios.longitude;
+        String str_dest = "dest="+dest.latitude+","+dest.longitude;
 
         //Key
         String key = "key=" + getString(R.string.google_maps_key);
 
+        //Sensor enabled
+        String sensor = "sensor=false";
+
+        //Mode driving
+        String mode = "mode=driving";
+
+        //Alternatives
+        String alternatives = "alternatives=true";
+
         //Building the parameters to the web service
-        String parameters = str_device+"&"+str_kios+"&"+key;
+        String parameters = str_origin+"&"+str_dest+"&"+key;
 
         //Output format
         String output = "json";
@@ -221,6 +262,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return data;
     }
 
+
     //Download Data From URL
     private class DownloadTask extends AsyncTask<String,Void,String>{
         //Downloading data in non-ui thread
@@ -231,7 +273,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             try {
                 //fetching data
                 data = downloadUrl(url[0]);
-                Log.d("DownloadTask","DownloadTask : " + data);
+                Log.d("DownloadTask","DownloadTask : " + data.toString());
             }catch (Exception e){
                 Log.d("Background Task", e.toString());
             }
@@ -253,7 +295,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         @Override
         protected List<List<HashMap<String, String>>> doInBackground(String... jsonData) {
             JSONObject jsonObject;
-            List<List<HashMap<String,String>>> routes = null;
+            List<List<HashMap<String,String>>> routes = new ArrayList<>();
+
 
             try {
                 jsonObject = new JSONObject(jsonData[0]);
@@ -267,7 +310,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             return routes;
         }
         protected void onPostExecute(List<List<HashMap<String,String>>> result){
-            ArrayList<LatLng> points = null;
+            ArrayList<LatLng> points;
             PolylineOptions lineOptions = null;
 
             //Traversing through all the routes
@@ -290,7 +333,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 //adding all the points in the route to LineOptions
                 lineOptions.addAll(points);
-                lineOptions.width(8);
+                lineOptions.width(10);
                 lineOptions.color(Color.BLUE);
             }
             //Drawing polyline in the Google Map for the i-th route
@@ -300,7 +343,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 mPolyline = mMap.addPolyline(lineOptions);
             }else {
-                Toast.makeText(getApplicationContext(),"No route is found", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"No route is found", Toast.LENGTH_LONG).show();
+                Log.d("onPostExecute","without Polylines drawn");
             }
             }
 

@@ -244,7 +244,7 @@ public class HomeFragment extends Fragment {
                         }
                 );
             } else {
-                Toast.makeText(context, "Turn on Location", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Turn on Location", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
             }
