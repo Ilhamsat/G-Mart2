@@ -119,13 +119,6 @@ public class HomeFragment extends Fragment {
 
         callApi();
 
-//        mList = new ArrayList<>();
-//        mList.add(new StoreRecomendationModel("Toko Pelangi","1,8"));
-//        mList.add(new StoreRecomendationModel("Toko Shamila","1,3"));
-//        mList.add(new StoreRecomendationModel("Toko Swalayan Laura","2"));
-//        mList.add(new StoreRecomendationModel("Toko Cina","1"));
-//        mList.add(new StoreRecomendationModel("Toko Ulin","2"));
-//        mList.add(new StoreRecomendationModel("Toko Mama Lia","1,4"));
     }
 
     @Override
@@ -342,22 +335,20 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<GetKiosTerdekatModel> call, Response<GetKiosTerdekatModel> response) {
                 Log.d(TAG, "onResponse: Kenapa ");
-
                 if (response.body().getData() != null) {
                     kiosTerdekatIsEmpty.setVisibility(View.GONE);
                     List<KiosTerdekatModel> list = response.body().getData();
-
                     Log.d(TAG, "Code :" + response.body().getData());
                     for (KiosTerdekatModel kiosTerdekatModel : list) {
-                        mList.add(new KiosTerdekatModel(kiosTerdekatModel.getId_kios(), kiosTerdekatModel.getNama_kios(), kiosTerdekatModel.getNo_hp(), kiosTerdekatModel.getAlamat(), kiosTerdekatModel.getStatus_buka(), kiosTerdekatModel.getRating(), kiosTerdekatModel.getLongitude(), kiosTerdekatModel.getLatitude()));
+                        mList.add(new KiosTerdekatModel(kiosTerdekatModel.getId_kios(), kiosTerdekatModel.getNama_kios(),
+                                kiosTerdekatModel.getNo_hp(), kiosTerdekatModel.getAlamat(), kiosTerdekatModel.getStatus_buka(),
+                                kiosTerdekatModel.getRating(), kiosTerdekatModel.getLongitude(), kiosTerdekatModel.getLatitude()));
                     }
                     Log.d(TAG, "Data " + mList);
-
                     progressBar.setVisibility(View.GONE);
                     StoreRecommendationAdapter storeRecommendationAdapter = new StoreRecommendationAdapter(getContext(),mList);
                     recyclerView.setAdapter(storeRecommendationAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
                 } else {
                     kiosTerdekatIsEmpty.setText("Tidak ada kios dalam jangkauan " + radiusDalamKm + " km dari posisi Anda saat ini.");
                     progressBar.setVisibility(View.GONE);

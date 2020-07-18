@@ -167,36 +167,12 @@ public class StoreActivity extends AppCompatActivity{
             }
         });
 
-
-//        mList = new ArrayList<>();
-//        mList.add(new ItemAtStoreModel("Beras", "25000"));
-//        mList.add(new ItemAtStoreModel("Gula", "5000"));
-//        mList.add(new ItemAtStoreModel("Garam", "3000"));
-//        mList.add(new ItemAtStoreModel("Minyak", "5000"));
         storeNameTitle = (TextView) findViewById(R.id.store_name);
         storeAddress = (TextView) findViewById(R.id.textLocation);
         recyclerView = (RecyclerView) findViewById(R.id.list_item_at_store);
         callApi();
 
-
-        //getData();
-        //setData();
     }
-
-//    private void getData(){
-//        if(getIntent().hasExtra("storeName") && getIntent().hasExtra("storeDistance")){
-//
-//            storeName = getIntent().getStringExtra("storeName");
-//            storeDistance = getIntent().getStringExtra("storeDistance");
-//
-//        }else {
-//            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    private void setData(){
-//        storeNameTitle.setText(storeName);
-//    }
 
     private void callApi(){
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
@@ -218,7 +194,8 @@ public class StoreActivity extends AppCompatActivity{
                     storeNameTitle.setText(list.get(0).getNama_kios());
                     storeAddress.setText(list.get(0).getAlamat_kios());
                     for (ProductModel productModel : list){
-                        mList.add(new ProductModel(productModel.getId_produkkios(), productModel.getMerk(), productModel.getNama_produk(), productModel.getHarga(), productModel.getGambar()));
+                        mList.add(new ProductModel(productModel.getId_produkkios(), productModel.getMerk(),
+                                productModel.getNama_produk(), productModel.getHarga(), productModel.getGambar()));
                     }
 
                     HelperKeranjang helperKeranjang = new HelperKeranjang() {
@@ -270,7 +247,8 @@ public class StoreActivity extends AppCompatActivity{
                 e.printStackTrace();
             }
 
-        Call<GetCartModel> call = api.setNewKeranjang(id_pembayaran, id_pengiriman, id_kios, id_konsumen, jsonArray, token_konsumen);
+        Call<GetCartModel> call = api.setNewKeranjang(id_pembayaran, id_pengiriman, id_kios, id_konsumen, jsonArray,
+                token_konsumen);
         call.enqueue(new Callback<GetCartModel>() {
             @Override
             public void onResponse(Call<GetCartModel> call, Response<GetCartModel> response) {

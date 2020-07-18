@@ -102,7 +102,6 @@ public class TransactionBasketFragment extends Fragment {
             @Override
             public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
                 Log.d(TAG, "onResponse: Kenapa ");
-
                 if (response.body().getResult() != null) {
                     List<PesananModel> list = response.body().getResult();
 
@@ -111,12 +110,16 @@ public class TransactionBasketFragment extends Fragment {
                         List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
                         mDataProduk = new ArrayList<>();
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
-                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),
+                                    productDetailPesananModel.getNama_produk()));
                         }
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getTotal(), pesananModel.getId_keranjang(), pesananModel.getCart(), pesananModel.getId_kios(), pesananModel.getId_pembayaran(), pesananModel.getId_pengiriman()));
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(),
+                                pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk,
+                                pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getTotal(),
+                                pesananModel.getId_keranjang(), pesananModel.getCart(), pesananModel.getId_kios(),
+                                pesananModel.getId_pembayaran(), pesananModel.getId_pengiriman()));
                     }
                     Log.d(TAG, "Data " + mList);
-
                     progressBar.setVisibility(View.GONE);
                     keranjangIsEmpty.setVisibility(View.GONE);
                     TransactionBasketAdapter transactionBasketAdapter = new TransactionBasketAdapter(getContext(), mList);

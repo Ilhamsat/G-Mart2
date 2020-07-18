@@ -108,7 +108,6 @@ public class VerificationLoginActivity extends AppCompatActivity {
             super.onCodeSent(s, forceResendingToken);
             verificationCodeBySystem = s;
         }
-
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
 
@@ -116,9 +115,7 @@ public class VerificationLoginActivity extends AppCompatActivity {
             if(code!=null){
                 verifyCode(code);
             }
-
         }
-
         @Override
         public void onVerificationFailed(FirebaseException e) {
             Toast.makeText(VerificationLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -142,9 +139,6 @@ public class VerificationLoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
-//                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                            startActivity(intent);
                             login();
                         }else {
                             Toast.makeText(VerificationLoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

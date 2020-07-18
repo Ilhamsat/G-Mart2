@@ -29,10 +29,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
-
-
     private String nama, no_hp, email, alamat, password;
-
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     "(?=.*[0-9])" +         //at least 1 digit
@@ -47,8 +44,6 @@ public class Register extends AppCompatActivity {
     TextInputLayout etNumberPhone, etAddress, etName, etEmail, etPassword;
     Button buttonDaftar;
     ImageButton butonBack;
-
-
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://gmart.vokasidev.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -162,56 +157,6 @@ public class Register extends AppCompatActivity {
         }
     }
 
-
-//    public void SetNewComsumer(String id_konsumen, String nama, String no_hp, String email, String alamat, String token){
-//        Call<GetConsumerModel> arsipBook = mAPI.setNewConsumer(id_konsumen, nama, no_hp, email, alamat, token);
-//        arsipBook.enqueue(new Callback<GetConsumerModel>() {
-//            @Override
-//            public void onResponse(Call<GetConsumerModel> call, Response<GetConsumerModel> response) {
-//                String code = response.body().getCode();
-//                Log.d("Retrofit set", code + response.body().getMessage());
-//                UpdateToken(sharedPrefManager.getSpId(), sharedPrefManager.getSpPhonenumber(), sharedPrefManager.getSpToken());
-//                Log.d("Retrofit Update Token", "onResponse : " + sharedPrefManager.getSpToken());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GetConsumerModel> call, Throwable t) {
-//                Log.e("Retrofit Gets", t.toString());
-//            }
-//        });
-//    }
-//
-//    public void UpdateToken(final String id_konsumen, String no_hp, String token){
-//        Call<GetConsumerModel> call = mAPI.updateConsumerToken(id_konsumen, no_hp, token);
-//        call.enqueue(new Callback<GetConsumerModel>() {
-//            @Override
-//            public void onResponse(Call<GetConsumerModel> call, Response<GetConsumerModel> response) {
-//                Intent intent = new Intent(Register.this, MainActivity.class);
-//                String respond = response.body().getCode();
-//                String valid = "200";
-//                String invalid = "404";
-//
-//                if (respond.equals(valid)) {
-//                    sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, id_konsumen);
-//                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_IS_LOGIN, true);
-//                    Log.d("Retrofit", "onResponse UpdateToken: " + sharedPrefManager.getSpToken());
-//                    startActivity(intent);
-//                    finish();
-//                } else if (respond.equals(invalid)) {
-//                    startActivity(intent);
-//                    finish();
-//                }
-//                Log.d("Retrofit Get", response.body().getCode());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<GetConsumerModel> call, Throwable t) {
-//                Log.e("Retrofit Gets", t.toString());
-//            }
-//        });
-//    }
-
-
     private void register(){
         Call<GetConsumerModel> call = api.setNewConsumer(nama, no_hp, email, alamat, "");
         call.enqueue(new Callback<GetConsumerModel>() {
@@ -242,9 +187,7 @@ public class Register extends AppCompatActivity {
                     }
                     Intent i = new Intent(Register.this,LoginActivity.class);
                     startActivity(i);
-
                 }else {
-
                 }
             }
 

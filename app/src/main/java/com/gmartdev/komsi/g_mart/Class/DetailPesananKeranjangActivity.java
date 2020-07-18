@@ -183,7 +183,10 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
                     List<ProductPesananDetailModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getMessage());
                     for (ProductPesananDetailModel productPesananDetailModel : list){
-                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(), productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(), productPesananDetailModel.getJumlah_pesan(), productPesananDetailModel.getId_produkkios(), productPesananDetailModel.getGambar()));
+                        mList.add(new ProductPesananDetailModel( productPesananDetailModel.getNama_produk(),
+                                productPesananDetailModel.getMerk(), productPesananDetailModel.getHarga(),
+                                productPesananDetailModel.getJumlah_pesan(), productPesananDetailModel.getId_produkkios(),
+                                productPesananDetailModel.getGambar()));
                     }
 
                     HelperKeranjang helperKeranjang = new HelperKeranjang() {
@@ -193,7 +196,8 @@ public class DetailPesananKeranjangActivity extends AppCompatActivity {
                         }
                     };
 
-                    DetailPesananKeranjangAdapter detailPesananKeranjangAdapter = new DetailPesananKeranjangAdapter(DetailPesananKeranjangActivity.this, mList, helperKeranjang);
+                    DetailPesananKeranjangAdapter detailPesananKeranjangAdapter = new
+                            DetailPesananKeranjangAdapter(DetailPesananKeranjangActivity.this, mList, helperKeranjang);
                     recyclerView.setAdapter(detailPesananKeranjangAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(DetailPesananKeranjangActivity.this));
                 }

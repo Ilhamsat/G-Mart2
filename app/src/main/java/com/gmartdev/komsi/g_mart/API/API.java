@@ -78,13 +78,6 @@ public interface API {
             @Field("token") String token
     );
 
-    @FormUrlEncoded
-    @POST("konsumen/update_konsumen_token.php")
-    Call<GetConsumerModel> updateConsumerToken(
-            @Field("id_konsumen") String id_konsumen,
-            @Field("no_hp") String no_hp,
-            @Field("token") String token
-    );
 
     @FormUrlEncoded
     @POST("produk/get_keranjang.php")
@@ -135,7 +128,6 @@ public interface API {
             @Field("id_order") String id_order,
             @Field("token") String token
     );
-
 
     @FormUrlEncoded
     @POST("produk/post_create_keranjang.php")
@@ -212,5 +204,4 @@ public interface API {
             @Query("lat2") Double lat2,
             @Query("long2") Double long2
     );
-
 }

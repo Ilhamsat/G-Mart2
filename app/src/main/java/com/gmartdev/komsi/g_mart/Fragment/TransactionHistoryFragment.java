@@ -96,8 +96,6 @@ public class TransactionHistoryFragment extends Fragment {
         call.enqueue(new Callback<GetPesananModel>() {
             @Override
             public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
-
-
                 if (response.body().getResult() != null){
                     List<PesananModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getResult());
@@ -105,9 +103,12 @@ public class TransactionHistoryFragment extends Fragment {
                         List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
                         mDataProduk = new ArrayList<>();
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
-                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),
+                                    productDetailPesananModel.getNama_produk()));
                         }
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getId_kios()));
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(),
+                                pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk,
+                                pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getId_kios()));
                     }
                     Log.d(TAG, "Data " + mList);
 

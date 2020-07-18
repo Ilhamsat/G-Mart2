@@ -61,8 +61,6 @@ public class ProfileFragment extends Fragment implements NavigationView.OnNaviga
         dateOfBirth = (TextView) v.findViewById(R.id.profile_date_of_birth);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserData", MODE_PRIVATE);
-
-
         headerName.setText(sharedPreferences.getString("nama",null));
         headerEmail.setText(sharedPreferences.getString("email",null));
         phoneNumber.setText(sharedPreferences.getString("no_hp",null));

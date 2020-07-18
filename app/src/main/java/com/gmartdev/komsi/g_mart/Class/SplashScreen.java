@@ -48,52 +48,42 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         new Handler().postDelayed(new Runnable() {
-
-            /*
-             * Showing splash screen with a timer. This will be useful when you
-             * want to show case your app logo / company
-             */
-
             @Override
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                dataDummy();
-//                if(FirebaseAuth.getInstance().getCurrentUser() != null){
-//                    Log.d(TAG, "run: ");
-//                    phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
-//                    tokenFirebase = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//                    String[] parts = phoneNumberUser.split("\\+62");
-//                    phoneNumberUserAPI = parts[1];
-//                    Log.d(TAG, "run: phoneNumberUserAPI " + phoneNumberUserAPI);
-//                    checkKonsumen(phoneNumberUserAPI);
-//
-//                }else {
-//                    Intent i = new Intent(SplashScreen.this, PostSplashScreen.class);
-//                    startActivity(i);
-//                    // close this activity
-//                    finish();
-//                }
+//                dataDummy();
+                if(FirebaseAuth.getInstance().getCurrentUser() != null){
+                    Log.d(TAG, "run: ");
+                    phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
+                    tokenFirebase = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    String[] parts = phoneNumberUser.split("\\+62");
+                    phoneNumberUserAPI = parts[1];
+                    Log.d(TAG, "run: phoneNumberUserAPI " + phoneNumberUserAPI);
+                    checkKonsumen(phoneNumberUserAPI);
+
+                }else {
+                    Intent i = new Intent(SplashScreen.this, PostSplashScreen.class);
+                    startActivity(i);
+                    // close this activity
+                    finish();
+                }
 
             }
         }, SPLASH_TIME_OUT);
     }
-
 
     public void checkKonsumen(String phoneNumber){
         Call<GetConsumerModel> call = api.getRegisteredKonsumen(phoneNumber);
         call.enqueue(new Callback<GetConsumerModel>() {
             @Override
             public void onResponse(Call<GetConsumerModel> call, Response<GetConsumerModel> response) {
-
                 String code = response.body().getCode();
                 List<ConsumerModel> listDataKonsumen = response.body().getListDataKonsumen();
                 String berhasil = "200";
-
                 if (code.equals(berhasil)) {
                     SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
                     Toast.makeText(SplashScreen.this,"Login Complete",Toast.LENGTH_LONG);
-
                     sharedPreferences.edit()
                             .clear()
                             .commit();
@@ -105,9 +95,7 @@ public class SplashScreen extends AppCompatActivity {
                     editor.putString("alamat",listDataKonsumen.get(0).getAlamat());
                     editor.putString("token", tokenFirebase);
                     editor.commit();
-
                     login();
-
                 } else {
                     Log.d("Retrofit Get", "onResponse: gak kebaca");
                 }

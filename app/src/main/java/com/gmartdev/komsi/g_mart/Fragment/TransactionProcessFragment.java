@@ -113,12 +113,15 @@ public class TransactionProcessFragment extends Fragment {
                         List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
                         mDataProduk = new ArrayList<>();
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
-                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),
+                                    productDetailPesananModel.getNama_produk()));
                         }
-                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getNo_hp(), pesananModel.getBiaya_kirim()));
+                        mList.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(),
+                                pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk,
+                                pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getNo_hp(),
+                                pesananModel.getBiaya_kirim()));
                     }
                     Log.d(TAG, "Data " + mList);
-
                     progressBar.setVisibility(View.GONE);
                     diprosesIsEmpty.setVisibility(View.GONE);
                     menungguIsEmpty.setVisibility(View.GONE);
@@ -150,8 +153,6 @@ public class TransactionProcessFragment extends Fragment {
         call.enqueue(new Callback<GetPesananModel>() {
             @Override
             public void onResponse(Call<GetPesananModel> call, Response<GetPesananModel> response) {
-
-
                 if (response.body().getResult() != null){
                     List<PesananModel> list = response.body().getResult();
                     Log.d(TAG, "Code :" + response.body().getResult());
@@ -159,16 +160,20 @@ public class TransactionProcessFragment extends Fragment {
                         List<ProductDetailPesananModel> listProduk = pesananModel.getProduk();
                         mDataProduk = new ArrayList<>();
                         for(ProductDetailPesananModel productDetailPesananModel : listProduk){
-                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),productDetailPesananModel.getNama_produk()));
+                            mDataProduk.add(new ProductDetailPesananModel(productDetailPesananModel.getMerk(),
+                                    productDetailPesananModel.getNama_produk()));
                         }
-                        mListMenunggu.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(), pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk, pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getNo_hp(), pesananModel.getBiaya_kirim()));
+                        mListMenunggu.add(new PesananModel(pesananModel.getId_order(), pesananModel.getSubtotal_harga(),
+                                pesananModel.getStatus(), pesananModel.getMetode_kirim(),mDataProduk,
+                                pesananModel.getNama_kios(), pesananModel.getAlamat_konsumen(), pesananModel.getNo_hp(),
+                                pesananModel.getBiaya_kirim()));
                     }
                     Log.d(TAG, "Data Menunggu" + mListMenunggu);
-
                     progressBar.setVisibility(View.GONE);
                     menungguIsEmpty.setVisibility(View.GONE);
                     diprosesIsEmpty.setVisibility(View.GONE);
-                    TransactionProcessMenungguAdapter transactionProcessMenungguAdapter = new TransactionProcessMenungguAdapter(getContext(),mListMenunggu);
+                    TransactionProcessMenungguAdapter transactionProcessMenungguAdapter = new
+                            TransactionProcessMenungguAdapter(getContext(),mListMenunggu);
                     recyclerViewMenunggu.setAdapter(transactionProcessMenungguAdapter);
                     recyclerViewMenunggu.setLayoutManager(new LinearLayoutManager(getActivity()));
 
