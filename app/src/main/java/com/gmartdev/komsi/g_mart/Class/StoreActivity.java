@@ -134,9 +134,11 @@ public class StoreActivity extends AppCompatActivity{
                         id_pengiriman = "2";
                     }
                         totalPriceText.setText(String.valueOf(total_harga_update));
+                        total_harga_update = 0;
                         createPesanan();
                         totalPesanan.setText(String.valueOf(listNilaiFix.size()) + " " +"Pesanan");
                         popUpLihatKeranjang.setVisibility(View.VISIBLE);
+                        listNilaiFix.clear();
                 } else {
                     Log.d(TAG, "onClick: " + listNilai.size());
                     Toast.makeText(StoreActivity.this, "Kamu belum memilih apapun", Toast.LENGTH_SHORT).show();

@@ -73,14 +73,14 @@ public class ItemStoreCategoryAdapter extends RecyclerView.Adapter<ItemStoreCate
         holder.itemName.setText(mDataFiltered.get(position).getNama_produk());
         holder.itemPrice.setText(mDataFiltered.get(position).getHarga());
         holder.storeName.setText(mDataFiltered.get(position).getNama_kios());
-        holder.ratingItem.setRating(Float.parseFloat(mData.get(position).getRating()));
-        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImage);
+        holder.ratingItem.setRating(Float.parseFloat(mDataFiltered.get(position).getRating()));
+        Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mDataFiltered.get(position).getGambar()).into(holder.itemImage);
 
         //set up distance
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("UserData", mContext.MODE_PRIVATE);
         latUser = sharedPreferences.getString("latUser", null);
         longUser = sharedPreferences.getString("longUser", null);
-        Call<GetDistanceModel> call = apiJarak.hitungJarak(Double.parseDouble(latUser), Double.parseDouble(longUser), Double.parseDouble(mData.get(position).getLatitude()), Double.parseDouble(mData.get(position).getLongitude()));
+        Call<GetDistanceModel> call = apiJarak.hitungJarak(Double.parseDouble(latUser), Double.parseDouble(longUser), Double.parseDouble(mDataFiltered.get(position).getLatitude()), Double.parseDouble(mDataFiltered.get(position).getLongitude()));
         call.enqueue(new Callback<GetDistanceModel>() {
             @Override
             public void onResponse(Call<GetDistanceModel> call, Response<GetDistanceModel> response) {

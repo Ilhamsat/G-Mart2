@@ -75,6 +75,9 @@ public class ItemAtStoreAdapter extends RecyclerView.Adapter<ItemAtStoreAdapter.
 
         mNilai.add(new Nilai(mData.get(position).getId_produkkios(), String.valueOf(jumlahPesan[position]), mData.get(position).getHarga()));
 
+        Log.d(TAG, "onClick: ItemAtStoreAdapter mData " + mData.size());
+        Log.d(TAG, "onClick: ItemAtStoreAdapter mNilai " + mNilai.size());
+
 //        holder.itemImageAtStore.setImageResource("");
         Picasso.get().load("http://gmart.vokasidev.com/api/images/produk/" + mData.get(position).getGambar()).into(holder.itemImageAtStore);
 //        Picasso.get().load("https://cf.shopee.co.id/file/4127f546911719cb67003644e9895fa9").into(holder.itemImageAtStore);

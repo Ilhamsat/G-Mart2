@@ -24,7 +24,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class TransactionProcessMenungguAdapter extends RecyclerView.Adapter<TransactionProcessMenungguAdapter.ViewHolderTransactionProcessMenunggu> {
 
-    private static final String TAG = "TransaksiProsesAdapter";
+    private static final String TAG = "TransaksiMenunggu";
 
     Context mContext;
     List<PesananModel> mData;
@@ -78,10 +78,10 @@ public class TransactionProcessMenungguAdapter extends RecyclerView.Adapter<Tran
                 boolean installed = appInstalledOrNot("com.whatsapp");
 
                 if (installed){
-                    Log.d(TAG, "onClick: NoHP Pemilik Kios " + mData.get(position).getNo_hp());
+                    Log.d(TAG, "onClick: NoHP Pemilik Kios Menunggu " + mData.get(position).getNo_hp());
                     Intent intent = new Intent(Intent.ACTION_VIEW);
 //                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+62"+contohNomorWA));
-                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+62"+ mData.get(position).getNo_hp()));
+                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+ mData.get(position).getNo_hp()));
                     mContext.startActivity(intent);
                 }else {
                     Toast.makeText(mContext, "Tidak ada aplikasi WhatsApp di Perangkat Anda", Toast.LENGTH_SHORT).show();

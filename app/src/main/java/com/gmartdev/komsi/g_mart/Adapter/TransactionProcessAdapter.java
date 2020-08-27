@@ -24,7 +24,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class TransactionProcessAdapter extends RecyclerView.Adapter<TransactionProcessAdapter.ViewHolderTransactionProcess> {
 
-    private static final String TAG = "TransaksiProsesAdapter";
+    private static final String TAG = "TransaksiProsesDiproses";
 
     Context mContext;
     List<PesananModel> mData;
@@ -79,10 +79,15 @@ public class TransactionProcessAdapter extends RecyclerView.Adapter<TransactionP
                 boolean installed = appInstalledOrNot("com.whatsapp");
 
                 if (installed){
-                    Log.d(TAG, "onClick: NoHP Pemilik Kios " + mData.get(position).getNo_hp());
+                    Log.d(TAG, "onClick: NoHP Pemilik Kios FUCK" + mData.get(position).getNo_hp());
                     Intent intent = new Intent(Intent.ACTION_VIEW);
 //                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+62"+contohNomorWA));
-                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+62"+ mData.get(position).getNo_hp()));
+                    String no_hp = mData.get(position).getNo_hp();
+                    String no_hpfix;
+                    String[] parts = no_hp.split("\\+62");
+                    no_hpfix = parts[1];
+//                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+ no_hpfix));
+                    intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+ mData.get(position).getNo_hp()));
                     mContext.startActivity(intent);
                 }else {
                     Toast.makeText(mContext, "Tidak ada aplikasi WhatsApp di Perangkat Anda", Toast.LENGTH_SHORT).show();
