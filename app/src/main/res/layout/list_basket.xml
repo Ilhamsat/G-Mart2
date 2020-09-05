@@ -75,13 +75,13 @@
                 android:layout_below="@id/totalPriceItemsBasket"
                 android:text="Pengiriman : "
                 android:textSize="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/roboto_light"/>
             <TextView
                 android:id="@+id/delivery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/totalPriceItemsBasket"
-                android:layout_toRightOf="@id/textPengiriman"
+                android:layout_below="@id/textPengiriman"
                 android:text="Offline"
                 android:textSize="13dp"
                 android:textColor="@color/colorPrimary"

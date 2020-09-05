@@ -48,11 +48,11 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         new Handler().postDelayed(new Runnable() {
+
             @Override
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-//                dataDummy();
                 if(FirebaseAuth.getInstance().getCurrentUser() != null){
                     Log.d(TAG, "run: ");
                     phoneNumberUser = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
@@ -73,17 +73,21 @@ public class SplashScreen extends AppCompatActivity {
         }, SPLASH_TIME_OUT);
     }
 
+
     public void checkKonsumen(String phoneNumber){
         Call<GetConsumerModel> call = api.getRegisteredKonsumen(phoneNumber);
         call.enqueue(new Callback<GetConsumerModel>() {
             @Override
             public void onResponse(Call<GetConsumerModel> call, Response<GetConsumerModel> response) {
+
                 String code = response.body().getCode();
                 List<ConsumerModel> listDataKonsumen = response.body().getListDataKonsumen();
                 String berhasil = "200";
+
                 if (code.equals(berhasil)) {
                     SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
                     Toast.makeText(SplashScreen.this,"Login Complete",Toast.LENGTH_LONG);
+
                     sharedPreferences.edit()
                             .clear()
                             .commit();
@@ -95,7 +99,9 @@ public class SplashScreen extends AppCompatActivity {
                     editor.putString("alamat",listDataKonsumen.get(0).getAlamat());
                     editor.putString("token", tokenFirebase);
                     editor.commit();
+
                     login();
+
                 } else {
                     Log.d("Retrofit Get", "onResponse: gak kebaca");
                 }
@@ -174,23 +180,6 @@ public class SplashScreen extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void dataDummy(){
-        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("id_konsumen","54337");
-        editor.putString("nama","Joe MantapBos");
-        editor.putString("email","joetaslim@gmail.com");
-        editor.putString("alamat","yogyakarta");
-        editor.putString("token", "$2y$10$9df733661f50f5dcf8ae7u6g69HlxOYmqCA1UtOlO6qo/DBiy5j.K");
-        editor.putString("no_hp", "+6281347591227");
-        editor.commit();
-
-        Intent i = new Intent(SplashScreen.this, MainActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
-        finish();
     }
 
 }

@@ -20,18 +20,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true">
-        <service
-            android:name="com.here.android.mpa.service.MapService"
-            android:label="HereMapService">
-            <intent-filter>
-                <!--Note, action name should not be changed.-->
-                <action android:name="com.here.android.mpa.service.MapService.v3" />
-            </intent-filter>
-        </service>
-        <meta-data android:name="com.here.android.maps.appid" android:value="HLGNS2fryKBaQVHxesDN"/>
-        <meta-data android:name="com.here.android.maps.apptoken" android:value="goyz1DmNplUeqK7jTYYSog"/>
-        <meta-data android:name="com.here.android.maps.license.key" android:value="F7U7BRxQ9C1uh0ZuTmg1KSWoR0c6U4w7koxg71dJQNxbnGhK4ENlRTritJBk1PHhwhxLJ/I1f/i+BTFSSyxgqTnsUV1pZfa1CCZxOKTYSiU98V8xA3Q+u/tY+btxA90SS8l1sOpOpKnwo8Vs2fDPEWoLpkyOFR3UjtkLajVGAFSRKNMUua5qXetlw/SQp+ojlxXeqkZu1q7tHwXFLyF08VrqqgTjdTuZRLspGcGQ9/pQB/Hive7t2gs6OsScH76pF8KIqtQUOL5QDBupgj4KkogSxFA38K8qv2/IApVUNroTseQpa/VitNvS2ar6QNV7ZsovyG64gOVTu3rv1JmaSVgFtfqkGOzyNn2pQF8y9UReJsi4f0LELf4cOfuD0ejhFF4LpKDAx0BgYDwCCeLbjdj2J57QcWl307UJ7is9hVGRGfyhQb4wb7ZzVfQaBi+PC8+hwUVweGpN5dD6pL6OHFYgy4wVvtTq+DyP829RXpWzMlM/J8gjlqxa5UJgtnYRjlgyoo7OUiHcJmwHyTbUvXRhE7AijXvrHioQZs2UQqejc9w6BtmL81WCOhjVKAkkonYBjt6k7RV2iC/9ay3ln4qFuglCeF3bzukV+6ijVK22RAxVfk7N6QDmvrL5I7uNyf9Czc5Lbwli1e7lqTXH+GaMm8xtGQRR97//cRLWm8w="/>
-        <activity android:name=".Class.MapsActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCEGgcp1I_mzO7_mYJyqOZzeR268ak2Qag"/>
+
+        <activity android:name=".Class.Maps.MapsActivity"></activity>
         <activity android:name=".Class.CleaningToolsCategoryActivity" />
         <activity android:name=".Class.FruitVegetablesCategoryActivity" />
         <activity android:name=".Class.MedicineCategoryActivity" />

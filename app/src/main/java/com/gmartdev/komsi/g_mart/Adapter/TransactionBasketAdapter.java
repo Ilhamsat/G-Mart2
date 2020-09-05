@@ -19,7 +19,7 @@ import com.gmartdev.komsi.g_mart.Model.PesananModel;
 import com.gmartdev.komsi.g_mart.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.gson.JsonArray;
-import com.here.android.mpa.mapping.MapModelObject;
+//import com.here.android.mpa.mapping.MapModelObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.gmartdev.komsi.g_mart.Fragment.HomeFragment;
 import com.gmartdev.komsi.g_mart.Fragment.ProfileFragment;
@@ -21,6 +23,7 @@ import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
+    boolean doubleBackToExitPressedOnce = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +65,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+//        super.onBackPressed();
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+        if (doubleBackToExitPressedOnce){
+            super.onBackPressed();
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+            return;
+        }else {
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this,"Klik tombol back sekali lagi untuk keluar",Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            },2000);
+        }
+
     }
 }

@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.gmartdev.komsi.g_mart.API.API;
 import com.gmartdev.komsi.g_mart.Adapter.ItemAtStoreAdapter;
+import com.gmartdev.komsi.g_mart.Class.Maps.MapsActivity;
 import com.gmartdev.komsi.g_mart.Fragment.TransactionBasketFragment;
 import com.gmartdev.komsi.g_mart.Model.GetCartModel;
 import com.gmartdev.komsi.g_mart.Model.GetProductModel;
@@ -36,7 +37,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class StoreActivity extends AppCompatActivity{
